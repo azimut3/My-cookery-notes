@@ -1,0 +1,1 @@
+receiptTitle:Вкусняшка2 numberOfPersons:1 weightOfDish:250.0 timeForCooking:60 ingredients:i|c|k;и|u|o
