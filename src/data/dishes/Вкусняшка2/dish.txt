@@ -1,1 +1,1 @@
-id:0 dishTitle:Вкусняшка2 inFavourites:true 
+id:0 dishTitle:Вкусняшка2 inFavourites:false 

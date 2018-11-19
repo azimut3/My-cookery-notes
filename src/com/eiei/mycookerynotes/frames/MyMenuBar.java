@@ -1,7 +1,6 @@
 package com.eiei.mycookerynotes.frames;
 
-import com.eiei.mycookerynotes.frames.editAndAddFrames.DishEditFrame;
-import com.eiei.mycookerynotes.frames.editAndAddFrames.LogicDishEditFrame;
+import com.eiei.mycookerynotes.frames.editAndAddFrames.LogicDishEditAndAddFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -11,12 +10,19 @@ public class MyMenuBar extends JMenuBar {
     private static MyMenuBar myMenuBar = null;
 
     private JMenu receiptMenu, editMenu, settingsMenu;
-    private JMenuItem editDish, editReceipts;
+    private JMenuItem addDish, addReceipts, editDish, editReceipts;
 
     private MyMenuBar() {
         receiptMenu = new JMenu("Рецепты");
         editMenu = new JMenu("Редактировать");
         settingsMenu = new JMenu("Настройки");
+
+        addDish = new JMenuItem("Добавить блюдо");
+        addReceipts = new JMenuItem("Добавить рецепт");
+        addReceipts.setEnabled(false);
+
+        receiptMenu.add(addDish);
+        receiptMenu.add(addReceipts);
 
         editDish = new JMenuItem("Ред. блюдо");
         editReceipts = new JMenuItem("Ред. рецепты");
@@ -30,7 +36,8 @@ public class MyMenuBar extends JMenuBar {
         add(editMenu);
         add(settingsMenu);
 
-        editDish.addActionListener(myReceiptListListener);
+        editDish.addActionListener(myEditDishListener);
+        addDish.addActionListener(myAddDishListener);
     }
 
     public static MyMenuBar getMyMenuBar() {
@@ -39,14 +46,21 @@ public class MyMenuBar extends JMenuBar {
     }
 
     public void armDishEditors() {
-        if (!editDish.isArmed()) editDish.setEnabled(true);
-        if (!editReceipts.isArmed())editReceipts.setEnabled(true);
+        if (!addReceipts.isEnabled()) addReceipts.setEnabled(true);
+        if (!editDish.isEnabled()) editDish.setEnabled(true);
+        if (!editReceipts.isEnabled())editReceipts.setEnabled(true);
     }
 
-    ActionListener myReceiptListListener = new ActionListener() {
+    ActionListener myEditDishListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            LogicDishEditFrame.openDishEditFrame();
+            LogicDishEditAndAddFrame.openDishEditFrame();
+        }
+    };
+    ActionListener myAddDishListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            LogicDishEditAndAddFrame.openDishAddFrame();
         }
     };
 }

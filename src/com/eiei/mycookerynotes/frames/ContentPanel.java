@@ -133,7 +133,7 @@ public class ContentPanel extends PanelTemplate {
                 isInFavourites.setIcon(new ImageIcon("src/data/imgs/icons/favourites/deselected.png"));
 
             }
-             MainFrame.getMainFrame().getReceiptMenu().renewFavourites(MrChef.FavouriteList.getStringCollection());
+             MainFrame.getMainFrame().getReceiptMenu().renewFavourites();
              for(int i =0; i < MrChef.FavouriteList.size(); i++) {
                  System.out.print(MrChef.FavouriteList.get(i).getDishTitle());
              }

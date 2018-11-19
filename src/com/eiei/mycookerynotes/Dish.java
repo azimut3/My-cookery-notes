@@ -4,18 +4,24 @@ import com.eiei.mycookerynotes.managers.MrChef;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Dish /*implements Serializable */{
     private int id;
     private String dishTitle = "default_dish_title";
     private boolean inFavourites = false;
-    private JLabel dishImage = new JLabel(new ImageIcon("H:/My cookery's notes/src/data/imgs/icons/hat.png"));
+    private JLabel dishImage = new JLabel(new ImageIcon("src/data/imgs/icons/hat.png"));
     private String dishDescription;
+    private Path dishFolderPath = Paths.get(MrChef.getDishDatabaseDir() + File.separator + dishTitle);
+    private Path dishFilePath;
 
     public ArrayList<Receipt> receiptsList = new ArrayList<>();
 
     public Dish() {
+
         dishImage.setMinimumSize(new Dimension(100, 100));
         dishImage.setMaximumSize(new Dimension(150, 150));
         dishImage.setPreferredSize(new Dimension(150, 150));
@@ -55,6 +61,33 @@ public class Dish /*implements Serializable */{
 
     public JLabel getDishImage() {
         return dishImage;
+    }
+
+    public String getDishDescription() {
+        return dishDescription;
+    }
+
+    public void setDishDescription(String dishDescription) {
+        this.dishDescription = dishDescription;
+    }
+
+    public Path getDishFolderPath() {
+        return dishFolderPath;
+    }
+
+    public void renameDishFolder(String name) {
+        Path newPath = Paths.get(MrChef.getDishDatabaseDir() + File.separator+
+                "name");
+        dishFolderPath.toFile().renameTo(newPath.toFile());
+        this.dishFolderPath = newPath;
+    }
+
+    public Path getDishFilePath() {
+        return dishFilePath;
+    }
+
+    public void setDishFilePath(Path dishFilePath) {
+        this.dishFilePath = dishFilePath;
     }
 
     @Override

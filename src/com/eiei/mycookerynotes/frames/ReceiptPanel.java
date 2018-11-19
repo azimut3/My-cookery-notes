@@ -92,16 +92,10 @@ public class ReceiptPanel extends PanelTemplate {
         }
     };
 
-    public void renewFavourites(String[] str) {
+    public void renewFavourites() {
         this.removeAll();
         this.setReceiptPanel();
-        /*favDishList = new JList<String>(str);
-        favDishList.revalidate();
-        favDishList.repaint();
-        this.revalidate();
-        this.repaint();*/
         MainFrame.getMainFrame().getReceiptMenu().revalidate();
         MainFrame.getMainFrame().getReceiptMenu().repaint();
-
     }
 }

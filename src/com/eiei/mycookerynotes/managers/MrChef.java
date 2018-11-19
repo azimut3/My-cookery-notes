@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class MrChef {
 
-    private static Path dishDatabaseDir = Paths.get("H:/My cookery's notes/src/data/dishes");
+    private static Path dishDatabaseDir = Paths.get("src/data/dishes");
 
     public static Path getDishDatabaseDir() {
         return dishDatabaseDir;
@@ -49,7 +49,7 @@ public class MrChef {
         }
         public static void remove(Dish d) {
             list.remove(d);
-            MainFrame.getMainFrame().getReceiptMenu().renewFavourites(getStringCollection());
+            MainFrame.getMainFrame().getReceiptMenu().renewFavourites();
         }
         public static String[] getStringCollection() {
             String[] str = new String[list.size()];

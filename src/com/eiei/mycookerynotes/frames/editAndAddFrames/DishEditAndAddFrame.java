@@ -1,10 +1,15 @@
 package com.eiei.mycookerynotes.frames.editAndAddFrames;
 
+import com.eiei.mycookerynotes.frames.MainFrame;
+
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class DishEditFrame extends JFrame {
+
+public class DishEditAndAddFrame extends JFrame {
     private JLabel titleLabel, favsLabel, imgLabel, descriptionLabel;
     private JTextField titleField, imgPathField;
     private JCheckBox favsBox;
@@ -13,7 +18,7 @@ public class DishEditFrame extends JFrame {
 
     private Dimension textFieldDimensions = new Dimension(180, 20);
 
-    public DishEditFrame() {
+    public DishEditAndAddFrame() {
         /*setMinimumSize(new Dimension(, ));
         setMaximumSize(new Dimension(, ));
         setPreferredSize(new Dimension(, ));*/
@@ -22,7 +27,7 @@ public class DishEditFrame extends JFrame {
         setSize(400, 450);
         setResizable(false);
         backPane.setLayout(new GridBagLayout());
-        setVisible(true);
+        setVisible(false);
         setLocation(400, 200);
 
         GridBagConstraints leftC = new GridBagConstraints();
@@ -89,7 +94,7 @@ public class DishEditFrame extends JFrame {
         leftC.fill = GridBagConstraints.CENTER;
         backPane.add(descriptionLabel, leftC);
 
-        descriptionTextArea = new JTextArea("ым ");
+        descriptionTextArea = new JTextArea();
         leftC.gridwidth = 3;
         leftC.gridy = 4;
         descriptionTextArea.setPreferredSize(new Dimension(300, 150));
@@ -103,6 +108,7 @@ public class DishEditFrame extends JFrame {
         backPane.add(saveBtn, leftC);
 
         cancelBtn = new JButton("Отмена");
+        cancelBtn.addActionListener(cancelAction);
         rightC.gridy = 5;
         rightC.anchor = GridBagConstraints.EAST;
         backPane.add(cancelBtn, rightC);
@@ -126,5 +132,53 @@ public class DishEditFrame extends JFrame {
         rightC.weighty = 0;
         backPane.add(lbl2, rightC);
 
+
     }
+    public JTextField getTitleField() {
+        return titleField;
+    }
+
+    public void setTitleField(String title) {
+        titleField.setText(title);
+    }
+
+    public JTextField getImgPathField() {
+        return imgPathField;
+    }
+
+    public void setImgPathField(String path) {
+        imgPathField.setText(path);
+    }
+
+    public JCheckBox getFavsBox() {
+        return favsBox;
+    }
+
+    public void setFavsBox(boolean flag) {
+        favsBox.setEnabled(flag);
+    }
+
+    public JTextArea getDescriptionTextArea() {
+        return descriptionTextArea;
+    }
+
+    public void setDescriptionTextArea(String description) {
+        descriptionTextArea.setText(description);
+    }
+
+    public JButton getSaveBtn() {
+        return saveBtn;
+    }
+
+    public JButton getCancelBtn() {
+        return cancelBtn;
+    }
+
+    ActionListener cancelAction = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            dispose();
+        }
+    };
+
 }
