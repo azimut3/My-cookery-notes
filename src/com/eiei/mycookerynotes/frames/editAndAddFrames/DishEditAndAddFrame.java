@@ -1,6 +1,7 @@
 package com.eiei.mycookerynotes.frames.editAndAddFrames;
 
 import javax.swing.*;
+import javax.swing.border.EtchedBorder;
 import java.awt.*;
 
 public class DishEditFrame extends JFrame {
@@ -8,7 +9,7 @@ public class DishEditFrame extends JFrame {
     private JTextField titleField, imgPathField;
     private JCheckBox favsBox;
     private JTextArea descriptionTextArea;
-    private JButton imgBtn, saveBtn;
+    private JButton imgBtn, saveBtn, cancelBtn;
 
     private Dimension textFieldDimensions = new Dimension(180, 20);
 
@@ -18,7 +19,8 @@ public class DishEditFrame extends JFrame {
         setPreferredSize(new Dimension(, ));*/
         JPanel backPane = new JPanel();
         setContentPane(backPane);
-        setSize(400, 400);
+        setSize(400, 450);
+        setResizable(false);
         backPane.setLayout(new GridBagLayout());
         setVisible(true);
         setLocation(400, 200);
@@ -73,11 +75,37 @@ public class DishEditFrame extends JFrame {
 
         imgBtn = new JButton("...");
         imgBtn.setPreferredSize(new Dimension(20, 20));
+        imgBtn.setMaximumSize(new Dimension(20, 20));
         rightC.gridx = 3;
         rightC.insets = new Insets(10, 0, 10, 5);
         backPane.add(imgBtn, rightC);
         rightC.gridx = 2;
         rightC.insets = new Insets(10, 10, 10, 5);
+
+        descriptionLabel = new JLabel("Описание блюда");
+        leftC.gridy = 3;
+        leftC.gridwidth = 2;
+        leftC.weightx = 0;
+        leftC.fill = GridBagConstraints.CENTER;
+        backPane.add(descriptionLabel, leftC);
+
+        descriptionTextArea = new JTextArea("ым ");
+        leftC.gridwidth = 3;
+        leftC.gridy = 4;
+        descriptionTextArea.setPreferredSize(new Dimension(300, 150));
+        descriptionTextArea.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
+        backPane.add(descriptionTextArea, leftC);
+
+        saveBtn = new JButton("Сохранить");
+        leftC.gridy = 5;
+        leftC.gridwidth = 1;
+        leftC.weightx = 0;
+        backPane.add(saveBtn, leftC);
+
+        cancelBtn = new JButton("Отмена");
+        rightC.gridy = 5;
+        rightC.anchor = GridBagConstraints.EAST;
+        backPane.add(cancelBtn, rightC);
 
         /*
         * Компоненты пустышки
@@ -86,16 +114,17 @@ public class DishEditFrame extends JFrame {
         JLabel lbl1 = new JLabel();
         leftC.gridx = 0;
         leftC.gridy = 20;
+        leftC.gridwidth = 1;
         leftC.weightx = 0.5;
         leftC.weighty = 0.5;
         backPane.add(lbl1, leftC);
 
-       /* JLabel lbl2 = new JLabel();
+        JLabel lbl2 = new JLabel();
         rightC.gridx = 4;
         rightC.gridy = 0;
         rightC.weightx = 1;
         rightC.weighty = 0;
-        backPane.add(lbl2, rightC);*/
+        backPane.add(lbl2, rightC);
 
     }
 }

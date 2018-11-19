@@ -13,7 +13,7 @@ public class LogicDishEditFrame {
     public static void openDishEditFrame() {
         dishEditFrame = new DishEditFrame();
         d = MainFrame.getMainFrame().getContentPanel().getDish();
-        dishEditFrame.setTitle(d.getDishTitle());
+        dishEditFrame.setTitle("Редактирование: " + d.getDishTitle());
 
     }
 }
