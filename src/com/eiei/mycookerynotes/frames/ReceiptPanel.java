@@ -55,7 +55,7 @@ public class ReceiptPanel extends PanelTemplate {
     }
 
     public void addDishes(JPanel parent) {
-        JLabel dishesLabel = new JLabel("Список рецептов:");
+        JLabel dishesLabel = new JLabel("Список блюд:");
         parent.add(dishesLabel);
         dishesLabel.setVerticalAlignment(JLabel.TOP);
         dishList = new JList<String>(MrChef.ReceiptList.getStringCollection());

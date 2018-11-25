@@ -59,6 +59,19 @@ public class Loader {
                     else if (valueOfField[0].equals("inFavourites")) tempDish.setInFavourites(Boolean.valueOf(valueOfField[1]));
                     else System.out.println("!!Error while reading dish.txt file in:" + dishFile);
         }
+        tempDish.setDishFolderPath(path);
+        try {
+            List<String> descriptionList = Files.readAllLines(Paths.get(path + File.separator
+                            + "descriptions.txt"), StandardCharsets.UTF_8);
+            StringBuilder description = new StringBuilder();
+            for (String s : descriptionList) {
+                description.append(s).append("\n");
+            }
+            tempDish.setDishDescription(description.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         for(int i =0; i < receiptFileContent.size(); i++) {
             String recipeFileLine = receiptFileContent.get(i);
             tempDish.receiptsList.add(loadReceipt(recipeFileLine));

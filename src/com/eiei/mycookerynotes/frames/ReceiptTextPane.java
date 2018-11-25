@@ -61,7 +61,7 @@ public class ReceiptTextPane extends JTextPane {
         ingrListArray.add(receipt.getReceiptTitle() + newline); //название рецепта
         ingrListStyles.add(FontStyles.HEADER.getStyle());
         ingrListArray.add("(время готовки: " + receipt.getTimeForCooking() + " мин " +
-                " кол-во персон: " + receipt.getTimeForCooking() + ")" + newline); // (некоторые данные в скобках)
+                " кол-во персон: " + receipt.getNumberOfPersons() + ")" + newline); // (некоторые данные в скобках)
         ingrListStyles.add(FontStyles.SMALL_ITALIC.getStyle());
         ingrListArray.add(" " + newline); // отступ
         ingrListStyles.add(FontStyles.REGULAR.getStyle());

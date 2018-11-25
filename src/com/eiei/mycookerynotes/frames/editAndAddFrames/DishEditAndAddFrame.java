@@ -155,7 +155,7 @@ public class DishEditAndAddFrame extends JFrame {
     }
 
     public void setFavsBox(boolean flag) {
-        favsBox.setEnabled(flag);
+        favsBox.setSelected(flag);
     }
 
     public JTextArea getDescriptionTextArea() {

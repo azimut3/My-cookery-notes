@@ -79,6 +79,7 @@ public class MrChef {
         }
         public static void remove(Dish d) {
             list.remove(d);
+            FavouriteList.remove(d);
         }
         public static String[] getStringCollection() {
             String[] str = new String[list.size()];

@@ -3,6 +3,7 @@ package com.eiei.mycookerynotes.frames.editAndAddFrames;
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.frames.MainFrame;
 import com.eiei.mycookerynotes.managers.MrChef;
+import com.eiei.mycookerynotes.managers.Saver;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -22,7 +23,7 @@ public class LogicDishEditAndAddFrame {
         dishEditFrame.setFavsBox(d.isInFavourites());
         dishEditFrame.setImgPathField("");
         //TODO переписать логику для поля с описанием
-        dishEditFrame.setDescriptionTextArea("...temp description...");
+        dishEditFrame.setDescriptionTextArea(d.getDishDescription());
         //dishEditFrame.getSaveBtn().setEnabled(false);
         ActionListener editAction = new ActionListener() {
             @Override
@@ -49,24 +50,27 @@ public class LogicDishEditAndAddFrame {
         dishEditFrame.getSaveBtn().addActionListener(saveAction);
     }
 
-    public static void saveChanges(DishEditAndAddFrame frame, Dish d) {
-        saveBySaveButton(frame, d);
+    public static void saveChanges(DishEditAndAddFrame frame, Dish editedDish) {
+        editedDish.setDishTitle(frame.getTitleField().getText());
+        editedDish.setInFavourites(frame.getFavsBox().isSelected());
+        editedDish.setDishDescription(frame.getDescriptionTextArea().getText());
+        //TODO добавить изображение и описание
+        frame.dispose();
+        editedDish.renameDishFolder(editedDish.getDishTitle());
+        MainFrame.getMainFrame().getReceiptMenu().renewFavourites();
+        MainFrame.getMainFrame().getContentPanel().removeAll();
+        MainFrame.getMainFrame().getContentPanel().showDish(d);
     }
 
     public static void saveNewDish(DishEditAndAddFrame frame) {
-        MrChef.ReceiptList.add(saveBySaveButton(frame, new Dish()));
-        MainFrame.getMainFrame().getReceiptMenu().renewFavourites();
-    }
-
-    public static Dish saveBySaveButton(DishEditAndAddFrame frame, Dish d) {
-        d.setDishTitle(frame.getTitleField().getText());
-        d.setInFavourites(frame.getFavsBox().isSelected());
-        d.setDishDescription(frame.getDescriptionTextArea().getText());
+        Dish newDish = new Dish();
+        newDish.setDishTitle(frame.getTitleField().getText());
+        newDish.setInFavourites(frame.getFavsBox().isSelected());
+        newDish.setDishDescription(frame.getDescriptionTextArea().getText());
         //TODO добавить изображение и описание
-        d.renameDishFolder(d.getDishTitle());
         frame.dispose();
-
-        return d;
+        MrChef.ReceiptList.add(newDish);
+        MainFrame.getMainFrame().getReceiptMenu().renewFavourites();
+        Saver.saveDish(newDish);
     }
-
 }

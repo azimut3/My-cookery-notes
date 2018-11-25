@@ -3,19 +3,18 @@ package com.eiei.mycookerynotes.managers;
 
 import com.eiei.mycookerynotes.Dish;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import javax.swing.*;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
 
 public class Saver {
 
     private static Path dishDir = null;
     private static Path dishFile = null;
     private static Path receiptFile = null;
+    private static Path descriptionsFile = null;
 
     public static void saveDish(Dish d) {
         dishDir = Paths.get(MrChef.getDishDatabaseDir().toAbsolutePath() + File.separator + d.getDishTitle());
@@ -26,6 +25,9 @@ public class Saver {
 
         receiptFile = Paths.get(dishDir + File.separator + "receipts.txt");
         saveDishReceipts(d);
+
+        descriptionsFile  = Paths.get(dishDir + File.separator + "descriptions.txt");
+        saveDescriptions(d);
     }
 
     private static void createDishDir(Dish d) {
@@ -82,6 +84,25 @@ public class Saver {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void saveDescriptions(Dish d) {
+        if (Files.notExists(descriptionsFile)) {
+            try {
+                Files.createFile(descriptionsFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("!!!Error in Saver.class during the creation of a dish receipts' txt file!!!");
+            }
+        }
+            try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter(descriptionsFile.toFile()));
+                writer.write(d.getDishDescription());
+                writer.flush();
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
     }
 
 }

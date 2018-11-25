@@ -12,16 +12,10 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 public class ContentPanel extends PanelTemplate {
-
     private JCheckBox isInFavourites;
     private Dish currentShowedDish;
 
-    @Override
-    public void removeAll() {
-        super.removeAll();
-    }
-
-    protected ContentPanel(JPanel parentPanel) {
+    public ContentPanel(JPanel parentPanel) {
        super(parentPanel);
        setLayout(new GridBagLayout());
        //setAlignmentY(JPanel.);
@@ -31,10 +25,19 @@ public class ContentPanel extends PanelTemplate {
        setBackground(Color.ORANGE.darker());
     }
 
+    @Override
+    public void removeAll() {
+        super.removeAll();
+        MainFrame.getMainFrame().revalidate();
+        MainFrame.getMainFrame().repaint();
+    }
+
+
+
     public void showDish(Dish d) {
         ContentPanel panel = MainFrame.getMainFrame().getContentPanel();
         this.currentShowedDish = d;
-        MyMenuBar.getMyMenuBar().armDishEditors();
+        MyMenuBar.getMyMenuBar().armDishAndReceiptEditors();
         GridBagConstraints constr = new GridBagConstraints();
 
         panel.removeAll();
@@ -45,52 +48,73 @@ public class ContentPanel extends PanelTemplate {
         dishTitle.setFont(new Font("Times New Roman", Font.BOLD, 18));
         isInFavourites = new JCheckBox(/*"Избранное"*/);
         String favIcon = "src\\data\\imgs\\icons\\favourites\\" +
-                (d.isInFavourites() == true ? "selected.png" : "deselected.png");
+                (d.isInFavourites() ? "selected.png" : "deselected.png");
         isInFavourites.setIcon(new ImageIcon(favIcon));
         isInFavourites.setBackground(this.getBackground());
         isInFavourites.setSelected(d.isInFavourites());
         isInFavourites.setToolTipText("Избранное");
         isInFavourites.addItemListener(favAddOrRemoveListener(d));
+        JLabel favsLabel = new JLabel("Рецепты:");
+        favsLabel.setFont(new Font("Times New Roman", Font.BOLD, 16 ));
 
+        JTextArea descriptionArea = new JTextArea(d.getDishDescription());
+        descriptionArea.setMinimumSize(new Dimension(300, 150));
+        descriptionArea.setMaximumSize(new Dimension(300, 150));
+        descriptionArea.setPreferredSize(new Dimension(300, 150));
+        descriptionArea.setLineWrap(true);
+        descriptionArea.setBackground(this.getBackground().brighter());
+        descriptionArea.setBorder(BorderFactory.createLoweredSoftBevelBorder());
+        descriptionArea.setEditable(false);
 
         constr.gridx = 0;
         constr.gridy = 0;
-        constr.gridwidth = 2;
-        constr.gridheight = 2;
+        constr.gridwidth = 3;
+        constr.gridheight = 3;
         constr.anchor = GridBagConstraints.NORTH;
         constr.insets = new Insets(20, 30, 3, 7);
-        //constr.weightx = 1;
         constr.weighty = 0;
         constr.fill = GridBagConstraints.HORIZONTAL;
         panel.add(dishImage, constr);
 
-        constr.gridx = 4;
+        constr.gridx = 3;
         constr.gridy = 0;
         constr.gridwidth = 1;
         constr.gridheight = 1;
         constr.insets = new Insets(20, 3, 3, 3);
         panel.add(dishId, constr);
 
-        constr.gridx = 5;
+        constr.gridx = 4;
         constr.gridy = 0;
         panel.add(dishTitle, constr);
 
-        constr.gridx = 6;
+        constr.gridx = 5;
         constr.gridy = 0;
         constr.weightx = 0;
         panel.add(isInFavourites, constr);
 
-
-        int gridLineNum = 4;
-        constr.gridy = gridLineNum;
-        constr.gridx = 1;
-        constr.gridwidth = 1;
+        constr.gridy = 1;
+        constr.gridx = 3;
+        constr.gridwidth = 2;
+        constr.gridheight = 2;
         constr.weightx = 0.5;
-        constr.weighty = 0.5;
-        constr.insets = new Insets(20, 30, 3, 7);
+        panel.add(descriptionArea, constr);
+
+        constr.gridx = 0;
+        constr.gridy = 3;
+        constr.gridwidth = 3;
+        constr.gridheight = 1;
+        constr.weightx = 0;
+        constr.insets = new Insets(0, 60, 0, 0);
+        panel.add(favsLabel, constr);
+
+        int gridLineNum = 3;
         for(int i =0; i < d.receiptsList.size(); i++) {
+            gridLineNum += 2;
+            constr.gridy = gridLineNum;
+            constr.gridx = 0;
+            constr.gridwidth = 1;
+            constr.insets = new Insets(20, 30, 3, 7);
             panel.add(getReceipt(d.receiptsList.get(i)), constr);
-            gridLineNum++;
         }
     /*
     * Just a component to stretch bottom grid
