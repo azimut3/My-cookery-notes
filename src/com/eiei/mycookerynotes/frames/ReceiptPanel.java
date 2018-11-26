@@ -48,8 +48,6 @@ public class ReceiptPanel extends PanelTemplate {
             favDishList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             parent.add(favDishList);
 
-        //TODO add action listener to open this dish in the content pane and vertical spacings
-
          parent.add(Box.createVerticalStrut(10));
         }
     }
@@ -69,26 +67,38 @@ public class ReceiptPanel extends PanelTemplate {
     ListSelectionListener myFavListListener = new ListSelectionListener() {
         @Override
         public void valueChanged(ListSelectionEvent e) {
-            try {Thread.currentThread().sleep(50);}
-            catch (InterruptedException e1) {e1.printStackTrace();}
-            Dish d = MrChef.FavouriteList.get(e.getFirstIndex());
-            MainFrame.getMainFrame().getContentPanel().showDish(d);
-            System.out.println(d.toString() + " was choosen in FavList");
-            favDishList.clearSelection();
-            dishList.clearSelection();
+            if (e.getValueIsAdjusting()) {
+                try {
+                    Thread.currentThread().sleep(50);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
+                Dish d = MrChef.FavouriteList.get(e.getFirstIndex());
+                MainFrame.getMainFrame().getContentPanel().showDish(d);
+                System.out.println(d.toString() + " was choosen in FavList");
+                favDishList.clearSelection();
+                dishList.clearSelection();
+            }
         }
     };
 
     ListSelectionListener myReceiptListListener = new ListSelectionListener() {
         @Override
         public void valueChanged(ListSelectionEvent e) {
-            try {Thread.currentThread().sleep(50);}
-            catch (InterruptedException e1) {e1.printStackTrace();}
-            Dish d = MrChef.ReceiptList.get(e.getFirstIndex());
-            MainFrame.getMainFrame().getContentPanel().showDish(d);
-            System.out.println(d.toString() + " was choosen in RecList");
-            favDishList.clearSelection();
-            dishList.clearSelection();
+            if (e.getValueIsAdjusting()) {
+                //ListSelectionModel lsm = (ListSelectionModel) e.getSource();
+                //lsm.isSelectedIndex()
+                try {
+                    Thread.currentThread().sleep(50);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
+                Dish d = MrChef.ReceiptList.get(e.getFirstIndex());
+                MainFrame.getMainFrame().getContentPanel().showDish(d);
+                System.out.println(d.toString() + " was choosen in RecList ");
+                favDishList.clearSelection();
+                dishList.clearSelection();
+            }
         }
     };
 

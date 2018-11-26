@@ -36,7 +36,6 @@ public class ReceiptTabs extends JPanel {
     private GridBagConstraints rightC;
 
     private int fieldIterator = 1, gridIterator;
-    private  JScrollPane scrollPane;
 
     public ReceiptTabs(Receipt receipt, Dish d) {
         this.receipt = receipt;
