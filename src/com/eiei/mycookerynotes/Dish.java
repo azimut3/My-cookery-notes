@@ -95,7 +95,7 @@ public class Dish {
     @Override
     public String toString() {
         StringBuilder dish = new StringBuilder();
-        dish.append("id:" + getId() + " ").append("dishTitle:" + getDishTitle() + " ")
+        dish.append("id:" + getId() + " ").append("dishTitle:" + getDishTitle().replaceAll(" ", "_") + " ")
                 .append("inFavourites:" + isInFavourites() +" ");
         return dish.toString();
     }

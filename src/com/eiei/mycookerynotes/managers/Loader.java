@@ -55,8 +55,9 @@ public class Loader {
         for(int i =0; i < dishFields.length; i++) {
             String[] valueOfField = dishFields[i].split(":");
             if (valueOfField[0].equals("id")) tempDish.setId(Integer.valueOf(valueOfField[1]));
-                else if (valueOfField[0].equals("dishTitle")) tempDish.setDishTitle(valueOfField[1]);
-                    else if (valueOfField[0].equals("inFavourites")) tempDish.setInFavourites(Boolean.valueOf(valueOfField[1]));
+                else if (valueOfField[0].equals("dishTitle")) {
+                tempDish.setDishTitle(valueOfField[1].replaceAll("_", " "));
+                }else if (valueOfField[0].equals("inFavourites")) tempDish.setInFavourites(Boolean.valueOf(valueOfField[1]));
                     else System.out.println("!!Error while reading dish.txt file in:" + dishFile);
         }
         tempDish.setDishFolderPath(path);
@@ -86,7 +87,7 @@ public class Loader {
         String[] receiptIngredients = null;
         for(int i =0; i < receiptFields.length; i++) {
             String[] valueOfField = receiptFields[i].split(":");
-            if (valueOfField[0].equals("receiptTitle")) tempReceipt.setReceiptTitle(valueOfField[1]);
+            if (valueOfField[0].equals("receiptTitle")) tempReceipt.setReceiptTitle(valueOfField[1].replaceAll("_", " "));
             else if (valueOfField[0].equals("numberOfPersons")) tempReceipt.setNumberOfPersons(Integer.valueOf(valueOfField[1]));
             else if (valueOfField[0].equals("weightOfDish")) tempReceipt.setWeightOfDish(Double.valueOf(valueOfField[1]));
             else if (valueOfField[0].equals("timeForCooking")) tempReceipt.setTimeForCooking(Integer.valueOf(valueOfField[1]));
@@ -97,7 +98,7 @@ public class Loader {
         for(int i =0; i < receiptIngredients.length; i++) {
             //System.out.println(receiptIngredients[i]);
             String[] line = receiptIngredients[i].split("\\|");
-            tempReceipt.ingredients.add(line[0]);
+            tempReceipt.ingredients.add(line[0].replaceAll("_", " "));
             tempReceipt.quantities.add(line[1]);
             tempReceipt.measures.add(line[2]);
         }

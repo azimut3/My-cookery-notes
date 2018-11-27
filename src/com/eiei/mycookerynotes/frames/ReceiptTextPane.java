@@ -68,7 +68,7 @@ public class ReceiptTextPane extends JTextPane {
         ArrayList<String> ingredients = receipt.combineIngredients();
         for(int i = 0; i < ingredients.size(); i++) {
             String[] ing = ingredients.get(i).split("\\|");
-            String line = (1+i) + ". " + ing[0] + " - " + ing[1] + " " + ing[2] + " " + newline;
+            String line = (1+i) + ". " + ing[0].replaceAll("_", " ") + " - " + ing[1] + " " + ing[2] + " " + newline;
             ingrListArray.add(line);
             ingrListStyles.add(FontStyles.NORMAL_ITALIC.getStyle());
         }

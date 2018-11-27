@@ -66,7 +66,7 @@ public class Receipt {
             String ingr = ingredients.get(i);
             String quant = quantities.size()>i ? quantities.get(i) : "null";
             String meas = measures.size()>i ? measures.get(i) : "null";
-            builder.append(ingr).append("|")
+            builder.append(ingr.replaceAll(" ", "_")).append("|")
                     .append(quant).append("|")
                     .append(meas);
             list.add(builder.toString());
@@ -78,8 +78,10 @@ public class Receipt {
     public String toString() {
         String combinedIngredients = String.join(";", combineIngredients());
         StringBuilder receipt = new StringBuilder();
-        receipt.append("receiptTitle:" + receiptTitle + " ").append("numberOfPersons:" + numberOfPersons + " ")
-                .append("weightOfDish:" + weightOfDish + " ").append("timeForCooking:" + timeForCooking + " ")
+        receipt.append("receiptTitle:" + receiptTitle.replaceAll(" ", "_") + " ")
+                .append("numberOfPersons:" + numberOfPersons + " ")
+                .append("weightOfDish:" + weightOfDish + " ")
+                .append("timeForCooking:" + timeForCooking + " ")
                 .append("ingredients:" + combinedIngredients);
 
         return receipt.toString();
