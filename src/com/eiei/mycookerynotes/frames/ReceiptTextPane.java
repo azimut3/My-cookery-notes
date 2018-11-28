@@ -72,10 +72,6 @@ public class ReceiptTextPane extends JTextPane {
             ingrListArray.add(line);
             ingrListStyles.add(FontStyles.NORMAL_ITALIC.getStyle());
         }
-        ingrListArray.add(" " + newline); // отступ
-        ingrListStyles.add(FontStyles.REGULAR.getStyle());
-        ingrListArray.add(" " + newline); // отступ
-        ingrListStyles.add(FontStyles.REGULAR.getStyle());
 
         String[] stringList = ingrListArray.toArray(new String[ingrListArray.size()]);
         stylesOfDocument = ingrListStyles.toArray(new String[ingrListStyles.size()]);

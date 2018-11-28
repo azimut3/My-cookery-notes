@@ -18,13 +18,15 @@ public class ReceiptEditAndAddFrame extends JFrame{
     private Dish d;
     private static JLabel titleLabel;
     private static JButton addReceiptBtn, removeReceiptBtn, prevReceiptBtn, nextReceiptBtn;
-    private static ArrayList<JPanel> receiptTabs = new ArrayList<>();
+    private ArrayList<ReceiptTabs> receiptTabs = new ArrayList<>();
 
     private static JTabbedPane tabbedPane = null;
 
     public ReceiptEditAndAddFrame(Dish d) {
         this.d = d;
-        setPreferredSize( new Dimension(600, 600));
+        setMinimumSize( new Dimension(650, 600));
+        setPreferredSize( new Dimension(650, 600));
+        setResizable(false);
         JPanel panel = new JPanel();
         setContentPane(panel);
         panel.setAlignmentY(Component.CENTER_ALIGNMENT);
@@ -57,7 +59,6 @@ public class ReceiptEditAndAddFrame extends JFrame{
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                //код
                 MainFrame.getMainFrame().getContentPanel().removeAll();
                 MainFrame.getMainFrame().getContentPanel().showDish(d);
             }
@@ -65,7 +66,7 @@ public class ReceiptEditAndAddFrame extends JFrame{
     }
 
    private void addNavigationPanelComponents(JPanel navPanel){
-
+//TODO добавить функции перелистывания к кнопкам
         prevReceiptBtn = new JButton("<<<");
         addReceiptBtn = new JButton("( + )");
         addReceiptBtn.setToolTipText("Добавить рецепт");
@@ -100,8 +101,10 @@ public class ReceiptEditAndAddFrame extends JFrame{
     private void loadWithNoReceipts() {
         String title = "Новый Рецепт";
         ReceiptTabs tab = new ReceiptTabs(null, d);
+        JScrollPane tabScroll = new JScrollPane(tab);
+        tabScroll.getVerticalScrollBar().setUnitIncrement(8);
         receiptTabs.add(tab);
-        tabbedPane.addTab(title, tab.getScrollPane());
+        tabbedPane.addTab(title, tabScroll);
         tabbedPane.setSelectedComponent( tab.getScrollPane());
         setTitleLabel(title);
     }
@@ -112,8 +115,10 @@ public class ReceiptEditAndAddFrame extends JFrame{
             String title = receipt.getReceiptTitle();
             if (i == 0) setTitleLabel(title);
             ReceiptTabs tab = new ReceiptTabs(receipt, d);
+            JScrollPane tabScroll = new JScrollPane(tab);
+            tabScroll.getVerticalScrollBar().setUnitIncrement(8);
             receiptTabs.add(tab);
-            tabbedPane.addTab(title,  tab.getScrollPane());
+            tabbedPane.addTab(title,  tabScroll);
         }
 
     }
@@ -144,8 +149,8 @@ public class ReceiptEditAndAddFrame extends JFrame{
     ChangeListener tabChangeListener = new ChangeListener() {
         @Override
         public void stateChanged(ChangeEvent e) {
-            ReceiptTabs tab = (ReceiptTabs)tabbedPane.getSelectedComponent();
-            titleLabel.setText(tab.getReceipt().getReceiptTitle());
+            ReceiptTabs tab =  receiptTabs.get(tabbedPane.getSelectedIndex());
+            if (tab.getReceipt() != null) titleLabel.setText(tab.getReceipt().getReceiptTitle());
         }
     };
 

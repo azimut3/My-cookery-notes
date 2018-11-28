@@ -36,11 +36,11 @@ public class ReceiptTabs extends JPanel {
     private GridBagConstraints rightC;
 
     private int fieldIterator = 1, gridIterator;
-
+//TODO поставить защиту на поля и защиту от созранения пустых полей
     public ReceiptTabs(Receipt receipt, Dish d) {
         this.receipt = receipt;
         this.dish = d;
-        setPreferredSize(tabSize);
+        //setPreferredSize(tabSize);
         setMinimumSize(tabSize);
         setMaximumSize(new Dimension(500, 1000));
         setVisible(true);
@@ -154,11 +154,10 @@ public class ReceiptTabs extends JPanel {
         gridIterator = 5;
         if (receipt != null) {
             for (int i = 0; i < receipt.ingredients.size(); i++) {
-                fieldIterator += i;
-                addField(fieldIterator);
+                addField(fieldIterator++);
                 setFieldValues(i);
             }
-        } else addField(fieldIterator);
+        } else addField(fieldIterator++);
 
         addAddAndRemoveBtns();
         /*
@@ -215,7 +214,7 @@ public class ReceiptTabs extends JPanel {
     ActionListener addingIngridientListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            addField(++fieldIterator);
+            addField(fieldIterator++);
             renew();
         }
     };

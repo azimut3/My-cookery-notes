@@ -5,12 +5,12 @@ import com.eiei.mycookerynotes.frames.editAndAddFrames.LogicDishEditAndAddFrame;
 import com.eiei.mycookerynotes.frames.editAndAddFrames.ReceiptEditAndAddFrame;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MyMenuBar extends JMenuBar {
     private static MyMenuBar myMenuBar = null;
-
     private JMenu receiptMenu, editMenu, settingsMenu;
     private JMenuItem addDish, addReceipts, editDish, deleteDish, editReceipts;
 
@@ -87,12 +87,16 @@ public class MyMenuBar extends JMenuBar {
             String dishTitle = "Вы уверены что хотите удалить " +
                     MainFrame.getMainFrame().getContentPanel().getDish().getDishTitle() + "?";
 
-            int option = ((Integer)new DeleteDishDialog(MainFrame.getMainFrame(), dishTitle).getValue()).intValue();
-            if (option == JOptionPane.YES_OPTION) {
-                if (MainFrame.getMainFrame().getContentPanel().getDish().deleteThisDish()) {
-                    JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
-                        "Блюдо удалено!");
+            try {
+                int option = ((Integer)new DeleteDishDialog(MainFrame.getMainFrame(), dishTitle).getValue());
+                if (option == JOptionPane.YES_OPTION) {
+                    if (MainFrame.getMainFrame().getContentPanel().getDish().deleteThisDish()) {
+                        JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
+                            "Блюдо удалено!");
+                    }
                 }
+            } catch (NullPointerException e1) {
+                System.out.println("Dish delete warn dialog returned null, possibly just closed");
             }
 
         }

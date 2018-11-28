@@ -10,17 +10,14 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class ReceiptPanel extends PanelTemplate {
+    private static ReceiptPanel receiptPanel;
     private ArrayList<JLabel> favList = new ArrayList<>();
     private JList<String> favDishList;
     private JList<String> dishList;
-    static {
-        MIN_FRAME_WIDTH = 150;
-        PREF_FRAME_WIDTH = 200;
-        MAX_FRAME_WIDTH = 250;
-    }
 
-    public ReceiptPanel(JPanel parentPanel) {
-        super(parentPanel);
+    private ReceiptPanel() {
+        super();
+
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         //JLabel favouritesLabel = new JLabel("Избранное");
         //add(favouritesLabel);
@@ -29,39 +26,42 @@ public class ReceiptPanel extends PanelTemplate {
         setBackground(Color.lightGray);
     }
     public void setReceiptPanel() {
-        addFavourites(this);
-        addDishes(this);
+        add(Box.createVerticalStrut(10));
+        addFavourites();
+        addDishes();
+        //add(Box.createHorizontalStrut(180));
     }
 
-    public void addFavourites(JPanel parent) {
+    public void addFavourites() {
 
         //TODO add vertical spacing and make alignment
         if (!MrChef.FavouriteList.isEmpty()) {
-            parent.add(Box.createVerticalStrut(5));
             JLabel favouritesLabel = new JLabel("Избранное:");
-            parent.add(favouritesLabel);
-            parent.add(Box.createVerticalStrut(5));
+            favouritesLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+            add(favouritesLabel);
+            add(Box.createVerticalStrut(5));
             favouritesLabel.setVisible(true);
 
             favDishList = new JList<String>(MrChef.FavouriteList.getStringCollection());
             favDishList.addListSelectionListener(myFavListListener);
             favDishList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            parent.add(favDishList);
+            add(favDishList);
 
-         parent.add(Box.createVerticalStrut(10));
+         add(Box.createVerticalStrut(5));
         }
     }
 
-    public void addDishes(JPanel parent) {
+    public void addDishes() {
+        add(Box.createVerticalStrut(5));
         JLabel dishesLabel = new JLabel("Список блюд:");
-        parent.add(dishesLabel);
+        dishesLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(dishesLabel);
+        add(Box.createVerticalStrut(5));
         dishesLabel.setVerticalAlignment(JLabel.TOP);
         dishList = new JList<String>(MrChef.ReceiptList.getStringCollection());
         dishList.addListSelectionListener(myReceiptListListener);
         dishList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        parent.add(dishList);
-
-
+        add(dishList);
     }
 
     ListSelectionListener myFavListListener = new ListSelectionListener() {
@@ -107,5 +107,10 @@ public class ReceiptPanel extends PanelTemplate {
         this.setReceiptPanel();
         MainFrame.getMainFrame().getReceiptMenu().revalidate();
         MainFrame.getMainFrame().getReceiptMenu().repaint();
+    }
+
+    public static ReceiptPanel getReceiptPanel() {
+        if (receiptPanel == null) receiptPanel = new ReceiptPanel();
+        return receiptPanel;
     }
 }

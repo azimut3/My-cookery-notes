@@ -31,30 +31,43 @@ public class FrameTemplate extends JFrame {
         MAX_FRAME_HEIGHT = screenSize.height-35;
         MAX_FRAME_WIDTH = screenSize.width;
 
-        if (MAX_FRAME_WIDTH >= 1000) PREF_FRAME_WIDTH = 1000;
-            else PREF_FRAME_WIDTH = MAX_FRAME_WIDTH;
-        if (MAX_FRAME_HEIGHT >= 800) PREF_FRAME_HEIGHT = 800;
-            else PREF_FRAME_HEIGHT = MAX_FRAME_HEIGHT;
+        if (MAX_FRAME_WIDTH >= 1000) MIN_FRAME_WIDTH = 1000;
+            else MIN_FRAME_WIDTH = MAX_FRAME_WIDTH;
+        if (MAX_FRAME_HEIGHT >= 900) MIN_FRAME_HEIGHT = 900;
+            else MIN_FRAME_HEIGHT = MAX_FRAME_HEIGHT;
     }
 
     public FrameTemplate() {
         setMinimumSize(new Dimension(MIN_FRAME_WIDTH, MIN_FRAME_HEIGHT));
         setMaximumSize(new Dimension(MAX_FRAME_WIDTH, MAX_FRAME_HEIGHT));
-        setPreferredSize(new Dimension(PREF_FRAME_WIDTH, PREF_FRAME_HEIGHT));
+//        setPreferredSize(new Dimension(PREF_FRAME_WIDTH, PREF_FRAME_HEIGHT));
 
         setTitle("My cookery notes");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        setSize(MAX_FRAME_WIDTH, MAX_FRAME_HEIGHT);
         setJMenuBar(menuBar);
         this.addWindowListener(new WindowAdapter() {
-            //I skipped unused callbacks for readability
             @Override
             public void windowClosing(WindowEvent e) {
-               //код
                 MrChef.saveDishes();
             }
         });
+        PanelTemplate.setMaxPanelHeight(MAX_FRAME_HEIGHT - 100);
+        PanelTemplate.setMinPanelHeight(MIN_FRAME_HEIGHT - 100);
+        pack();
+        //PanelTemplate.setPrefPanelHeight(getHeight() - 60);
+    }
+
+    public static int getMinFrameWidth() {
+        return MIN_FRAME_WIDTH;
+    }
+
+    public static int getPrefFrameWidth() {
+        return PREF_FRAME_WIDTH;
+    }
+
+    public static int getMaxFrameWidth() {
+        return MAX_FRAME_WIDTH;
     }
 
     //TODO поменять шрифт у фрейма на красивенький //Font titleFont = new Font();

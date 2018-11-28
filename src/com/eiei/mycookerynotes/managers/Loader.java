@@ -30,7 +30,7 @@ public class Loader {
         }
         pathList.remove(0);
         //dishFile = Paths.get(MrChef.getDishDatabaseDir().toString() + File.separator + "dish.txt");
-        System.out.println(pathList);
+        //System.out.println(pathList);
         for(int i =0; i < pathList.size(); i++) {
             MrChef.ReceiptList.add(loadDish(pathList.get(i)));
         }

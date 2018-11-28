@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 public enum IngrUnits {
     PIECES("шт."),
-    TABLE_SPOONS("ст. лож."),
-    TEA_SPOONS("ч. лож."),
+    TABLE_SPOONS("ст.лож."),
+    TEA_SPOONS("ч.лож."),
     GRAMS("гр."),
     KILOGRAMS("кг."),
     MILLILITRES("мл."),

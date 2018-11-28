@@ -12,17 +12,15 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 public class ContentPanel extends PanelTemplate {
+    private static ContentPanel contentPanel;
     private JCheckBox isInFavourites;
     private Dish currentShowedDish;
 
-    public ContentPanel(JPanel parentPanel) {
-       super(parentPanel);
+    private ContentPanel() {
+       super();
        setLayout(new GridBagLayout());
-       //setAlignmentY(JPanel.);
-       setPreferredSize(new Dimension(parentPanel.getPreferredSize().width - ReceiptPanel.PREF_FRAME_WIDTH,
-               parentPanel.getPreferredSize().height));
 
-       setBackground(Color.ORANGE.darker());
+    setBackground(Color.ORANGE.darker());
     }
 
     @Override
@@ -31,8 +29,6 @@ public class ContentPanel extends PanelTemplate {
         MainFrame.getMainFrame().revalidate();
         MainFrame.getMainFrame().repaint();
     }
-
-
 
     public void showDish(Dish d) {
         ContentPanel panel = MainFrame.getMainFrame().getContentPanel();
@@ -118,28 +114,29 @@ public class ContentPanel extends PanelTemplate {
         }
     /*
     * Just a component to stretch bottom grid
+    *
     */
-        JLabel bottomFiller1 = new JLabel("");
-        constr.gridx = 7;
-        constr.gridy = 0;
-        constr.weightx = 1;
-        constr.weighty = 0;
-        constr.gridwidth = 1;
-        panel.add(bottomFiller1, constr);
 
-        JLabel bottomFiller2 = new JLabel("");
-        constr.gridx = 6;
-        constr.gridy = 20;
-        constr.weightx = 0.5;
-        constr.weighty = 0.5;
-        constr.gridwidth = 7;
-        panel.add(bottomFiller2, constr);
+    constr.insets = new Insets(0, 0, 0, 0);
 
+    //JLabel bottomFiller1 = new JLabel("");
+    constr.gridx = 7;
+    constr.gridy = 0;
+    constr.weightx = 1;
+    constr.weighty = 0;
+    constr.gridwidth = 1;
+    panel.add(Box.createHorizontalStrut(1), constr);
 
+        //JLabel bottomFiller2 = new JLabel("");
+    constr.gridx = 6;
+    constr.gridy = 20;
+    constr.weightx = 0.5;
+    constr.weighty = 0.5;
+    constr.gridwidth = 7;
+    panel.add(Box.createVerticalStrut(1), constr);
 
-
-        panel.revalidate();
-        panel.repaint();
+    panel.revalidate();
+    panel.repaint();
     }
 
     public ItemListener favAddOrRemoveListener(Dish d) {
@@ -172,12 +169,12 @@ public class ContentPanel extends PanelTemplate {
     private ReceiptTextPane getReceipt(Receipt receipt) {
 
         ReceiptTextPane receiptTextPane = new ReceiptTextPane(receipt);
-        Dimension minSize = new Dimension(200,  150);
+        Dimension minSize = new Dimension(300,  200);
         Dimension prefSize = new Dimension(300,  200);
         Dimension maxSize = new Dimension(400, 700);
-        receiptTextPane.setMaximumSize(maxSize);
+        //receiptTextPane.setMaximumSize(maxSize);
         receiptTextPane.setMinimumSize(minSize);
-        receiptTextPane.setPreferredSize(prefSize);
+        //receiptTextPane.setPreferredSize(prefSize);
         receiptTextPane.setBorder(BorderFactory.createLoweredSoftBevelBorder());
         Color rcpColor = this.getBackground();
         receiptTextPane.setBackground(rcpColor.brighter());
@@ -188,7 +185,13 @@ public class ContentPanel extends PanelTemplate {
     public boolean containsDish() {
         return getDish() != null;
     }
+
     public Dish getDish() {
         return currentShowedDish;
+    }
+
+    public static ContentPanel getContentPanel() {
+        if (contentPanel == null) contentPanel = new ContentPanel();
+        return contentPanel;
     }
 }
