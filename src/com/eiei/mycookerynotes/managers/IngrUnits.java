@@ -18,7 +18,7 @@ public enum IngrUnits {
     IngrUnits(String unit) {
         this.unit = unit;
     }
-    String getValue() {
+    public String getValue() {
         return unit;
     }
     public static String[] getValueList() {

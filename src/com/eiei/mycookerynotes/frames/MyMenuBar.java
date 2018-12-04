@@ -96,6 +96,7 @@ public class MyMenuBar extends JMenuBar {
                     }
                 }
             } catch (NullPointerException e1) {
+                e1.printStackTrace();
                 System.out.println("Dish delete warn dialog returned null, possibly just closed");
             }
 

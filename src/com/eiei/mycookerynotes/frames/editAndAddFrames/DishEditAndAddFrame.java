@@ -1,6 +1,7 @@
 package com.eiei.mycookerynotes.frames.editAndAddFrames;
 
 import com.eiei.mycookerynotes.frames.MainFrame;
+import com.eiei.mycookerynotes.managers.FieldRules;
 
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
@@ -11,7 +12,7 @@ import java.awt.event.ActionListener;
 
 public class DishEditAndAddFrame extends JFrame {
     private JLabel titleLabel, favsLabel, imgLabel, descriptionLabel;
-    private JTextField titleField, imgPathField;
+    private JFormattedTextField titleField, imgPathField;
     private JCheckBox favsBox;
     private JTextArea descriptionTextArea;
     private JButton imgBtn, saveBtn, cancelBtn;
@@ -19,9 +20,6 @@ public class DishEditAndAddFrame extends JFrame {
     private Dimension textFieldDimensions = new Dimension(180, 20);
 
     public DishEditAndAddFrame() {
-        /*setMinimumSize(new Dimension(, ));
-        setMaximumSize(new Dimension(, ));
-        setPreferredSize(new Dimension(, ));*/
         JPanel backPane = new JPanel();
         setContentPane(backPane);
         setSize(400, 450);
@@ -54,7 +52,8 @@ public class DishEditAndAddFrame extends JFrame {
         titleLabel = new JLabel("Наименование блюда");
         backPane.add(titleLabel, leftC);
 
-        titleField = new JTextField();
+        titleField = new JFormattedTextField(FieldRules.createStringNormalFormatter());
+        titleField.setFocusLostBehavior(JFormattedTextField.COMMIT);
         titleField.setPreferredSize(textFieldDimensions);
         backPane.add(titleField, rightC);
 
@@ -72,7 +71,7 @@ public class DishEditAndAddFrame extends JFrame {
         leftC.gridy = 2;
         backPane.add(imgLabel, leftC);
 
-        imgPathField = new JTextField();
+        imgPathField = new JFormattedTextField();
         imgPathField.setPreferredSize(textFieldDimensions);
         rightC.insets = new Insets(10, 10, 10, 0);
         rightC.gridy = 2;

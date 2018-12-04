@@ -1,2 +1,2 @@
-receiptTitle:Kek numberOfPersons:1 weightOfDish:250.0 timeForCooking:60 ingredients:i|c|шт.;и|u|шт.
+receiptTitle:Kek numberOfPersons:1 weightOfDish:250.0 timeForCooking:60 ingredients:i||шт.;и||шт.;||шт.
 receiptTitle:seag numberOfPersons:1 weightOfDish:2.0 timeForCooking:3 ingredients:srefg|2|шт.

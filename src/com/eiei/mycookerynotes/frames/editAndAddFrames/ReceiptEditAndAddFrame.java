@@ -50,7 +50,6 @@ public class ReceiptEditAndAddFrame extends JFrame{
         if (d.receiptsList.size() == 0) loadWithNoReceipts();
             else loadWithReceipts(d);
 
-
         add(navigationPanel, BorderLayout.NORTH);
         add(tabbedPane, BorderLayout.CENTER);
 
@@ -105,7 +104,7 @@ public class ReceiptEditAndAddFrame extends JFrame{
         tabScroll.getVerticalScrollBar().setUnitIncrement(8);
         receiptTabs.add(tab);
         tabbedPane.addTab(title, tabScroll);
-        tabbedPane.setSelectedComponent( tab.getScrollPane());
+        tabbedPane.setSelectedComponent( tabScroll);
         setTitleLabel(title);
     }
 
@@ -137,7 +136,9 @@ public class ReceiptEditAndAddFrame extends JFrame{
         @Override
         public void actionPerformed(ActionEvent e) {
             int tabNum = tabbedPane.getSelectedIndex();
-            ReceiptTabs tab = (ReceiptTabs) tabbedPane.getComponentAt(tabNum);
+            JScrollPane scrPane = (JScrollPane)tabbedPane.getComponentAt(tabNum);
+            JViewport viewPort =  scrPane.getViewport();
+            ReceiptTabs tab = (ReceiptTabs)viewPort.getView();
             if (tab.getReceipt() != null) {
                 if (d.receiptsList.contains(tab.getReceipt())) d.receiptsList.remove(tab.getReceipt());
             }

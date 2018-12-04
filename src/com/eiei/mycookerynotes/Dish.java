@@ -74,6 +74,10 @@ public class Dish {
     }
 
     public Path getDishFolderPath() {
+        if (dishFolderPath == null) {
+            dishFolderPath = Paths.get(MrChef.getDishDatabaseDir().toAbsolutePath().toString() +
+                    File.separator + getDishTitle());
+        }
         return dishFolderPath;
     }
 
@@ -119,7 +123,5 @@ public class Dish {
             MainFrame.getMainFrame().getContentPanel().removeAll();
         } else return false;
         return true;
-
-        //return false;
     }
 }

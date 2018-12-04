@@ -2,6 +2,7 @@ package com.eiei.mycookerynotes.frames.editAndAddFrames;
 
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.frames.MainFrame;
+import com.eiei.mycookerynotes.managers.FieldRules;
 import com.eiei.mycookerynotes.managers.MrChef;
 import com.eiei.mycookerynotes.managers.Saver;
 
@@ -12,7 +13,7 @@ import java.awt.event.ActionListener;
 public class LogicDishEditAndAddFrame {
     private static DishEditAndAddFrame dishEditFrame;
     private static Dish d;
-
+//TODO проверить сохранение нового блюда
 
     public static void openDishEditFrame() {
         dishEditFrame = new DishEditAndAddFrame();
@@ -38,12 +39,13 @@ public class LogicDishEditAndAddFrame {
     public static void openDishAddFrame() {
         dishEditFrame = new DishEditAndAddFrame();
         dishEditFrame.setTitle("Новое блюдо...");
+        dishEditFrame.setFavsBox(false);
         dishEditFrame.setVisible(true);
 
         ActionListener saveAction = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                saveNewDish(dishEditFrame);
+                saveChanges(dishEditFrame, null);
             }
         };
 
@@ -51,26 +53,73 @@ public class LogicDishEditAndAddFrame {
     }
 
     public static void saveChanges(DishEditAndAddFrame frame, Dish editedDish) {
-        editedDish.setDishTitle(frame.getTitleField().getText());
+        //saveNewDish(frame, editedDish);
+        if (editedDish == null) editedDish = new Dish();
+        boolean filled = true;
+        String field = FieldRules.noWhitespaces(frame.getTitleField().getText());
+        if (!field.isEmpty()) {
+            editedDish.setDishTitle(field);
+        } else filled = false;
         editedDish.setInFavourites(frame.getFavsBox().isSelected());
-        editedDish.setDishDescription(frame.getDescriptionTextArea().getText());
+        field = frame.getDescriptionTextArea().getText();
+        if (!field.isEmpty()) {
+            editedDish.setDishDescription(field);
+        } else filled = false;
         //TODO добавить изображение и описание
-        frame.dispose();
-        editedDish.renameDishFolder(editedDish.getDishTitle());
-        MainFrame.getMainFrame().getReceiptMenu().renewFavourites();
-        MainFrame.getMainFrame().getContentPanel().removeAll();
-        MainFrame.getMainFrame().getContentPanel().showDish(d);
+        if (filled) {
+            frame.dispose();
+            if (!MrChef.ReceiptList.contains(editedDish)) {
+                Saver.saveDish(editedDish);
+                MrChef.ReceiptList.add(editedDish);
+                if (addReceiptorNotDialog() == JOptionPane.YES_OPTION) new ReceiptEditAndAddFrame(editedDish);
+            } else editedDish.renameDishFolder(editedDish.getDishTitle());
+            MainFrame.getMainFrame().getReceiptMenu().renewFavourites();
+            MainFrame.getMainFrame().getContentPanel().removeAll();
+            MainFrame.getMainFrame().getContentPanel().showDish(editedDish);
+        } else FieldRules.warnEmptyFields(frame);
     }
 
-    public static void saveNewDish(DishEditAndAddFrame frame) {
-        Dish newDish = new Dish();
-        newDish.setDishTitle(frame.getTitleField().getText());
+    /*public static void saveNewDish(DishEditAndAddFrame frame, Dish newDish) {
+        boolean filled = true;
+        String field = FieldRules.noWhitespaces(frame.getTitleField().getText());
+        if (!field.isEmpty()) {
+            newDish.setDishTitle(field);
+        } else filled = false;
+        System.out.println(frame.getFavsBox().isSelected());
         newDish.setInFavourites(frame.getFavsBox().isSelected());
-        newDish.setDishDescription(frame.getDescriptionTextArea().getText());
-        //TODO добавить изображение и описание
-        frame.dispose();
-        MrChef.ReceiptList.add(newDish);
-        MainFrame.getMainFrame().getReceiptMenu().renewFavourites();
-        Saver.saveDish(newDish);
+
+        field = frame.getDescriptionTextArea().getText();
+        if (!field.isEmpty()) {
+            newDish.setDishDescription(field);
+        }  else filled = false;
+
+            //TODO добавить изображение и описание
+        *//*if (filled) {
+            frame.dispose();
+            if (!MrChef.ReceiptList.contains(newDish)) {
+                MrChef.ReceiptList.add(newDish);
+                Saver.saveDish(newDish);
+            } else newDish.renameDishFolder(newDish.getDishTitle());
+            MainFrame.getMainFrame().getReceiptMenu().renewFavourites();
+            MainFrame.getMainFrame().getReceiptMenu().renewFavourites();
+            MainFrame.getMainFrame().getContentPanel().removeAll();
+            MainFrame.getMainFrame().getContentPanel().showDish(d);*//*
+
+        //} else FieldRules.warnEmptyFields(frame);
+
+    }*/
+
+    private static int addReceiptorNotDialog() {
+        Object[] options = {"Добавить",
+                "Не сейчас"};
+        int response = JOptionPane.showOptionDialog(dishEditFrame,
+                "Блюдо добавлено, желаете добавить к нему рецепты?",
+                "Создание рецепта",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]);
+        return response;
     }
 }

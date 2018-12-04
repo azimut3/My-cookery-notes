@@ -3,12 +3,14 @@ package com.eiei.mycookerynotes.frames.editAndAddFrames;
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
 import com.eiei.mycookerynotes.frames.MainFrame;
+import com.eiei.mycookerynotes.managers.FieldRules;
 import com.eiei.mycookerynotes.managers.IngrUnits;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class ReceiptTabs extends JPanel {
@@ -18,8 +20,9 @@ public class ReceiptTabs extends JPanel {
     private JLabel receiptTitleLabel, numberOfPersonsLabel, weightOfDishLabel,
             timeForCookingLabel, ingrBlockLabel, numberLabel, ingrLabel, quantityLabel,
             unitLabeL, numerationLabel;
-    private JTextField receiptTitleField, numberOfPersonsField, weightOfDishField,
+    private JFormattedTextField receiptTitleField, numberOfPersonsField, weightOfDishField,
             timeForCookingField, ingrField, quantityField;
+    private NumberFormat weightFormat, justNumFormat;
     private JComboBox<String> unitBox;
     private JButton addIngrBtn, removeIngrBtn, saveBtn;
 
@@ -37,8 +40,10 @@ public class ReceiptTabs extends JPanel {
 
     private int fieldIterator = 1, gridIterator;
 //TODO поставить защиту на поля и защиту от созранения пустых полей
-    public ReceiptTabs(Receipt receipt, Dish d) {
-        this.receipt = receipt;
+    public ReceiptTabs(Receipt recp, Dish d) {
+        setUpFormats();
+        this.receipt = recp;
+        if (this.receipt == null) this.receipt = new Receipt();
         this.dish = d;
         //setPreferredSize(tabSize);
         setMinimumSize(tabSize);
@@ -73,7 +78,8 @@ public class ReceiptTabs extends JPanel {
         add(receiptTitleLabel, leftC);
 
         rightC.gridwidth = 4;
-        receiptTitleField = new JTextField();
+        receiptTitleField = new JFormattedTextField(FieldRules.createStringNormalFormatter());
+        receiptTitleField.setFocusLostBehavior(JFormattedTextField.COMMIT);
         receiptTitleField.setPreferredSize(textFieldDimensionBig);
         receiptTitleField.setMinimumSize(textFieldDimensionBig);
         receiptTitleField.setMinimumSize(textFieldDimensionBig);
@@ -94,7 +100,8 @@ public class ReceiptTabs extends JPanel {
 
         rightC.gridy = 1;
         rightC.insets = new Insets(10, 10, 10, 5);
-        numberOfPersonsField = new JTextField();
+        numberOfPersonsField = new JFormattedTextField(FieldRules.createNumFormatter("##"));
+        numberOfPersonsField.setFocusLostBehavior(JFormattedTextField.COMMIT);
         numberOfPersonsField.setPreferredSize(textFieldDimensionSmall);
         numberOfPersonsField.setMinimumSize(textFieldDimensionSmall);
         numberOfPersonsField.setMinimumSize(textFieldDimensionSmall);
@@ -105,7 +112,8 @@ public class ReceiptTabs extends JPanel {
         add(weightOfDishLabel, leftC);
 
         rightC.gridy = 2;
-        weightOfDishField = new JTextField();
+        weightOfDishField = new JFormattedTextField(FieldRules.createNumFormatter("*****"));
+        weightOfDishField.setFocusLostBehavior(JFormattedTextField.COMMIT);
         weightOfDishField.setPreferredSize(textFieldDimensionSmall);
         weightOfDishField.setMinimumSize(textFieldDimensionSmall);
         weightOfDishField.setMinimumSize(textFieldDimensionSmall);
@@ -116,7 +124,8 @@ public class ReceiptTabs extends JPanel {
         add(timeForCookingLabel, leftC);
 
         rightC.gridy = 3;
-        timeForCookingField = new JTextField();
+        timeForCookingField = new JFormattedTextField(FieldRules.createNumFormatter("###"));
+        timeForCookingField.setFocusLostBehavior(JFormattedTextField.COMMIT);
         timeForCookingField.setPreferredSize(textFieldDimensionSmall);
         timeForCookingField.setMinimumSize(textFieldDimensionSmall);
         timeForCookingField.setMinimumSize(textFieldDimensionSmall);
@@ -153,6 +162,11 @@ public class ReceiptTabs extends JPanel {
 
         gridIterator = 5;
         if (receipt != null) {
+            if (receipt.ingredients.size() == 0) {
+                receipt.ingredients.add("Ингредиент");
+                receipt.quantities.add("1");
+                receipt.measures.add(IngrUnits.PIECES.getValue());
+            }
             for (int i = 0; i < receipt.ingredients.size(); i++) {
                 addField(fieldIterator++);
                 setFieldValues(i);
@@ -181,7 +195,8 @@ public class ReceiptTabs extends JPanel {
 
         leftC.gridx = 1;
         leftC.anchor = GridBagConstraints.CENTER;
-        ingrField = new JTextField();
+        ingrField = new JFormattedTextField(FieldRules.createStringNormalFormatter());
+        ingrField.setFocusLostBehavior(JFormattedTextField.COMMIT);
         ingrField.setPreferredSize(textFieldDimensionBig);
         ingrField.setMinimumSize(textFieldDimensionBig);
         ingrField.setMinimumSize(textFieldDimensionBig);
@@ -189,7 +204,8 @@ public class ReceiptTabs extends JPanel {
         ingredientsArr.add(ingrField);
 
         leftC.gridx = 2;
-        quantityField = new JTextField();
+        quantityField = new JFormattedTextField(FieldRules.createNumFormatter("*****"));
+        quantityField.setFocusLostBehavior(JFormattedTextField.COMMIT);
         quantityField.setPreferredSize(textFieldDimensionSmall);
         quantityField.setMinimumSize(textFieldDimensionSmall);
         quantityField.setMinimumSize(textFieldDimensionSmall);
@@ -207,7 +223,6 @@ public class ReceiptTabs extends JPanel {
     private void setFieldValues(int numm) {
         ingredientsArr.get(numm).setText(receipt.ingredients.get(numm));
         ingrQuantityArr.get(numm).setText(receipt.quantities.get(numm));
-        //TODO написать норм юниты для сохранения
         boxArr.get(numm).setSelectedItem(receipt.ingredients.get(numm));
     }
 
@@ -237,16 +252,9 @@ public class ReceiptTabs extends JPanel {
     private void renew() {
         revalidate();
         repaint();
-/*        scrollPane.revalidate();
-        scrollPane.repaint();
-        pan.revalidate();
-        pan.repaint();*/
     }
 
     public JPanel getScrollPane() {
-        /*pan = new JPanel();
-        scrollPane = new JScrollPane(this);
-        pan.add(scrollPane);*/
         return this;
     }
 
@@ -284,31 +292,62 @@ public class ReceiptTabs extends JPanel {
     ActionListener saveChanges = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (receipt == null) {
-                receipt = new Receipt();
-            }
-            receipt.setReceiptTitle(receiptTitleField.getText());
-            receipt.setTimeForCooking(Integer.valueOf(timeForCookingField.getText()));
-            receipt.setWeightOfDish(Double.valueOf(weightOfDishField.getText()));
-            receipt.setNumberOfPersons(Integer.valueOf(numberOfPersonsField.getText()));
+            boolean full = true;
+            String fieldValue = FieldRules.noWhitespaces(receiptTitleField.getText());
+            if (!fieldValue.isEmpty()) {
+                receipt.setReceiptTitle(fieldValue);
+            } else full = false;
+            fieldValue = FieldRules.noWhitespaces(timeForCookingField.getText());
+            if (!fieldValue.isEmpty()) {
+                receipt.setTimeForCooking(Integer.valueOf(fieldValue));
+            } else full = false;
+            fieldValue = FieldRules.noWhitespaces(weightOfDishField.getText());
+            if (!fieldValue.isEmpty()) {
+                receipt.setWeightOfDish(Double.valueOf(fieldValue));
+            } else full = false;
+            fieldValue = FieldRules.noWhitespaces(numberOfPersonsField.getText());
+            if (!fieldValue.isEmpty()) {
+                receipt.setNumberOfPersons(Integer.valueOf(fieldValue));
+            } else full = false;
             receipt.ingredients.clear();
             receipt.quantities.clear();
             receipt.measures.clear();
             for(int i =0; i < ingredientsArr.size(); i++) {
-                receipt.ingredients.add(ingredientsArr.get(i).getText());
-                receipt.quantities.add(ingrQuantityArr.get(i).getText());
-                receipt.measures.add(String.valueOf(boxArr.get(i).getSelectedItem()));
+                fieldValue = FieldRules.noWhitespaces(ingredientsArr.get(i).getText());
+                if (!fieldValue.isEmpty()) {
+                    receipt.ingredients.add(fieldValue);
+                } else full = false;
+                fieldValue = FieldRules.noWhitespaces(ingrQuantityArr.get(i).getText());
+                if (!fieldValue.isEmpty()) {
+                    receipt.quantities.add(fieldValue);
+                } else full = false;
+                    receipt.measures.add(String.valueOf(boxArr.get(i).getSelectedItem()));
             }
-            if (!dish.receiptsList.contains(receipt)) dish.receiptsList.add(receipt);
+            if (full) {
+                if (!dish.receiptsList.contains(receipt)) dish.receiptsList.add(receipt);
+            } else warnEmptyFields();
+
             MainFrame.getMainFrame().getContentPanel().revalidate();
             MainFrame.getMainFrame().getContentPanel().repaint();
             MainFrame.getMainFrame().revalidate();
             MainFrame.getMainFrame().repaint();
-
         }
     };
+
     public Receipt getReceipt() {
         return receipt;
     }
+
+    private void setUpFormats() {
+        justNumFormat = NumberFormat.getIntegerInstance();
+        justNumFormat.setMinimumIntegerDigits(1);
+        weightFormat = NumberFormat.getIntegerInstance();
+        weightFormat.setMinimumIntegerDigits(1);
+    }
+    public void warnEmptyFields() {
+        FieldRules.warnEmptyFields(this);
+    }
+
+
 }
 

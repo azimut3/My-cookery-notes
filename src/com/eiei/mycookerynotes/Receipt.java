@@ -5,15 +5,14 @@ import java.util.ArrayList;
 public class Receipt {
 
     private Dish dish;
-    private String receiptTitle = "def_receipt_title";
-    private int numberOfPersons = 1;
-    private double weightOfDish = 250;
-    private int timeForCooking = 60;
+    private String receiptTitle = "Новый рецепт";
+    private int numberOfPersons = 0;
+    private double weightOfDish = 0;
+    private int timeForCooking = 0;
 
     public ArrayList<String> ingredients = new ArrayList<>();
     public ArrayList<String> quantities = new ArrayList<>();
     public ArrayList<String> measures = new ArrayList<>();
-
 
     public Dish getDish() {
         return dish;
