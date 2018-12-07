@@ -1,3 +1,0 @@
-receiptTitle:Бесит numberOfPersons:12 weightOfDish:12222.0 timeForCooking:60 ingredients:sfgvb|5|шт.;gdsrg|200|шт.;cdxghfgx|3|шт.;cgykjgcyk|500|шт.;yjh|4|шт.
-receiptTitle:sdgvsg numberOfPersons:1 weightOfDish:250.0 timeForCooking:30 ingredients:dghyrf|5|шт.;VM_CVFH|1|шт.;sgg|3|шт.;szgrh|3|л.
-receiptTitle:вара numberOfPersons:4 weightOfDish:2.0 timeForCooking:1 ingredients:яавп|1|шт.;gilgil|3|шт.;fulfy|2|шт.;glhl|1|шт.;hbuo|1|шт.;uhk|2|шт.

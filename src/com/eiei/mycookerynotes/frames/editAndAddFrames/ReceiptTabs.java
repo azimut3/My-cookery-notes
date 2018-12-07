@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class ReceiptTabs extends JPanel {
     private Receipt receipt;
     private Dish dish;
+    private JFrame parentFrame;
 
     private JLabel receiptTitleLabel, numberOfPersonsLabel, weightOfDishLabel,
             timeForCookingLabel, ingrBlockLabel, numberLabel, ingrLabel, quantityLabel,
@@ -40,9 +41,10 @@ public class ReceiptTabs extends JPanel {
 
     private int fieldIterator = 1, gridIterator;
 //TODO поставить защиту на поля и защиту от созранения пустых полей
-    public ReceiptTabs(Receipt recp, Dish d) {
+    public ReceiptTabs(Receipt recp, Dish d, JFrame parent) {
         setUpFormats();
         this.receipt = recp;
+        parentFrame = parent;
         if (this.receipt == null) this.receipt = new Receipt();
         this.dish = d;
         //setPreferredSize(tabSize);
@@ -331,6 +333,18 @@ public class ReceiptTabs extends JPanel {
             MainFrame.getMainFrame().getContentPanel().repaint();
             MainFrame.getMainFrame().revalidate();
             MainFrame.getMainFrame().repaint();
+
+            String[] options = new String[] {"Продолжить", "Закрыть окно"};
+            int reply = JOptionPane.showOptionDialog(parentFrame,
+                    "Изменения сохранены, желаете продолжить?",
+                    "",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.PLAIN_MESSAGE,
+                    null,
+                    options,
+                    JOptionPane.YES_OPTION
+                    );
+            if (reply == JOptionPane.NO_OPTION) parentFrame.dispose();
         }
     };
 

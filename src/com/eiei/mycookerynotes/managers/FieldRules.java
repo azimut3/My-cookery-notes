@@ -37,7 +37,14 @@ public class FieldRules {
                 ws++;
             } else break;
         }
-        return s.substring(0, s.length()-ws);
+        s = s.substring(0, s.length()-ws);
+        ws = 0;
+        for(int i =0; i < s.length(); i++) {
+            if (s.charAt(i) == ' ') {
+                ws++;
+            } else break;
+        }
+        return s.substring(ws);
     }
 
     public static void warnEmptyFields(Component c) {

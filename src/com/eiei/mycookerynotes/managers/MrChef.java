@@ -13,8 +13,16 @@ import java.util.ArrayList;
  */
 
 public class MrChef {
+    private static Path dishDatabaseDir = Paths.get("C:\\Users\\Public\\Documents\\Cookery Notes");
+    private static MrChef instance;
 
-    private static Path dishDatabaseDir = Paths.get("src/data/dishes");
+    private MrChef() {
+    }
+
+    public static MrChef getMrChef() {
+        if (instance == null) instance = new MrChef();
+        return instance;
+    }
 
     public static Path getDishDatabaseDir() {
         return dishDatabaseDir;
@@ -23,13 +31,6 @@ public class MrChef {
     public static void setDishDatabaseDir(Path dishDatabaseDir) {
         MrChef.dishDatabaseDir = dishDatabaseDir;
     }
-/*
-    private static MrChef instance;
-    private MrChef() {}
-    public static MrChef getMrChef() {
-        if (instance == null) instance = new MrChef();
-        return instance;
-    }*/
 
     public static class FavouriteList {
         static ArrayList<Dish> list = new ArrayList<>();

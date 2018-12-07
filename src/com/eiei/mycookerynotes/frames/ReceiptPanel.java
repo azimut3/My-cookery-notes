@@ -96,7 +96,7 @@ public class ReceiptPanel extends PanelTemplate {
                 Dish d = MrChef.ReceiptList.get(e.getFirstIndex());
                 MainFrame.getMainFrame().getContentPanel().showDish(d);
                 System.out.println(d.toString() + " was choosen in RecList ");
-                favDishList.clearSelection();
+                if (!MrChef.FavouriteList.isEmpty()) favDishList.clearSelection();
                 dishList.clearSelection();
             }
         }

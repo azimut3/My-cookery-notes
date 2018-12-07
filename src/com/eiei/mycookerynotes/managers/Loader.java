@@ -3,10 +3,7 @@ package com.eiei.mycookerynotes.managers;
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
@@ -23,8 +20,18 @@ public class Loader {
 
     public static void loadDishes() {
         try {
+            if (Files.notExists(MrChef.getDishDatabaseDir())) {
+                //new FilePermission(MrChef.getDishDatabaseDir().toString(), "read,write");
+                Files.createDirectories(MrChef.getDishDatabaseDir());
+                System.out.println("Создание папки проекта");
+            }
             Files.walkFileTree(MrChef.getDishDatabaseDir(), new MyFileVisitor());
-        } catch (IOException e) {
+        }
+        catch (AccessDeniedException ad) {
+            System.out.println("Заблокирован доступ для записи к дирректории на диске");
+            ad.printStackTrace();
+        }
+        catch (IOException e) {
             e.printStackTrace();
             System.out.println("!!!Error while parsing a dishes' folder!!!");
         }
@@ -32,6 +39,7 @@ public class Loader {
         //dishFile = Paths.get(MrChef.getDishDatabaseDir().toString() + File.separator + "dish.txt");
         //System.out.println(pathList);
         for(int i =0; i < pathList.size(); i++) {
+            System.out.println(pathList.get(i));
             MrChef.ReceiptList.add(loadDish(pathList.get(i)));
         }
     }

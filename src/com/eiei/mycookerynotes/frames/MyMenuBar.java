@@ -11,12 +11,13 @@ import java.awt.event.ActionListener;
 
 public class MyMenuBar extends JMenuBar {
     private static MyMenuBar myMenuBar = null;
-    private JMenu receiptMenu, editMenu, settingsMenu;
+    private JMenu receiptMenu, editMenu, settingsMenu, toolsMenu;
     private JMenuItem addDish, addReceipts, editDish, deleteDish, editReceipts;
 
     private MyMenuBar() {
         receiptMenu = new JMenu("Рецепты");
         editMenu = new JMenu("Редактировать");
+        toolsMenu = new JMenu("Инструменты");
         settingsMenu = new JMenu("Настройки");
 
         addDish = new JMenuItem("Добавить блюдо");

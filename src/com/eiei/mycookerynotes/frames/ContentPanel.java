@@ -4,6 +4,7 @@ package com.eiei.mycookerynotes.frames;
 
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
+import com.eiei.mycookerynotes.managers.DefaultImages;
 import com.eiei.mycookerynotes.managers.MrChef;
 
 import javax.swing.*;
@@ -14,13 +15,33 @@ import java.awt.event.ItemListener;
 public class ContentPanel extends PanelTemplate {
     private static ContentPanel contentPanel;
     private JCheckBox isInFavourites;
-    private Dish currentShowedDish;
+    private Dish currentShowedDish; //TODO написать отображение для избранной звездочки
+    private static JLabel selFavIcon;
+    private static JLabel deselFavIcon;
 
     private ContentPanel() {
        super();
+       setBackground(Color.ORANGE.darker());
        setLayout(new GridBagLayout());
+       GridBagConstraints startConstr = new GridBagConstraints();
 
-    setBackground(Color.ORANGE.darker());
+       JPanel helloPanel = new JPanel();
+       helloPanel.setLayout(new BorderLayout());
+       JTextArea welcomeLabel = new JTextArea();
+       welcomeLabel.setText("Добро пожаловать \n в мир кулинарии!");
+        welcomeLabel.setColumns(12);
+       welcomeLabel.setBackground(getBackground());
+       welcomeLabel.setFont(new Font("Times New Roman", Font.ITALIC, 47));
+       welcomeLabel.setLineWrap(true);
+       welcomeLabel.setEditable(false);
+
+       helloPanel.add(welcomeLabel);
+
+       startConstr.gridx = 0;
+       startConstr.gridy = 0;
+       startConstr.weightx = 0.5;
+       startConstr.weighty = 0.5;
+       add(helloPanel, startConstr);
     }
 
     @Override
@@ -43,9 +64,12 @@ public class ContentPanel extends PanelTemplate {
         JLabel dishTitle = new JLabel(d.getDishTitle());
         dishTitle.setFont(new Font("Times New Roman", Font.BOLD, 18));
         isInFavourites = new JCheckBox(/*"Избранное"*/);
+/*
         String favIcon = "src\\data\\imgs\\icons\\favourites\\" +
                 (d.isInFavourites() ? "selected.png" : "deselected.png");
-        isInFavourites.setIcon(new ImageIcon(favIcon));
+*/
+        isInFavourites.setIcon(d.isInFavourites() ?
+                DefaultImages.getDefSelFavImg() : DefaultImages.getDefDeselFavImg());
         isInFavourites.setBackground(this.getBackground());
         isInFavourites.setSelected(d.isInFavourites());
         isInFavourites.setToolTipText("Избранное");
@@ -146,12 +170,12 @@ public class ContentPanel extends PanelTemplate {
 
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 d.setInFavourites(true);
-                isInFavourites.setIcon(new ImageIcon("src/data/imgs/icons/favourites/selected.png"));
+                isInFavourites.setIcon(DefaultImages.getDefSelFavImg());
 
             }
                 else if (e.getStateChange() == ItemEvent.DESELECTED) {
                     d.setInFavourites(false);
-                isInFavourites.setIcon(new ImageIcon("src/data/imgs/icons/favourites/deselected.png"));
+                isInFavourites.setIcon(DefaultImages.getDefDeselFavImg());
 
             }
              MainFrame.getMainFrame().getReceiptMenu().renewFavourites();

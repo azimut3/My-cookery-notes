@@ -1,1 +1,0 @@
-receiptTitle:Вкусняшка2_[ezirf numberOfPersons:1 weightOfDish:250.0 timeForCooking:60 ingredients:i_efa_f|2|шт.;и|5|ч.лож.;db|4|мл.;dxgb|2|л.;xdgb|3|шт.

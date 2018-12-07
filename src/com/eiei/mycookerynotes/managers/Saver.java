@@ -53,7 +53,8 @@ public class Saver {
         }
 
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(dishFile.toFile()));
+            BufferedWriter writer = Files.newBufferedWriter(dishFile.toFile().toPath(), StandardCharsets.UTF_8);
+                    //new BufferedWriter(new FileWriter(dishFile.toFile()));
             writer.write(d.toString());
             writer.newLine();
             writer.flush();
@@ -74,7 +75,8 @@ public class Saver {
         }
 
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(receiptFile.toFile()));
+            BufferedWriter writer = Files.newBufferedWriter(receiptFile.toFile().toPath(), StandardCharsets.UTF_8);
+                    //= new BufferedWriter(new FileWriter(receiptFile.toFile()));
             for(int i =0; i < d.receiptsList.size(); i++) {
                 writer.write(d.receiptsList.get(i).toString());
                 writer.newLine();
@@ -96,7 +98,8 @@ public class Saver {
             }
         }
             try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter(descriptionsFile.toFile()));
+                BufferedWriter writer = Files.newBufferedWriter(descriptionsFile.toFile().toPath(), StandardCharsets.UTF_8);
+                        //new BufferedWriter(new FileWriter(descriptionsFile.toFile()));
                 writer.write(d.getDishDescription());
                 writer.flush();
                 writer.close();

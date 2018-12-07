@@ -1,1 +1,0 @@
-receiptTitle:Безе numberOfPersons:3 weightOfDish:200.0 timeForCooking:60 ingredients:белки|3|гр.;сахар|200|гр.

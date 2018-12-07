@@ -19,11 +19,13 @@ public class ReceiptEditAndAddFrame extends JFrame{
     private static JLabel titleLabel;
     private static JButton addReceiptBtn, removeReceiptBtn, prevReceiptBtn, nextReceiptBtn;
     private ArrayList<ReceiptTabs> receiptTabs = new ArrayList<>();
+    private JFrame meTheParent;
 
     private static JTabbedPane tabbedPane = null;
 
     public ReceiptEditAndAddFrame(Dish d) {
         this.d = d;
+        meTheParent = this;
         setMinimumSize( new Dimension(650, 600));
         setPreferredSize( new Dimension(650, 600));
         setResizable(false);
@@ -99,7 +101,7 @@ public class ReceiptEditAndAddFrame extends JFrame{
 
     private void loadWithNoReceipts() {
         String title = "Новый Рецепт";
-        ReceiptTabs tab = new ReceiptTabs(null, d);
+        ReceiptTabs tab = new ReceiptTabs(null, d, meTheParent);
         JScrollPane tabScroll = new JScrollPane(tab);
         tabScroll.getVerticalScrollBar().setUnitIncrement(8);
         receiptTabs.add(tab);
@@ -113,7 +115,7 @@ public class ReceiptEditAndAddFrame extends JFrame{
             Receipt receipt = d.receiptsList.get(i);
             String title = receipt.getReceiptTitle();
             if (i == 0) setTitleLabel(title);
-            ReceiptTabs tab = new ReceiptTabs(receipt, d);
+            ReceiptTabs tab = new ReceiptTabs(receipt, d, meTheParent);
             JScrollPane tabScroll = new JScrollPane(tab);
             tabScroll.getVerticalScrollBar().setUnitIncrement(8);
             receiptTabs.add(tab);
@@ -132,6 +134,7 @@ public class ReceiptEditAndAddFrame extends JFrame{
             loadWithNoReceipts();
         }
     };
+
     private ActionListener removeReceiptTab = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {

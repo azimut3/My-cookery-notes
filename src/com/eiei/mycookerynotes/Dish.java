@@ -2,10 +2,10 @@ package com.eiei.mycookerynotes;
 
 import com.eiei.mycookerynotes.frames.MainFrame;
 import com.eiei.mycookerynotes.frames.MyMenuBar;
+import com.eiei.mycookerynotes.managers.DefaultImages;
 import com.eiei.mycookerynotes.managers.MrChef;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -15,16 +15,14 @@ public class Dish {
     private int id;
     private String dishTitle = "default_dish_title";
     private boolean inFavourites = false;
-    private JLabel dishImage = new JLabel(new ImageIcon("src/data/imgs/icons/hat.png"));
+    private JLabel dishImage = DefaultImages.getDefaultDishImage(this);
+    // new JLabel(new ImageIcon("src/data/imgs/icons/hat.png"));
     private String dishDescription = "def_description";
     private Path dishFolderPath;
 
     public ArrayList<Receipt> receiptsList = new ArrayList<>();
 
     public Dish() {
-        dishImage.setMinimumSize(new Dimension(100, 100));
-        dishImage.setMaximumSize(new Dimension(150, 150));
-        dishImage.setPreferredSize(new Dimension(150, 150));
 
     }
 

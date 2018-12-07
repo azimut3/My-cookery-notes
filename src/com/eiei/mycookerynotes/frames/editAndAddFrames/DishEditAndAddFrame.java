@@ -73,6 +73,7 @@ public class DishEditAndAddFrame extends JFrame {
 
         imgPathField = new JFormattedTextField();
         imgPathField.setPreferredSize(textFieldDimensions);
+        imgPathField.setEditable(false);
         rightC.insets = new Insets(10, 10, 10, 0);
         rightC.gridy = 2;
         backPane.add(imgPathField, rightC);
