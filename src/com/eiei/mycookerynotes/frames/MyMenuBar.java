@@ -19,6 +19,8 @@ public class MyMenuBar extends JMenuBar {
         editMenu = new JMenu("Редактировать");
         toolsMenu = new JMenu("Инструменты");
         settingsMenu = new JMenu("Настройки");
+        //TODO добавить и включить панель настроек
+        settingsMenu.setEnabled(false);
 
         addDish = new JMenuItem("Добавить блюдо");
         addReceipts = new JMenuItem("Добавить рецепт");

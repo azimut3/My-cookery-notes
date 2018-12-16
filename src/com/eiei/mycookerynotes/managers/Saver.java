@@ -2,6 +2,7 @@ package com.eiei.mycookerynotes.managers;
 
 
 import com.eiei.mycookerynotes.Dish;
+import com.eiei.mycookerynotes.Receipt;
 
 import javax.swing.*;
 import java.io.*;
@@ -9,6 +10,9 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 
+/**
+ * This class handles the prcess of saving dishes' data to a database
+ */
 public class Saver {
 
     private static Path dishDir = null;
@@ -16,21 +20,29 @@ public class Saver {
     private static Path receiptFile = null;
     private static Path descriptionsFile = null;
 
-    public static void saveDish(Dish d) {
-        dishDir = Paths.get(MrChef.getDishDatabaseDir().toAbsolutePath() + File.separator + d.getDishTitle());
-        createDishDir(d);
+    /**
+     * Saves a dish to a database, contains methods of {@link #createDishDir() creating a dir for dish data if necessary},
+     * {@link #saveDishBody(Dish) saving dish class field values}
+     * @param dish currently being saved dish object
+     */
+    public static void saveDish(Dish dish) {
+        dishDir = Paths.get(MrChef.getDishDatabaseDir().toAbsolutePath() + File.separator + dish.getDishTitle());
+        createDishDir();
 
         dishFile = Paths.get(dishDir + File.separator + "dish.txt");
-        saveDishBody(d);
+        saveDishBody(dish);
 
         receiptFile = Paths.get(dishDir + File.separator + "receipts.txt");
-        saveDishReceipts(d);
+        saveDishReceipts(dish);
 
         descriptionsFile  = Paths.get(dishDir + File.separator + "descriptions.txt");
-        saveDescriptions(d);
+        saveDescriptions(dish);
     }
 
-    private static void createDishDir(Dish d) {
+    /**
+     * This private method creates a dir for dish data, if it not exists
+     */
+    private static void createDishDir() {
         if (Files.notExists(dishDir)) {
             try {
                 Files.createDirectory(dishDir);
@@ -41,7 +53,11 @@ public class Saver {
         }
     }
 
-    private static void saveDishBody(Dish d) {
+    /**
+     * This private method saves a dish's key values in a text form returned by {@link Dish#toString()} method.
+     * @param dish currently being saved dish object
+     */
+    private static void saveDishBody(Dish dish) {
 
         if (Files.notExists(dishFile)) {
             try {
@@ -54,8 +70,7 @@ public class Saver {
 
         try {
             BufferedWriter writer = Files.newBufferedWriter(dishFile.toFile().toPath(), StandardCharsets.UTF_8);
-                    //new BufferedWriter(new FileWriter(dishFile.toFile()));
-            writer.write(d.toString());
+            writer.write(dish.toString());
             writer.newLine();
             writer.flush();
             writer.close();
@@ -64,7 +79,11 @@ public class Saver {
         }
     }
 
-    private static void saveDishReceipts(Dish d) {
+    /**
+     * This method saves dish's receipts data in a text form with a {@link Receipt#toString()}.
+     * @param dish currently being saved dish object
+     */
+    private static void saveDishReceipts(Dish dish) {
         if (Files.notExists(receiptFile)) {
             try {
                 Files.createFile(receiptFile);
@@ -77,8 +96,8 @@ public class Saver {
         try {
             BufferedWriter writer = Files.newBufferedWriter(receiptFile.toFile().toPath(), StandardCharsets.UTF_8);
                     //= new BufferedWriter(new FileWriter(receiptFile.toFile()));
-            for(int i =0; i < d.receiptsList.size(); i++) {
-                writer.write(d.receiptsList.get(i).toString());
+            for(int i =0; i < dish.receiptsList.size(); i++) {
+                writer.write(dish.receiptsList.get(i).toString());
                 writer.newLine();
                 writer.flush();
             }
@@ -88,7 +107,11 @@ public class Saver {
         }
     }
 
-    public static void saveDescriptions(Dish d) {
+    /**
+     * This method saves dish's description.
+     * @param dish currently being saved dish object
+     */
+    public static void saveDescriptions(Dish dish) {
         if (Files.notExists(descriptionsFile)) {
             try {
                 Files.createFile(descriptionsFile);
@@ -100,7 +123,7 @@ public class Saver {
             try {
                 BufferedWriter writer = Files.newBufferedWriter(descriptionsFile.toFile().toPath(), StandardCharsets.UTF_8);
                         //new BufferedWriter(new FileWriter(descriptionsFile.toFile()));
-                writer.write(d.getDishDescription());
+                writer.write(dish.getDishDescription());
                 writer.flush();
                 writer.close();
             } catch (IOException e) {

@@ -3,6 +3,9 @@ package com.eiei.mycookerynotes.managers;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * This is {@link Enum} class for some standart units in cookery practice
+ */
 public enum IngrUnits {
     PIECES("шт."),
     TABLE_SPOONS("ст.лож."),
@@ -18,9 +21,19 @@ public enum IngrUnits {
     IngrUnits(String unit) {
         this.unit = unit;
     }
+
+    /**
+     * Returns text representation of it's Enum value
+     * @return text value of Enum constant
+     */
     public String getValue() {
         return unit;
     }
+
+    /**
+     * Creates String array of text values of Enum constants and returns them
+     * @return a String array of text values of Enum constants
+     */
     public static String[] getValueList() {
         String[] list = new String[arrayList.size()];
         int i = 0;

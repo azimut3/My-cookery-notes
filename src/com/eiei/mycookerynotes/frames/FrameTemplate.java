@@ -44,6 +44,7 @@ public class FrameTemplate extends JFrame {
 
         setTitle("My cookery notes");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //getContentPane().setBackground(new Color(151, 155, 178));
 
         setJMenuBar(menuBar);
         this.addWindowListener(new WindowAdapter() {

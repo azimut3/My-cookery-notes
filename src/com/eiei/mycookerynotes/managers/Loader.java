@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
 
+/**
+ * This class handles the process of loading dishes from database
+ */
 public class Loader {
 
     private static ArrayList<Path> pathList = new ArrayList<>();
@@ -44,6 +47,11 @@ public class Loader {
         }
     }
 
+    /**
+     * Loads a single dish from a file of a specific structure
+     * @param path path to a single dish
+     * @return a Dish object recreated from database
+     */
     private static Dish loadDish(Path path) {
         Dish tempDish = new Dish();
         dishFile = Paths.get(path.toString() + File.separator + "dish.txt");
@@ -89,6 +97,11 @@ public class Loader {
         return tempDish;
     }
 
+    /**
+     * Loads a receipt from a receipt base for Dish
+     * @param recipeFileLine a string line of specified format containing the information about dish's receipt
+     * @return a Receipt object recreated from database
+     */
     private static Receipt loadReceipt(String recipeFileLine) {
         Receipt tempReceipt = new Receipt();
         String[] receiptFields = recipeFileLine.split(" ");
@@ -114,6 +127,10 @@ public class Loader {
         return tempReceipt;
     }
 
+    /**
+     * A {@link SimpleFileVisitor} to get through my system of storing data in .txt
+     * files in {@link MrChef#dishDatabaseDir}
+     */
     private static class MyFileVisitor extends SimpleFileVisitor<Path> {
         @Override
         public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {

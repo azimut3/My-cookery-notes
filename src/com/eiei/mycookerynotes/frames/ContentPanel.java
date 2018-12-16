@@ -21,7 +21,7 @@ public class ContentPanel extends PanelTemplate {
 
     private ContentPanel() {
        super();
-       setBackground(Color.ORANGE.darker());
+       setBackground(new Color(255, 175, 122));
        setLayout(new GridBagLayout());
        GridBagConstraints startConstr = new GridBagConstraints();
 

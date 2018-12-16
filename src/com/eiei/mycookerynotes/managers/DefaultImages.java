@@ -9,6 +9,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+/**
+ * This class is Utility class to load some default images and icons used in this program
+ */
 public class DefaultImages {
     private static String dishImagePath = "/data/imgs/icons/hat.png";
     private static JLabel dishDefaultImage;

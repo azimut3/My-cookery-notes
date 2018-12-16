@@ -23,7 +23,7 @@ public class ReceiptPanel extends PanelTemplate {
         //add(favouritesLabel);
         setReceiptPanel();
 
-        setBackground(Color.lightGray);
+        setBackground(new Color(173,227, 132));
     }
     public void setReceiptPanel() {
         add(Box.createVerticalStrut(10));

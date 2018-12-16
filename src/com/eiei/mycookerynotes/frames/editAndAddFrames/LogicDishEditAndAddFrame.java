@@ -10,11 +10,19 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * This class is a logic for a {@link DishEditAndAddFrame} created template
+ */
 public class LogicDishEditAndAddFrame {
-    private static DishEditAndAddFrame dishEditFrame;
-    private static Dish d;
-//TODO проверить сохранение нового блюда
 
+    /**     * A variable containing link to a {@link DishEditAndAddFrame} template      */
+    private static DishEditAndAddFrame dishEditFrame;
+    /**     * A variable containing link to a {@link DishEditAndAddFrame} template      */
+    private static Dish d;
+
+    /**
+     * Creates a template frame {@link DishEditAndAddFrame}
+     */
     public static void openDishEditFrame() {
         dishEditFrame = new DishEditAndAddFrame();
         d = MainFrame.getMainFrame().getContentPanel().getDish();
@@ -36,6 +44,9 @@ public class LogicDishEditAndAddFrame {
 
     }
 
+    /**
+     * Sets {@link DishEditAndAddFrame} for adding a new dish
+     */
     public static void openDishAddFrame() {
         dishEditFrame = new DishEditAndAddFrame();
         dishEditFrame.setTitle("Новое блюдо...");
@@ -48,10 +59,17 @@ public class LogicDishEditAndAddFrame {
                 saveChanges(dishEditFrame, null);
             }
         };
-
         dishEditFrame.getSaveBtn().addActionListener(saveAction);
     }
 
+    /**
+     * Save the changes to the dish. <br> After Saving calls {@link #addReceiptorNotDialog()}.
+     * If positive response received, calls {@link ReceiptEditAndAddFrame}.
+     *
+     * @param frame {@link #dishEditFrame} (deprecated)
+     * @param editedDish {@link #d} (deprecated)
+     */
+    //TODO переписать параметры метода на статические для класса
     public static void saveChanges(DishEditAndAddFrame frame, Dish editedDish) {
         //saveNewDish(frame, editedDish);
         if (editedDish == null) editedDish = new Dish();
@@ -109,6 +127,12 @@ public class LogicDishEditAndAddFrame {
 
     }*/
 
+    /**
+     * A popup dialog which appears after user saves changes. It asks if he wants to add also some receipts to
+     * created dish.
+     * @return an int represented response of user
+     * @see JOptionPane#YES_NO_OPTION
+     */
     private static int addReceiptorNotDialog() {
         Object[] options = {"Добавить",
                 "Не сейчас"};
