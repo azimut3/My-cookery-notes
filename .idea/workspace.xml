@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="966574d8-491c-4e70-bfd4-d318ff887490" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Additional files/Program versions/My cookery notes v_a-1.2/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Additional files/Program versions/My cookery notes v_a-1.2/My cookery notes.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Additional files/Program versions/My cookery notes v_a-1.2/start.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -215,7 +213,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/MyMenuBar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
+            <state relative-caret-position="-357">
               <caret line="21" column="50" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -305,7 +303,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="33" />
     <option name="y" value="17" />
     <option name="width" value="868" />
@@ -413,7 +411,7 @@
     <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="my_cookery_notes" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://H:/My cookery's notes/src/com/eiei/mycookerynotes/frames/ReceiptPanel.java&#10;FavouriteList&#9;PSI&#9;JAVA://com.eiei.mycookerynotes.managers.MrChef.FavouriteList" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545003810488" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545003943469" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Additional files/Program versions" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -501,7 +499,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1000" extended-state="7" />
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25080907" />
@@ -913,7 +911,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/MyMenuBar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
+        <state relative-caret-position="-357">
           <caret line="21" column="50" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
