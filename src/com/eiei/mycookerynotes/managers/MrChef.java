@@ -8,6 +8,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * This class is an operator for user's favourites and list of user's receipts.
@@ -117,6 +118,11 @@ public class MrChef {
             }
             return str;
         }
+        /*public static ArrayList getReadOnlyList() {
+            //TODO защититть массив от перезавписи
+            ArrayList<Dish> readOnlyList = list;
+            return readOnlyList;
+        }*/
     }
 
     /**

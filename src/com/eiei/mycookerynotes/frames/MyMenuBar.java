@@ -12,9 +12,10 @@ import java.awt.event.ActionListener;
 public class MyMenuBar extends JMenuBar {
     private static MyMenuBar myMenuBar = null;
     private JMenu receiptMenu, editMenu, settingsMenu, toolsMenu;
-    private JMenuItem addDish, addReceipts, editDish, deleteDish, editReceipts;
+    private JMenuItem addDish, addReceipts, editDish, deleteDish, editReceipts, search;
 
     private MyMenuBar() {
+        setBackground(Color.GREEN);
         receiptMenu = new JMenu("Рецепты");
         editMenu = new JMenu("Редактировать");
         toolsMenu = new JMenu("Инструменты");
@@ -40,9 +41,14 @@ public class MyMenuBar extends JMenuBar {
         editMenu.add(editReceipts);
         editMenu.add(deleteDish);
 
+        search = new JMenuItem("Поиск");
+        search.addActionListener(mySearchListener);
+        toolsMenu.add(search);
+
 
         add(receiptMenu);
         add(editMenu);
+        add(toolsMenu);
         add(settingsMenu);
 
         editDish.addActionListener(myEditDishListener);
@@ -111,6 +117,13 @@ public class MyMenuBar extends JMenuBar {
         @Override
         public void actionPerformed(ActionEvent e) {
             new ReceiptEditAndAddFrame(MainFrame.getMainFrame().getContentPanel().getDish());
+        }
+    };
+
+    ActionListener mySearchListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            SearchPanel.showSearchOnContentPanel();
         }
     };
 }

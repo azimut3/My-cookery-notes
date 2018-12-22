@@ -21,6 +21,7 @@ public class MainFrame extends FrameTemplate{
 
     public MainFrame() {
         super();
+        //TODO разобраться со скроллом для панели рецептов, он не работает
         receiptMenu = ReceiptPanel.getReceiptPanel();
         receiptMenu.setMinPanelWidth(150);
         receiptMenu.setMaxPanelWidth(230);

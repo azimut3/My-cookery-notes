@@ -136,10 +136,8 @@ public class ContentPanel extends PanelTemplate {
             constr.insets = new Insets(20, 30, 3, 7);
             panel.add(getReceipt(d.receiptsList.get(i)), constr);
         }
-    /*
-    * Just a component to stretch bottom grid
-    *
-    */
+
+    // Just a dummy component to stretch bottom grid
 
     constr.insets = new Insets(0, 0, 0, 0);
 
