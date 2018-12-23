@@ -344,7 +344,10 @@ public class ReceiptTabs extends JPanel {
                     options,
                     JOptionPane.YES_OPTION
                     );
-            if (reply == JOptionPane.NO_OPTION) parentFrame.dispose();
+            if (reply == JOptionPane.NO_OPTION) {
+                parentFrame.dispose();
+                MainFrame.getMainFrame().getContentPanel().showDish(dish);
+            }
         }
     };
 

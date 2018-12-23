@@ -1,8 +1,6 @@
 package com.eiei.mycookerynotes.frames;
 
-import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
-import com.eiei.mycookerynotes.managers.MrChef;
 import com.eiei.mycookerynotes.managers.StylesForTextPanes;
 
 import javax.swing.*;
@@ -33,10 +31,10 @@ public class ReceiptTextPane extends JTextPane {
 
     private void addStylesToDocument(StyledDocument doc) {
 
-        StylesForTextPanes.getRegular(doc);
-        StylesForTextPanes.getHeader(doc);
-        StylesForTextPanes.getNormalItalic(doc);
-        StylesForTextPanes.getSmallItalic(doc);
+        StylesForTextPanes.setRegular(doc);
+        StylesForTextPanes.setHeader(doc);
+        StylesForTextPanes.setNormalItalic(doc);
+        StylesForTextPanes.setSmallItalic(doc);
         /*Style def = StyleContext.getDefaultStyleContext().
                 getStyle(StyleContext.DEFAULT_STYLE);
         //for full screen (1400x900) textPane with receipts

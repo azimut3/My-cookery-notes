@@ -121,7 +121,6 @@ public class ReceiptEditAndAddFrame extends JFrame{
             receiptTabs.add(tab);
             tabbedPane.addTab(title,  tabScroll);
         }
-
     }
 
     public static void setTitleLabel(String title) {
