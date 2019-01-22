@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"com.eiei.mycookerynotes"},{"l":"com.eiei.mycookerynotes.frames"},{"l":"com.eiei.mycookerynotes.frames.editAndAddFrames"},{"l":"com.eiei.mycookerynotes.managers"}]

@@ -1,7 +1,9 @@
 package com.eiei.mycookerynotes.frames;
 
 import com.eiei.mycookerynotes.Dish;
+import com.eiei.mycookerynotes.frames.content.ContentPanel;
 import com.eiei.mycookerynotes.managers.MrChef;
+import com.eiei.mycookerynotes.managers.Settings;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -9,59 +11,74 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * This class sets up a receipt panel in {@link MainFrame}
+ */
 public class ReceiptPanel extends PanelTemplate {
     private static ReceiptPanel receiptPanel;
     private ArrayList<JLabel> favList = new ArrayList<>();
     private JList<String> favDishList;
     private JList<String> dishList;
 
+    private static GridBagConstraints cons = new GridBagConstraints();
+
+    /**
+     * Constructor sets up panel's basics (layout, background) and calls parent's construcktor
+     */
     private ReceiptPanel() {
         super();
-
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-        //JLabel favouritesLabel = new JLabel("Избранное");
-        //add(favouritesLabel);
+        //setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        setLayout(new GridBagLayout());
         setReceiptPanel();
-
-        setBackground(new Color(173,227, 132));
+        //setBackground(Settings.getPrimaryColor());
+        Settings.primaryColorPanels.add(this);
     }
+
+    /**
+     * In this method {@link #addDummyComponents(JPanel) dummy components} are added
+     */
     public void setReceiptPanel() {
-        add(Box.createVerticalStrut(10));
+        addDummyComponents(this);
+        cons.gridy = 0;
+        cons.gridx = 1;
         addFavourites();
         addDishes();
         //add(Box.createHorizontalStrut(180));
     }
 
     public void addFavourites() {
-
-        //TODO add vertical spacing and make alignment
+        cons.insets = new Insets(10, 5,5,5);
         if (!MrChef.FavouriteList.isEmpty()) {
             JLabel favouritesLabel = new JLabel("Избранное:");
             favouritesLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-            add(favouritesLabel);
-            add(Box.createVerticalStrut(5));
+            add(favouritesLabel, cons);
+            //add(Box.createVerticalStrut(5));
             favouritesLabel.setVisible(true);
 
             favDishList = new JList<String>(MrChef.FavouriteList.getStringCollection());
             favDishList.addListSelectionListener(myFavListListener);
             favDishList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            add(favDishList);
+            cons.gridy++;
+            cons.insets = new Insets(5, 5, 5, 5);
+            add(favDishList, cons);
 
-         add(Box.createVerticalStrut(5));
+         //add(Box.createVerticalStrut(5));
         }
     }
 
     public void addDishes() {
-        add(Box.createVerticalStrut(5));
+        cons.gridy++;
+//        add(Box.createVerticalStrut(5));
         JLabel dishesLabel = new JLabel("Список блюд:");
         dishesLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        add(dishesLabel);
-        add(Box.createVerticalStrut(5));
+        add(dishesLabel, cons);
+        //add(Box.createVerticalStrut(5));
         dishesLabel.setVerticalAlignment(JLabel.TOP);
         dishList = new JList<String>(MrChef.ReceiptList.getStringCollection());
         dishList.addListSelectionListener(myReceiptListListener);
         dishList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        add(dishList);
+        cons.gridy++;
+        add(dishList, cons);
     }
 
     ListSelectionListener myFavListListener = new ListSelectionListener() {
@@ -74,7 +91,8 @@ public class ReceiptPanel extends PanelTemplate {
                     e1.printStackTrace();
                 }
                 Dish d = MrChef.FavouriteList.get(e.getFirstIndex());
-                MainFrame.getMainFrame().getContentPanel().showDish(d);
+                ContentPanel.showDishPanel(d);
+                //MainFrame.getMainFrame().getContentPanel().showDish(d);
                 System.out.println(d.toString() + " was choosen in FavList");
                 favDishList.clearSelection();
                 dishList.clearSelection();
@@ -94,7 +112,8 @@ public class ReceiptPanel extends PanelTemplate {
                     e1.printStackTrace();
                 }
                 Dish d = MrChef.ReceiptList.get(e.getFirstIndex());
-                MainFrame.getMainFrame().getContentPanel().showDish(d);
+                //MainFrame.getMainFrame().getContentPanel().showDish(d);
+                ContentPanel.showDishPanel(d);
                 System.out.println(d.toString() + " was choosen in RecList ");
                 if (!MrChef.FavouriteList.isEmpty()) favDishList.clearSelection();
                 dishList.clearSelection();
@@ -112,5 +131,24 @@ public class ReceiptPanel extends PanelTemplate {
     public static ReceiptPanel getReceiptPanel() {
         if (receiptPanel == null) receiptPanel = new ReceiptPanel();
         return receiptPanel;
+    }
+
+    private static void addDummyComponents(JPanel panel) {
+        GridBagConstraints dummyCons = new GridBagConstraints();
+
+        dummyCons.gridx = 0;
+        dummyCons.gridy = 0;
+        dummyCons.weightx = 0.5;
+        panel.add(Box.createHorizontalStrut(1), dummyCons);
+
+        dummyCons.gridx = 2;
+        dummyCons.gridy = 0;
+        panel.add(Box.createHorizontalStrut(1), dummyCons);
+
+        dummyCons.gridx = 1;
+        dummyCons.gridy = 6;
+        dummyCons.weighty = 0.5;
+        panel.add(Box.createHorizontalStrut(150), dummyCons);
+
     }
 }

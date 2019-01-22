@@ -2,6 +2,7 @@ package com.eiei.mycookerynotes.frames.editAndAddFrames;
 
 import com.eiei.mycookerynotes.frames.MainFrame;
 import com.eiei.mycookerynotes.managers.FieldRules;
+import com.eiei.mycookerynotes.managers.Settings;
 
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
@@ -28,6 +29,7 @@ public class DishEditAndAddFrame extends JFrame {
     public DishEditAndAddFrame() {
         JPanel backPane = new JPanel();
         setContentPane(backPane);
+        backPane.setBackground(Settings.getPrimaryColor());
         setSize(400, 450);
         setResizable(false);
         backPane.setLayout(new GridBagLayout());
@@ -69,6 +71,7 @@ public class DishEditAndAddFrame extends JFrame {
         backPane.add(favsLabel, leftC);
 
         favsBox = new JCheckBox();
+        favsBox.setOpaque(false);
         rightC.insets = new Insets(10, 10, 10, 5);
         rightC.gridy = 1;
         backPane.add(favsBox, rightC);
@@ -90,6 +93,7 @@ public class DishEditAndAddFrame extends JFrame {
         imgBtn.setPreferredSize(new Dimension(20, 20));
         imgBtn.setMaximumSize(new Dimension(20, 20));
         imgBtn.setEnabled(false);
+        imgBtn.setOpaque(false);
         rightC.gridx = 3;
         rightC.insets = new Insets(10, 0, 10, 5);
         backPane.add(imgBtn, rightC);

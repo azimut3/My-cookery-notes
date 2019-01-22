@@ -20,15 +20,15 @@ public class PanelTemplate extends JPanel{
         setPreferredSize(new Dimension(PREF_FRAME_WIDTH, parentPanel.getPreferredSize().height));*/
     }
 
-    void setMinPanelWidth(int width) {
+    public void setMinPanelWidth(int width) {
         MIN_PANEL_WIDTH = width;
         setMinimumSize(new Dimension(width, MIN_PANEL_HEIGHT));
     }
-    void setMaxPanelWidth(int width) {
+    public void setMaxPanelWidth(int width) {
         MAX_PANEL_WIDTH = width;
         setMaximumSize(new Dimension(width, MAX_PANEL_HEIGHT));
     }
-    void setPrefPanelWidth(int width) {
+    public void setPrefPanelWidth(int width) {
         PREF_PANEL_WIDTH = width;
         setPreferredSize(new Dimension(width, MIN_PANEL_HEIGHT));
     }

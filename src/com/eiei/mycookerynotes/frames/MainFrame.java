@@ -1,6 +1,8 @@
 package com.eiei.mycookerynotes.frames;
 
-        import com.eiei.mycookerynotes.Dish;
+        import com.eiei.mycookerynotes.frames.content.ContentPanel;
+        import com.eiei.mycookerynotes.frames.content.DishPanel;
+        import com.eiei.mycookerynotes.frames.content.HelloUserPanel;
 
         import javax.swing.*;
         import java.awt.*;
@@ -8,39 +10,45 @@ package com.eiei.mycookerynotes.frames;
 public class MainFrame extends FrameTemplate{
     private static MainFrame mainFrame;
     private JPanel contentPane = new JPanel(new BorderLayout());
-    //TODO Добавить эти панели в JSplitPane и scrollBar
     private ReceiptPanel receiptMenu;
     private ContentPanel contentPanel;
 
     public ReceiptPanel getReceiptMenu() {
         return receiptMenu;
     }
-    public ContentPanel getContentPanel() {
+   /* public ContentPanel getContentPanel() {
         return contentPanel;
     }
-
+*/
     public MainFrame() {
         super();
-        //TODO разобраться со скроллом для панели рецептов, он не работает
         receiptMenu = ReceiptPanel.getReceiptPanel();
-        receiptMenu.setMinPanelWidth(150);
-        receiptMenu.setMaxPanelWidth(230);
-        receiptMenu.setPrefPanelWidth(170);
+        //receiptMenu.setMinPanelWidth(200);
+        receiptMenu.setMaxPanelWidth(200);
+        //receiptMenu.setPrefPanelWidth(170);
         contentPanel = ContentPanel.getContentPanel();
         contentPanel.setMinPanelWidth(getMinFrameWidth() - receiptMenu.getMinPanelWidth());
         contentPanel.setMaxPanelWidth(getMaxFrameWidth() - receiptMenu.getMaxPanelWidth());
+        DishPanel.getDishPanel().setSize(ContentPanel.getContentPanel().getSize());
+        HelloUserPanel.getHelloUserPanel().setSize(ContentPanel.getContentPanel().getSize());
 //        contentPanel.setPrefPanelWidth(getPrefFrameWidth() - receiptMenu.getPrefPanelWidth());
         setContentPane(contentPane);
         contentPane.setBackground(Color.DARK_GRAY);
         JScrollPane receiptScrolledPane = new JScrollPane(receiptMenu);
         receiptScrolledPane.getVerticalScrollBar().setUnitIncrement(8);
-        contentPane.add(receiptScrolledPane, BorderLayout.WEST);
+        //contentPane.add(receiptScrolledPane, BorderLayout.WEST);
 
         JScrollPane contentScrolledPane = new JScrollPane(contentPanel);
         contentScrolledPane.getVerticalScrollBar().setUnitIncrement(8);
-        contentPane.add(contentScrolledPane, BorderLayout.CENTER);
-        //add(contentPane);
+        //contentPane.add(contentScrolledPane, BorderLayout.CENTER);
 
+        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
+                receiptScrolledPane, contentScrolledPane);
+        splitPane.setOneTouchExpandable(true);
+        receiptScrolledPane.setMinimumSize(new Dimension(220, getHeight()));
+        contentScrolledPane.setMinimumSize(new Dimension(500, getHeight()));
+
+        contentPane.add(splitPane, BorderLayout.CENTER);
     }
 
     public static MainFrame getMainFrame() {

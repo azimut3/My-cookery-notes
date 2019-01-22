@@ -1,5 +1,8 @@
 package com.eiei.mycookerynotes.frames;
 
+import com.eiei.mycookerynotes.frames.content.ContentPanel;
+import com.eiei.mycookerynotes.frames.content.DishPanel;
+import com.eiei.mycookerynotes.frames.content.SearchPanel;
 import com.eiei.mycookerynotes.frames.editAndAddFrames.DeleteDishDialog;
 import com.eiei.mycookerynotes.frames.editAndAddFrames.LogicDishEditAndAddFrame;
 import com.eiei.mycookerynotes.frames.editAndAddFrames.ReceiptEditAndAddFrame;
@@ -11,11 +14,14 @@ import java.awt.event.ActionListener;
 
 public class MyMenuBar extends JMenuBar {
     private static MyMenuBar myMenuBar = null;
-    private JMenu receiptMenu, editMenu, settingsMenu, toolsMenu;
+    private JMenu receiptMenu, editMenu, settingsMenu, toolsMenu, home;
     private JMenuItem addDish, addReceipts, editDish, deleteDish, editReceipts, search;
 
     private MyMenuBar() {
         setBackground(Color.GREEN);
+        home = new JMenu("Главная");
+        home.setIcon(new ImageIcon("data/imgs/icons/closeIco15x15.png"));
+
         receiptMenu = new JMenu("Рецепты");
         editMenu = new JMenu("Редактировать");
         toolsMenu = new JMenu("Инструменты");
@@ -37,20 +43,25 @@ public class MyMenuBar extends JMenuBar {
         editDish.setEnabled(false);
         editReceipts.setEnabled(false);
 
-        editMenu.add(editDish);
-        editMenu.add(editReceipts);
-        editMenu.add(deleteDish);
+        //editMenu.add(editDish);
+        //editMenu.add(editReceipts);
+        //editMenu.add(deleteDish);
+        JButton main = new JButton("main");
+        main.addActionListener(myMainPanelListener);
+        main.setPreferredSize(new Dimension(40, 15));
+        add(main);
 
         search = new JMenuItem("Поиск");
         search.addActionListener(mySearchListener);
         toolsMenu.add(search);
 
+        //add(home);
+        //add(receiptMenu);
+        //add(editMenu);
+        //add(toolsMenu);
+        //add(settingsMenu);
 
-        add(receiptMenu);
-        add(editMenu);
-        add(toolsMenu);
-        add(settingsMenu);
-
+        home.addActionListener(myMainPanelListener);
         editDish.addActionListener(myEditDishListener);
         addDish.addActionListener(myAddDishListener);
         deleteDish.addActionListener(deleteDishListener);
@@ -94,12 +105,13 @@ public class MyMenuBar extends JMenuBar {
         @Override
         public void actionPerformed(ActionEvent e) {
             String dishTitle = "Вы уверены что хотите удалить " +
-                    MainFrame.getMainFrame().getContentPanel().getDish().getDishTitle() + "?";
+                    //MainFrame.getMainFrame().getContentPanel().getDish().getDishTitle() + "?";
+                    DishPanel.getDish() + "?";
 
             try {
                 int option = ((Integer)new DeleteDishDialog(MainFrame.getMainFrame(), dishTitle).getValue());
                 if (option == JOptionPane.YES_OPTION) {
-                    if (MainFrame.getMainFrame().getContentPanel().getDish().deleteThisDish()) {
+                    if (DishPanel.getDish().deleteThisDish()) {
                         JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
                             "Блюдо удалено!");
                     }
@@ -116,14 +128,22 @@ public class MyMenuBar extends JMenuBar {
     ActionListener myAddReceiptListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            new ReceiptEditAndAddFrame(MainFrame.getMainFrame().getContentPanel().getDish());
+            new ReceiptEditAndAddFrame(DishPanel.getDish());
         }
     };
 
     ActionListener mySearchListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            SearchPanel.showSearchOnContentPanel();
+            ContentPanel.showSearchPanel();
         }
+    };
+
+    ActionListener myMainPanelListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ContentPanel.showHelloPanel();
+        }
+
     };
 }

@@ -2,6 +2,7 @@ package com.eiei.mycookerynotes.managers;
 
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.frames.MainFrame;
+import com.eiei.mycookerynotes.frames.MyMenuBar;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -17,9 +18,19 @@ public class DefaultImages {
     private static JLabel dishDefaultImage;
 
     private static String selFavImgPath = "/data/imgs/icons/favourites/selected.png";
-    private static ImageIcon defSelFavImg;
+    private static ImageIcon defSelFavIco;
     private static String deselfavImgPath = "/data/imgs/icons/favourites/deselected.png";
-    private static ImageIcon defDeselFavImg;
+    private static ImageIcon defDeselFavIco;
+    private static String closeIcoPath = "/data/imgs/icons/closeIco15x15.png";
+    private static ImageIcon closeIco;
+    private static String homeIcoPath = "/data/imgs/icons/home20x20.png";
+    private static ImageIcon homeIco;
+    private static String editIcoPath = "/data/imgs/icons/editIco.png";
+    private static ImageIcon editIco;
+    private static String deleteIcoPath = "/data/imgs/icons/deleteIco.png";
+    private static ImageIcon deleteIco;
+    private static String addIcoPath = "/data/imgs/icons/addIco.png";
+    private static ImageIcon addIco;
 
     /**
      * Returns default image for dish
@@ -35,7 +46,6 @@ public class DefaultImages {
                 dishImageLabel.setMinimumSize(new Dimension(100, 100));
                 dishImageLabel.setMaximumSize(new Dimension(150, 150));
                 dishImageLabel.setPreferredSize(new Dimension(150, 150));
-                //dishImageLabel.set
                 return dishImageLabel;
             } else return new JLabel("ERROR");
         } else return dishDefaultImage;
@@ -45,18 +55,65 @@ public class DefaultImages {
      * Returns an icon for the state of favourites <i>"selected</i>
      * @return an icon for the state of favourites <i>"selected</i>
      */
-    public static ImageIcon getDefSelFavImg() {
-        if (defSelFavImg == null) return getDefFavImage(selFavImgPath);
-        else return defSelFavImg;
+    public static ImageIcon getDefSelFavIco() {
+        if (defSelFavIco == null) return getDefImage(selFavImgPath);
+        else return defSelFavIco;
     }
 
     /**
      * Returns an icon for the state of favourites <i>"deselected</i>
      * @return an icon for the state of favourites <i>"deselected</i>
      */
-    public static ImageIcon getDefDeselFavImg() {
-        if (defDeselFavImg == null) return getDefFavImage(deselfavImgPath);
-        else return defDeselFavImg;
+    public static ImageIcon getDefDeselFavIco() {
+        if (defDeselFavIco == null) return getDefImage(deselfavImgPath);
+        else return defDeselFavIco;
+    }
+
+    /**
+     * Returns an icon for close action in search tags
+     * @return an icon for close action in search tags
+     */
+    public static ImageIcon getCloseIco() {
+        if (closeIco == null) return getDefImage(closeIcoPath);
+        else return closeIco;
+    }
+
+    /**
+     * Returns an icon for edit action
+     * @return an icon for edit action
+     */
+    public static ImageIcon getEditIco() {
+        if (editIco == null) return getDefImage(editIcoPath);
+        else return editIco;
+    }
+
+    /**
+     * Returns an icon for delete action
+     * @return an icon for delete action
+     */
+    public static ImageIcon getDeleteIco() {
+        if (deleteIco == null) return getDefImage(deleteIcoPath);
+        else return deleteIco;
+    }
+
+    /**
+     * Returns an icon for add action
+     * @return an icon for add action
+     */
+    public static ImageIcon getAddIco() {
+        if (addIco == null) return getDefImage(addIcoPath);
+        else return addIco;
+    }
+
+    /**
+     * Returns a home icon for menu
+     * @return a home icon for menu
+     */
+    public static ImageIcon getHomeIco() {
+        BufferedImage dishBufferedImage = getBufferedImage(homeIcoPath, MyMenuBar.getMyMenuBar());
+        if (dishBufferedImage != null) {
+            return new ImageIcon(dishBufferedImage);
+        } else return new ImageIcon();
     }
 
     /**
@@ -64,11 +121,10 @@ public class DefaultImages {
      * @param path a path to an image
      * @return ImageIcon according to the given path
      */
-    private static ImageIcon getDefFavImage (String path){
-            BufferedImage dishBufferedImage = getBufferedImage(path, MainFrame.getMainFrame().getContentPanel());
+    private static ImageIcon getDefImage(String path){
+            BufferedImage dishBufferedImage = getBufferedImage(path, MainFrame.getMainFrame());
             if (dishBufferedImage != null) {
-                ImageIcon favImage = new ImageIcon(dishBufferedImage);
-                return favImage;
+                return new ImageIcon(dishBufferedImage);
             } else return new ImageIcon();
 
         }
@@ -85,7 +141,6 @@ public class DefaultImages {
         try {
             buff = ImageIO.read(obj.getClass().getResourceAsStream(path));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return null;
         }

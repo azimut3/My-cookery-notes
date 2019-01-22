@@ -3,6 +3,10 @@ package com.eiei.mycookerynotes.frames.editAndAddFrames;
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
 import com.eiei.mycookerynotes.frames.MainFrame;
+import com.eiei.mycookerynotes.frames.content.ContentPanel;
+import com.eiei.mycookerynotes.frames.content.DishPanel;
+import com.eiei.mycookerynotes.managers.DefaultImages;
+import com.eiei.mycookerynotes.managers.Settings;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -30,6 +34,7 @@ public class ReceiptEditAndAddFrame extends JFrame{
         setPreferredSize( new Dimension(650, 600));
         setResizable(false);
         JPanel panel = new JPanel();
+        panel.setBackground(Settings.getPrimaryColor());
         setContentPane(panel);
         panel.setAlignmentY(Component.CENTER_ALIGNMENT);
         getContentPane().setLayout(new BorderLayout());
@@ -40,12 +45,13 @@ public class ReceiptEditAndAddFrame extends JFrame{
         JPanel navigationPanel = new JPanel();
         navigationPanel.setAlignmentY(Component.CENTER_ALIGNMENT);
         navigationPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        navigationPanel.setOpaque(false);
         addNavigationPanelComponents(navigationPanel);
 
         tabbedPane = new JTabbedPane();
         tabbedPane.setPreferredSize( new Dimension(550, 550));
         tabbedPane.setVisible(true);
-        tabbedPane.setBackground(Color.ORANGE);
+        //tabbedPane.setBackground(Color.ORANGE);
         tabbedPane.addChangeListener(tabChangeListener);
         tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 
@@ -60,8 +66,8 @@ public class ReceiptEditAndAddFrame extends JFrame{
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                MainFrame.getMainFrame().getContentPanel().removeAll();
-                MainFrame.getMainFrame().getContentPanel().showDish(d);
+                //MainFrame.getMainFrame().getContentPanel().removeAll();
+                DishPanel.showDish(d);
             }
         });
     }
@@ -69,13 +75,13 @@ public class ReceiptEditAndAddFrame extends JFrame{
    private void addNavigationPanelComponents(JPanel navPanel){
 //TODO добавить функции перелистывания к кнопкам
         prevReceiptBtn = new JButton("<<<");
-        addReceiptBtn = new JButton("( + )");
+        addReceiptBtn = new JButton(DefaultImages.getAddIco());
         addReceiptBtn.setToolTipText("Добавить рецепт");
         addReceiptBtn.addActionListener(addNewReceiptTab);
         titleLabel = new JLabel("[ " + "Новый рецепт" + " ]");
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         titleLabel.setAlignmentY(Component.CENTER_ALIGNMENT);
-        removeReceiptBtn = new JButton("( - )");
+        removeReceiptBtn = new JButton(DefaultImages.getDeleteIco());
         removeReceiptBtn.setToolTipText("Удалить рецепт");
         removeReceiptBtn.addActionListener(removeReceiptTab);
         removeReceiptBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -84,7 +90,7 @@ public class ReceiptEditAndAddFrame extends JFrame{
         nextReceiptBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         nextReceiptBtn.setAlignmentY(Component.CENTER_ALIGNMENT);
 
-        navPanel.setBackground(Color.RED);
+        //navPanel.setBackground(Color.RED);
 
         navPanel.add(prevReceiptBtn);
         navPanel.add(Box.createHorizontalStrut(20));

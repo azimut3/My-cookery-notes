@@ -3,8 +3,11 @@ package com.eiei.mycookerynotes.frames.editAndAddFrames;
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
 import com.eiei.mycookerynotes.frames.MainFrame;
+import com.eiei.mycookerynotes.frames.content.ContentPanel;
+import com.eiei.mycookerynotes.frames.content.DishPanel;
 import com.eiei.mycookerynotes.managers.FieldRules;
 import com.eiei.mycookerynotes.managers.IngrUnits;
+import com.eiei.mycookerynotes.managers.Settings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -51,6 +54,7 @@ public class ReceiptTabs extends JPanel {
         setMinimumSize(tabSize);
         setMaximumSize(new Dimension(500, 1000));
         setVisible(true);
+        setBackground(new Color(189, 204, 167));
 
         GridBagLayout gridBagLayout = new GridBagLayout();
         setLayout(gridBagLayout);
@@ -329,8 +333,9 @@ public class ReceiptTabs extends JPanel {
                 if (!dish.receiptsList.contains(receipt)) dish.receiptsList.add(receipt);
             } else warnEmptyFields();
 
-            MainFrame.getMainFrame().getContentPanel().revalidate();
-            MainFrame.getMainFrame().getContentPanel().repaint();
+            /*MainFrame.getMainFrame().getContentPanel().revalidate();
+            MainFrame.getMainFrame().getContentPanel().repaint();*/
+            DishPanel.renew();
             MainFrame.getMainFrame().revalidate();
             MainFrame.getMainFrame().repaint();
 
@@ -346,7 +351,7 @@ public class ReceiptTabs extends JPanel {
                     );
             if (reply == JOptionPane.NO_OPTION) {
                 parentFrame.dispose();
-                MainFrame.getMainFrame().getContentPanel().showDish(dish);
+                ContentPanel.showDishPanel(dish);
             }
         }
     };

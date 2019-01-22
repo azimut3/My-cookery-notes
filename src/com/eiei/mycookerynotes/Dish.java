@@ -2,6 +2,7 @@ package com.eiei.mycookerynotes;
 
 import com.eiei.mycookerynotes.frames.MainFrame;
 import com.eiei.mycookerynotes.frames.MyMenuBar;
+import com.eiei.mycookerynotes.frames.content.ContentPanel;
 import com.eiei.mycookerynotes.managers.DefaultImages;
 import com.eiei.mycookerynotes.managers.MrChef;
 
@@ -192,8 +193,11 @@ public class Dish {
             dir.delete();
             MrChef.ReceiptList.remove(this);
             MyMenuBar.getMyMenuBar().disarmDishAndReceiptEditors();
-            MainFrame.getMainFrame().getContentPanel().removeAll();
+            //MainFrame.getMainFrame().getContentPanel().removeAll();
+            ContentPanel.showHelloPanel();
         } else return false;
         return true;
     }
+
+
 }

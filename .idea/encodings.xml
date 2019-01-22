@@ -3,11 +3,10 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/Dish.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/Receipt.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/ContentPanel.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/PanelTemplate.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/ReceiptPanel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/ContentPanel.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/MrChef.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/data/dishes.txt" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -118,11 +118,7 @@ public class MrChef {
             }
             return str;
         }
-        /*public static ArrayList getReadOnlyList() {
-            //TODO защититть массив от перезавписи
-            ArrayList<Dish> readOnlyList = list;
-            return readOnlyList;
-        }*/
+
     }
 
     /**

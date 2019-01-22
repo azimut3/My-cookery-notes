@@ -2,6 +2,7 @@ package com.eiei.mycookerynotes;
 
 import com.eiei.mycookerynotes.frames.MainFrame;
 import com.eiei.mycookerynotes.managers.MrChef;
+import com.eiei.mycookerynotes.managers.Settings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,6 +41,7 @@ public class Main {
 
         EventQueue.invokeLater(() -> {
             JFrame frame = MainFrame.getMainFrame();
+            Settings.getSettingsInstance();
             frame.setVisible(true);
         });
     }
