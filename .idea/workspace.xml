@@ -7,10 +7,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="966574d8-491c-4e70-bfd4-d318ff887490" name="Default Changelist" comment="So, here we have a working alpha version of the project with working jar file for future users (it is stored at &quot;/My cookery notes\jar\My_cookery_notes_jar&quot;) &#10;Current version - a1.1">
+      <change afterPath="$PROJECT_DIR$/out/artifacts/My_cookery_notes_jar2/My cookery notes.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/ReceiptPanel$MyCellRenderer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_01$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_01$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_01$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_01$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_01$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_01.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_02$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_02$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_02$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_02$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_02$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_02.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SettingsPanel$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SettingsPanel$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SettingsPanel$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SettingsPanel$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SettingsPanel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/DefaultImages.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/FirstLaunch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/Settings$Themes.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/Settings.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/StylesForTextPanes.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/TextSettings$Styles.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/TextSettings.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/addIco2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/searchIco.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel_01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel_02.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/SettingsPanel.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/FirstLaunch.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/Settings.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/TextSettings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/imgs/icons/addIco2.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/data/imgs/icons/home.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/data/imgs/icons/searchIco.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -41,6 +73,10 @@
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/ReceiptTextPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/ReceiptTextPane.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/ContentPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/ContentPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/HelloUserPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/HelloUserPanel$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/HelloUserPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/HelloUserPanel$2.class" afterDir="false" />
@@ -66,9 +102,9 @@
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/DefaultImages.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/FieldRules.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/IngrUnits.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/SearchTypes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/FieldRules.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/FieldRules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/IngrUnits.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/IngrUnits.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/SearchTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/SearchTypes.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/Settings.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/StylesForTextPanes$Styles.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/StylesForTextPanes.class" beforeDir="false" />
@@ -83,6 +119,11 @@
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/addIco.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/addIco.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/deleteIco.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/deleteIco.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/editIco.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/editIco.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/favourites/deselected.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/favourites/deselected.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/favourites/selected.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/favourites/selected.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/hat.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/data/imgs/icons/hat.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/Dish.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/Main.java" afterDir="false" />
@@ -205,7 +246,7 @@
     <session id="333960438">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="38" />
+          <entry key="project.closed" value="39" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.12" value="2" />
@@ -437,7 +478,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="341" />
     <option name="y" value="114" />
     <option name="width" value="868" />
@@ -594,7 +635,7 @@
     <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="my_cookery_notes" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://H:/My cookery's notes/src/com/eiei/mycookerynotes/frames/ReceiptPanel.java&#10;FavouriteList&#9;PSI&#9;JAVA://com.eiei.mycookerynotes.managers.MrChef.FavouriteList" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549128421663" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549128567079" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/jar" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -712,7 +753,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290993" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49838188" visible="true" weight="0.3256351" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49838188" weight="0.3256351" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3995381" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
