@@ -3,6 +3,7 @@ package com.eiei.mycookerynotes.frames;
         import com.eiei.mycookerynotes.frames.content.ContentPanel;
         import com.eiei.mycookerynotes.frames.content.DishPanel;
         import com.eiei.mycookerynotes.frames.content.HelloUserPanel;
+        import com.eiei.mycookerynotes.settings.Settings;
 
         import javax.swing.*;
         import java.awt.*;
@@ -49,6 +50,7 @@ public class MainFrame extends FrameTemplate{
         contentScrolledPane.setMinimumSize(new Dimension(500, getHeight()));
 
         contentPane.add(splitPane, BorderLayout.CENTER);
+
     }
 
     public static MainFrame getMainFrame() {

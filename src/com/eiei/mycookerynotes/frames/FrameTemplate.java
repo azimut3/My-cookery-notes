@@ -1,6 +1,7 @@
 package com.eiei.mycookerynotes.frames;
 
 import com.eiei.mycookerynotes.managers.MrChef;
+import com.eiei.mycookerynotes.settings.Settings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -51,6 +52,7 @@ public class FrameTemplate extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 MrChef.saveDishes();
+                Settings.saveProperties();
             }
         });
         PanelTemplate.setMaxPanelHeight(MAX_FRAME_HEIGHT - 100);

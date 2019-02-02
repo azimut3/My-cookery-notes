@@ -2,10 +2,8 @@ package com.eiei.mycookerynotes.frames.content;
 
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
-import com.eiei.mycookerynotes.frames.MainFrame;
-import com.eiei.mycookerynotes.frames.content.ContentPanel;
-import com.eiei.mycookerynotes.frames.content.DishPanel;
 import com.eiei.mycookerynotes.managers.*;
+import com.eiei.mycookerynotes.settings.*;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -38,7 +36,7 @@ public class SearchPanel extends JPanel{
     /**
      * Fills the {@link ContentPanel} with the Search elements
      */
-    public SearchPanel() {
+    private SearchPanel() {
         setLayout(new GridBagLayout());
         Settings.secondaryColorPanels.add(this);
 
@@ -54,6 +52,7 @@ public class SearchPanel extends JPanel{
         cons.fill = GridBagConstraints.HORIZONTAL;
 
         searchLbl = new JLabel("Поиск:");
+        searchLbl.setFont(TextSettings.getRegularBold(searchLbl));
         add(searchLbl, cons);
 
         searchField = new JTextField();
@@ -70,10 +69,12 @@ public class SearchPanel extends JPanel{
         add(searchTypeBox, cons);
 
         searchModeLbl = new JLabel("(" + searchTypeBox.getSelectedItem() + ")");
+        searchModeLbl.setFont(TextSettings.getRegularItalic(searchModeLbl));
         cons.gridx = 2;
         cons.gridy = 1;
-        cons.anchor = GridBagConstraints.PAGE_START;
-        cons.insets = new Insets(3, 5, 3, 3);
+        cons.gridwidth = 3;
+        cons.anchor = GridBagConstraints.CENTER;
+        cons.insets = new Insets(3, 5, 10, 3);
         add(searchModeLbl, cons);
 
         tagsPanel = new JPanel();
@@ -85,6 +86,7 @@ public class SearchPanel extends JPanel{
         cons.gridx = 1;
         cons.gridwidth = 3;
         add(tagsPanel, cons);
+        cons.insets = new Insets(3, 5, 3, 3);
 
         // Just a dummy component to stretch bottom grid
         addDummies();
@@ -146,11 +148,13 @@ public class SearchPanel extends JPanel{
      */
     private static boolean showIngredientsResults() {
         if (!ingredientsSet.isEmpty()) {
+            tagsPanel.setBackground(Settings.getSecondaryColor().brighter());
             tagsPanel.setVisible(true);
             for (String tag : ingredientsSet) {
                 ImageIcon closeIco = DefaultImages.getCloseIco();
                 JLabel closeIcoLbl = new JLabel(closeIco);
                 JLabel tagLbl = new JLabel(tag, closeIco, SwingConstants.RIGHT);
+                tagLbl.setFont(TextSettings.getRegularPlain(tagLbl));
                 tagLbl.setHorizontalTextPosition(SwingConstants.LEFT);
                 tagLbl.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
                 tagLbl.addMouseListener(tagLblListener);
@@ -223,8 +227,11 @@ public class SearchPanel extends JPanel{
      * @param matchDish
      * @return
      */
+    //TODO Исправить баг с неизменными цветами текстовых панелей
     private static JTextPane createTextPane(Dish matchDish) {
         JTextPane matchTextPane = new JTextPane();
+        matchTextPane.setBackground(Settings.getSecondaryColor().brighter());
+        matchTextPane.setFont(TextSettings.getRegularPlain(matchTextPane));
         matchTextPane.setEditable(false);
         matchTextPane.addMouseListener(new MouseAdapter() {
             @Override
@@ -295,16 +302,16 @@ public class SearchPanel extends JPanel{
      * @param pane a JTextPane to which <b><i>text</i></b> should be added
      * @param text a text that should be added
      * @param option a "marker' of how the text should be added ("title" to add title with a style
-     *               of {@link StylesForTextPanes#setBigHeader(StyledDocument)},
+     *               of {@link TextSettings#setBigHeader(StyledDocument)},
      *               "description" as a description with a style of
-     *               {@link StylesForTextPanes#setSmallItalic(StyledDocument)}
+     *               {@link TextSettings#setSmallItalic(StyledDocument)}
      */
    private static void addTextToMatchPane(JTextPane pane, String text, String option) {
         StyledDocument doc = pane.getStyledDocument();
-        StylesForTextPanes.setBigHeader(doc);
-        StylesForTextPanes.setSmallItalic(doc);
-        StylesForTextPanes.setGreenItalic(doc);
-        StylesForTextPanes.setNormalItalic(doc);
+        TextSettings.setBigHeader(doc, pane);
+        TextSettings.setSmallItalic(doc, pane);
+        TextSettings.setGreenItalic(doc, pane);
+        TextSettings.setNormalItalic(doc, pane);
         String t = text + System.lineSeparator();
         Style tStyle = null;
         try {

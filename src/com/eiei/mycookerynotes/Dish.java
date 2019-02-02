@@ -1,9 +1,7 @@
 package com.eiei.mycookerynotes;
 
-import com.eiei.mycookerynotes.frames.MainFrame;
-import com.eiei.mycookerynotes.frames.MyMenuBar;
 import com.eiei.mycookerynotes.frames.content.ContentPanel;
-import com.eiei.mycookerynotes.managers.DefaultImages;
+import com.eiei.mycookerynotes.settings.DefaultImages;
 import com.eiei.mycookerynotes.managers.MrChef;
 
 import javax.swing.*;
@@ -23,9 +21,9 @@ public class Dish {
     /**     * Boolean value of is the dish in the user's favourites or not. Default value is <b>false</b>     */
     private boolean inFavourites = false;
     /**     * An image of the dish. All dishes have default image on creation
-     * with {@link DefaultImages#getDefaultDishImage(Dish)} method
+     * with {@link DefaultImages#getDefaultDishImage()} method
      * */
-    private JLabel dishImage = DefaultImages.getDefaultDishImage(this);
+    private ImageIcon dishImage = DefaultImages.getDefaultDishImage();
     /**     * Stores dish's description. Default value is "def_description"     */
     private String dishDescription = "def_description";
     /**     * Stores dis dir path     */
@@ -35,6 +33,17 @@ public class Dish {
 
     public Dish() {
 
+    }
+
+    public Dish (int id, String title, Boolean favs) {
+        setId(id);
+        setDishTitle(title);
+        setInFavourites(favs);
+    }
+
+    public Dish (int id, String title, Boolean favs, String description) {
+        this(id, title, favs);
+        setDishDescription(description);
     }
 
     /**     * Gets the dish's {@link #id}     */
@@ -100,7 +109,7 @@ public class Dish {
      * in JLabel
      * @return a JLabel with the dish image
      */
-    public JLabel getDishImage() {
+    public ImageIcon getDishImage() {
         return dishImage;
     }
 
@@ -156,9 +165,9 @@ public class Dish {
     }
 
     /**
-     * Represents the dish and it's receipts as a text. Is used to save the dish to a .txt files
+     * Represents the dish and it's receipts as a text. Is used to saveProperties the dish to a .txt files
      * on a current stage of development. <b>DO NOT</b> change here anythyng until the alternative
-     * save/load methods for this programm.
+     * saveProperties/load methods for this programm.
      * @return a text representation of the dish and it's receipts
      */
     @Override
@@ -192,7 +201,7 @@ public class Dish {
             }
             dir.delete();
             MrChef.ReceiptList.remove(this);
-            MyMenuBar.getMyMenuBar().disarmDishAndReceiptEditors();
+            //MyMenuBar.getMyMenuBar().disarmDishAndReceiptEditors();
             //MainFrame.getMainFrame().getContentPanel().removeAll();
             ContentPanel.showHelloPanel();
         } else return false;

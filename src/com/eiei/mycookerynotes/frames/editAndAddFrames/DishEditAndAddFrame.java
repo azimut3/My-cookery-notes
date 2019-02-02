@@ -1,8 +1,8 @@
 package com.eiei.mycookerynotes.frames.editAndAddFrames;
 
-import com.eiei.mycookerynotes.frames.MainFrame;
-import com.eiei.mycookerynotes.managers.FieldRules;
-import com.eiei.mycookerynotes.managers.Settings;
+import com.eiei.mycookerynotes.settings.FieldRules;
+import com.eiei.mycookerynotes.settings.Settings;
+import com.eiei.mycookerynotes.settings.TextSettings;
 
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
@@ -14,11 +14,12 @@ import java.awt.event.ActionListener;
  * This class creates a template frame with content for adding or editing dish
  */
 public class DishEditAndAddFrame extends JFrame {
-    private JLabel titleLabel, favsLabel, imgLabel, descriptionLabel;
-    private JFormattedTextField titleField, imgPathField;
-    private JCheckBox favsBox;
-    private JTextArea descriptionTextArea;
-    private JButton imgBtn, saveBtn, cancelBtn;
+    private static DishEditAndAddFrame dishEditAndAddFrameInstance;
+    private static JLabel titleLabel, favsLabel, imgLabel, descriptionLabel;
+    private static JFormattedTextField titleField, imgPathField;
+    private static JCheckBox favsBox;
+    private static JTextArea descriptionTextArea;
+    private static JButton imgBtn, saveBtn, cancelBtn;
 
     private Dimension textFieldDimensions = new Dimension(180, 20);
 
@@ -26,10 +27,10 @@ public class DishEditAndAddFrame extends JFrame {
      * Creates a template frame with content for adding or editing dish. This frame has a {@link GridBagLayout}.
      * To keep the elements in proper places, this method has two dummy components (lbl1, lbl2).
      */
-    public DishEditAndAddFrame() {
+    private DishEditAndAddFrame() {
         JPanel backPane = new JPanel();
         setContentPane(backPane);
-        backPane.setBackground(Settings.getPrimaryColor());
+        backPane.setBackground(Settings.getSecondaryColor());
         setSize(400, 450);
         setResizable(false);
         backPane.setLayout(new GridBagLayout());
@@ -58,14 +59,18 @@ public class DishEditAndAddFrame extends JFrame {
         rightC.gridwidth = 2;
 
         titleLabel = new JLabel("Наименование блюда");
+        titleLabel.setFont(TextSettings.getRegularPlain(titleLabel));
         backPane.add(titleLabel, leftC);
 
         titleField = new JFormattedTextField(FieldRules.createStringNormalFormatter());
         titleField.setFocusLostBehavior(JFormattedTextField.COMMIT);
+        titleField.setFont(TextSettings.getRegularPlain(titleField));
+        titleField.setBackground(Settings.getSecondaryColor().brighter());
         titleField.setPreferredSize(textFieldDimensions);
         backPane.add(titleField, rightC);
 
         favsLabel = new JLabel("Избранное");
+        favsLabel.setFont(TextSettings.getRegularPlain(favsLabel));
         leftC.insets = new Insets(10, 10, 10, 5);
         leftC.gridy = 1;
         backPane.add(favsLabel, leftC);
@@ -78,6 +83,7 @@ public class DishEditAndAddFrame extends JFrame {
 
         //TODO добавить выбор изображений и включить обратно функционал выбора изображений
         imgLabel = new JLabel("Выбор изображения:");
+        imgLabel.setFont(TextSettings.getRegularPlain(imgLabel));
         leftC.gridy = 2;
         imgLabel.setEnabled(false);
         backPane.add(imgLabel, leftC);
@@ -100,7 +106,8 @@ public class DishEditAndAddFrame extends JFrame {
         rightC.gridx = 2;
         rightC.insets = new Insets(10, 10, 10, 5);
 
-        descriptionLabel = new JLabel("Описание блюда");
+        descriptionLabel = new JLabel("Описание блюда:");
+        descriptionLabel.setFont(TextSettings.getRegularPlain(descriptionLabel));
         leftC.gridy = 3;
         leftC.gridwidth = 2;
         leftC.weightx = 0;
@@ -108,6 +115,8 @@ public class DishEditAndAddFrame extends JFrame {
         backPane.add(descriptionLabel, leftC);
 
         descriptionTextArea = new JTextArea();
+        descriptionTextArea.setFont(TextSettings.getRegularPlain(descriptionTextArea));
+        descriptionTextArea.setBackground(Settings.getSecondaryColor().brighter());
         leftC.gridwidth = 3;
         leftC.gridy = 4;
         descriptionTextArea.setPreferredSize(new Dimension(300, 150));
@@ -148,7 +157,7 @@ public class DishEditAndAddFrame extends JFrame {
      * Returns {@link #titleField}
      * @return a title field
      */
-    public JTextField getTitleField() {
+    public static JTextField getTitleField() {
         return titleField;
     }
 
@@ -156,7 +165,7 @@ public class DishEditAndAddFrame extends JFrame {
      * Sets a {@link #titleField} with a String value
      * @param title a String title
      */
-    public void setTitleField(String title) {
+    public static void setTitleField(String title) {
         titleField.setText(title);
     }
 
@@ -164,7 +173,7 @@ public class DishEditAndAddFrame extends JFrame {
      * Returns {@link #imgPathField}
      * @return a field with image path
      */
-    public JTextField getImgPathField() {
+    public static JTextField getImgPathField() {
         return imgPathField;
     }
 
@@ -172,7 +181,7 @@ public class DishEditAndAddFrame extends JFrame {
      * Sets an {@link #imgPathField} with a string value
      * @param path String path to the image of dish
      */
-    public void setImgPathField(String path) {
+    public static void setImgPathField(String path) {
         imgPathField.setText(path);
     }
 
@@ -180,7 +189,7 @@ public class DishEditAndAddFrame extends JFrame {
      * Returns {@link #favsBox}
      * @return {@link #favsBox}
      */
-    public JCheckBox getFavsBox() {
+    public static JCheckBox getFavsBox() {
         return favsBox;
     }
 
@@ -189,7 +198,7 @@ public class DishEditAndAddFrame extends JFrame {
      * status
      * @param flag boolean value
      */
-    public void setFavsBox(boolean flag) {
+    public static void setFavsBox(boolean flag) {
         favsBox.setSelected(flag);
     }
 
@@ -197,7 +206,7 @@ public class DishEditAndAddFrame extends JFrame {
      * Returns {@link #descriptionTextArea}
      * @return {@link #descriptionTextArea}
      */
-    public JTextArea getDescriptionTextArea() {
+    public static JTextArea getDescriptionTextArea() {
         return descriptionTextArea;
     }
 
@@ -205,7 +214,7 @@ public class DishEditAndAddFrame extends JFrame {
      * Sets {@link #descriptionTextArea} with a String value
      * @param description a String value to the {@link #descriptionTextArea}
      */
-    public void setDescriptionTextArea(String description) {
+    public static void setDescriptionTextArea(String description) {
         descriptionTextArea.setText(description);
     }
 
@@ -213,7 +222,7 @@ public class DishEditAndAddFrame extends JFrame {
      * Returns {@link #saveBtn}
      * @return {@link #saveBtn}
      */
-    public JButton getSaveBtn() {
+    public static JButton getSaveBtn() {
         return saveBtn;
     }
 
@@ -221,7 +230,7 @@ public class DishEditAndAddFrame extends JFrame {
      * Returns {@link #cancelBtn}
      * @return {@link #cancelBtn}
      */
-    public JButton getCancelBtn() {
+    public static JButton getCancelBtn() {
         return cancelBtn;
     }
 
@@ -231,8 +240,15 @@ public class DishEditAndAddFrame extends JFrame {
     ActionListener cancelAction = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            dispose();
+            setVisible(false);
         }
     };
 
+    /**
+     * Returns the singleton istance of DishEditAndAddFrame
+     */
+    public static DishEditAndAddFrame getDishEditAndAddFrame() {
+        if (dishEditAndAddFrameInstance == null) dishEditAndAddFrameInstance = new DishEditAndAddFrame();
+        return dishEditAndAddFrameInstance;
+    }
 }

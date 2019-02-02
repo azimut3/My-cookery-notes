@@ -2,11 +2,10 @@ package com.eiei.mycookerynotes.frames.editAndAddFrames;
 
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
-import com.eiei.mycookerynotes.frames.MainFrame;
-import com.eiei.mycookerynotes.frames.content.ContentPanel;
 import com.eiei.mycookerynotes.frames.content.DishPanel;
-import com.eiei.mycookerynotes.managers.DefaultImages;
-import com.eiei.mycookerynotes.managers.Settings;
+import com.eiei.mycookerynotes.settings.DefaultImages;
+import com.eiei.mycookerynotes.settings.Settings;
+import com.eiei.mycookerynotes.settings.TextSettings;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -34,7 +33,7 @@ public class ReceiptEditAndAddFrame extends JFrame{
         setPreferredSize( new Dimension(650, 600));
         setResizable(false);
         JPanel panel = new JPanel();
-        panel.setBackground(Settings.getPrimaryColor());
+        panel.setBackground(Settings.getSecondaryColor().brighter());
         setContentPane(panel);
         panel.setAlignmentY(Component.CENTER_ALIGNMENT);
         getContentPane().setLayout(new BorderLayout());
@@ -79,6 +78,7 @@ public class ReceiptEditAndAddFrame extends JFrame{
         addReceiptBtn.setToolTipText("Добавить рецепт");
         addReceiptBtn.addActionListener(addNewReceiptTab);
         titleLabel = new JLabel("[ " + "Новый рецепт" + " ]");
+        titleLabel.setFont(TextSettings.getRegularPlain(titleLabel));
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         titleLabel.setAlignmentY(Component.CENTER_ALIGNMENT);
         removeReceiptBtn = new JButton(DefaultImages.getDeleteIco());
@@ -92,15 +92,16 @@ public class ReceiptEditAndAddFrame extends JFrame{
 
         //navPanel.setBackground(Color.RED);
 
-        navPanel.add(prevReceiptBtn);
-        navPanel.add(Box.createHorizontalStrut(20));
+       //TODO добавить обратно кнопки и написать для них логику
+       /* navPanel.add(prevReceiptBtn);
+        navPanel.add(Box.createHorizontalStrut(20));*/
         navPanel.add(addReceiptBtn);
         navPanel.add(Box.createHorizontalStrut(10));
         navPanel.add(titleLabel);
         navPanel.add(Box.createHorizontalStrut(10));
         navPanel.add(removeReceiptBtn);
-        navPanel.add(Box.createHorizontalStrut(20));
-        navPanel.add(nextReceiptBtn);
+       /* navPanel.add(Box.createHorizontalStrut(20));
+        navPanel.add(nextReceiptBtn);*/
 
 
     }

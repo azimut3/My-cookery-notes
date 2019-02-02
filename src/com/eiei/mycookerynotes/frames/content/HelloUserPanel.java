@@ -2,9 +2,12 @@ package com.eiei.mycookerynotes.frames.content;
 
 import com.eiei.mycookerynotes.frames.PanelTemplate;
 import com.eiei.mycookerynotes.frames.editAndAddFrames.LogicDishEditAndAddFrame;
-import com.eiei.mycookerynotes.managers.Settings;
+import com.eiei.mycookerynotes.settings.DefaultImages;
+import com.eiei.mycookerynotes.settings.Settings;
+import com.eiei.mycookerynotes.settings.TextSettings;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +16,7 @@ public class HelloUserPanel extends PanelTemplate {
 
     private static JPanel helloUserPanel;
 
-    public HelloUserPanel() {
+    private HelloUserPanel() {
         setLayout(new GridBagLayout());
         Settings.secondaryColorPanels.add(this);
         GridBagConstraints startConstr = new GridBagConstraints();
@@ -21,25 +24,33 @@ public class HelloUserPanel extends PanelTemplate {
         //JPanel helloPanel = new JPanel();
         //setLayout(new BorderLayout());
         JTextArea welcomeLabel = new JTextArea();
-        welcomeLabel.setText("Добро пожаловать \n в мир кулинарии!");
+        welcomeLabel.setText("Добро пожаловать \n  в мир кулинарии!");
         welcomeLabel.setColumns(12);
-        //welcomeLabel.setOpaque(false);
+        welcomeLabel.setOpaque(false);
+        welcomeLabel.setBorder(new LineBorder(new Color(0,0,0, 0)));
         welcomeLabel.setBackground(new Color(0, 0, 0, 0));
+        welcomeLabel.setAlignmentY(JComponent.CENTER_ALIGNMENT);
+        //welcomeLabel.setBackground(new Color(0, 0, 0, 0));
 
-        welcomeLabel.setFont(new Font("Times New Roman", Font.ITALIC, 47));
+        welcomeLabel.setFont(TextSettings.getHelloHeader(welcomeLabel));
         welcomeLabel.setLineWrap(true);
         welcomeLabel.setEditable(false);
+
         JButton addDishBtn = new JButton("<html><center>"+"Добавить" +
                 "<br>" +" блюдо"+"</center></html>");
         setBtnStyle(addDishBtn);
         addDishBtn.addActionListener(addBtnListener);
-        JButton searchBtn = new JButton("Поиск");
+        addDishBtn.setToolTipText("Время добавить рецепт своего любимого блюда!");
+
+        JButton searchBtn = new JButton("Поиск", DefaultImages.getSearchIco());
+        searchBtn.setToolTipText("Поиск по названию, по ингридиентам и т.д.");
         setBtnStyle(searchBtn);
         searchBtn.addActionListener(searchBtnListener);
+
         JButton settingsBtn = new JButton("Настройки");
+        settingsBtn.setToolTipText("Настройки программы");
         setBtnStyle(settingsBtn);
         settingsBtn.addActionListener(settingsBtnListener);
-        settingsBtn.setEnabled(false);
 
         //add(welcomeLabel);
         startConstr.gridx = 0;
@@ -101,7 +112,7 @@ public class HelloUserPanel extends PanelTemplate {
     private ActionListener settingsBtnListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            ContentPanel.showSettingsPanel();
         }
     };
 }

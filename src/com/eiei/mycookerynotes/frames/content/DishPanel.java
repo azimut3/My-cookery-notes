@@ -3,14 +3,14 @@ package com.eiei.mycookerynotes.frames.content;
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
 import com.eiei.mycookerynotes.frames.MainFrame;
-import com.eiei.mycookerynotes.frames.MyMenuBar;
 import com.eiei.mycookerynotes.frames.PanelTemplate;
 import com.eiei.mycookerynotes.frames.ReceiptTextPane;
 import com.eiei.mycookerynotes.frames.editAndAddFrames.LogicDishEditAndAddFrame;
 import com.eiei.mycookerynotes.frames.editAndAddFrames.ReceiptEditAndAddFrame;
-import com.eiei.mycookerynotes.managers.DefaultImages;
 import com.eiei.mycookerynotes.managers.MrChef;
-import com.eiei.mycookerynotes.managers.Settings;
+import com.eiei.mycookerynotes.settings.DefaultImages;
+import com.eiei.mycookerynotes.settings.Settings;
+import com.eiei.mycookerynotes.settings.TextSettings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,52 +21,57 @@ public class DishPanel extends PanelTemplate {
 
     private static JCheckBox isInFavourites;
     private static Dish currentShowedDish;
-    private static JLabel selFavIcon;
+    private static JLabel selFavIcon, dishId, favsLabel, editReceiptLbl, dishTitle;
     private static JLabel deselFavIcon;
 
-    public DishPanel() {
-       setLayout(new GridBagLayout());
-       //setBackground(Settings.getSecondaryColor());
-       Settings.secondaryColorPanels.add(this);
+    private DishPanel() {
+        setLayout(new GridBagLayout());
+        //setBackground(Settings.getSecondaryColor());
+        Settings.secondaryColorPanels.add(this);
     }
 
     public static void showDish(Dish d) {
         JPanel panel = getDishPanel();
         currentShowedDish = d;
-        MyMenuBar.getMyMenuBar().armDishAndReceiptEditors();
+        //MyMenuBar.getMyMenuBar().armDishAndReceiptEditors();
         GridBagConstraints constr = new GridBagConstraints();
 
         panel.removeAll();
 
-        JLabel dishImage = d.getDishImage();
-        JLabel dishId = new JLabel("id:" + String.valueOf(d.getId()));
+        JLabel dishImage = new JLabel(d.getDishImage());
+        dishId = new JLabel("id:" + String.valueOf(d.getId()));
         ImageIcon editIcon = DefaultImages.getEditIco();
         JLabel editDishLbl = new JLabel(editIcon);
+        editDishLbl.setToolTipText("Редактировать Блюдо");
         editDishLbl.addMouseListener(editDishListener);
         ImageIcon deleteIcon = DefaultImages.getDeleteIco();
         JLabel deleteDishLbl = new JLabel(deleteIcon);
+        deleteDishLbl.setToolTipText("Удалить блюдо");
         deleteDishLbl.addMouseListener(deleteDishListener);
-        ImageIcon addIcon = DefaultImages.getAddIco();
-        JLabel addReceiptIco = new JLabel(addIcon);
-        addReceiptIco.addMouseListener(addReceiptListener);
-        JLabel dishTitle = new JLabel(d.getDishTitle());
+        dishTitle = new JLabel(d.getDishTitle());
         //dishTitle.setHorizontalTextPosition(SwingConstants.LEFT);
-        dishTitle.setFont(new Font("Times New Roman", Font.BOLD, 18));
+        dishTitle.setFont(TextSettings.getHeader(dishTitle));
         isInFavourites = new JCheckBox(/*"Избранное"*/);
         isInFavourites.setIcon(d.isInFavourites() ?
                 DefaultImages.getDefSelFavIco() : DefaultImages.getDefDeselFavIco());
         isInFavourites.setBackground(getDishPanel().getBackground());
         isInFavourites.setSelected(d.isInFavourites());
-        isInFavourites.setToolTipText("Избранное");
+        isInFavourites.setToolTipText("Добавить в избранное");
         isInFavourites.addItemListener(favAddOrRemoveListener(d));
-        JLabel favsLabel = new JLabel("Рецепты:");
-        favsLabel.setFont(new Font("Times New Roman", Font.BOLD, 16 ));
-        JLabel editReceiptLbl = new JLabel(editIcon);
+        favsLabel = new JLabel("Рецепты:");
+        favsLabel.setFont(TextSettings.getMinorHeader(favsLabel));
+        ImageIcon addIcon = DefaultImages.getAddIco();
+        JLabel addReceiptIco = new JLabel(addIcon);
+        addReceiptIco.addMouseListener(addReceiptListener);
+        addReceiptIco.setToolTipText("Добавить рецепты");
+        editReceiptLbl = new JLabel(editIcon);
+        editReceiptLbl.setToolTipText("Редактировать рецепты");
         editReceiptLbl.addMouseListener(editReceiptListener);
         JLabel deleteReceiptLbl = new JLabel(deleteIcon);
         //deleteReceiptLbl.addMouseListener(deleteReceiptListener);
 
         JTextArea descriptionArea = new JTextArea(d.getDishDescription());
+        descriptionArea.setFont(TextSettings.getRegularPlain(descriptionArea));
         descriptionArea.setMinimumSize(new Dimension(300, 150));
         descriptionArea.setMaximumSize(new Dimension(300, 150));
         descriptionArea.setPreferredSize(new Dimension(300, 150));
@@ -141,7 +146,7 @@ public class DishPanel extends PanelTemplate {
             constr.gridy = gridLineNum;
             constr.gridx = 0;
             constr.gridwidth = 1;
-            constr.insets = new Insets(20, 30, 3, 7);
+            constr.insets = new Insets(10, 30, 3, 7);
             panel.add(getReceipt(d.receiptsList.get(i)), constr);
         }
 
@@ -149,15 +154,7 @@ public class DishPanel extends PanelTemplate {
 
         constr.insets = new Insets(0, 0, 0, 0);
 
-        //JLabel bottomFiller1 = new JLabel("");
-        /*constr.gridx = 6;
-        constr.gridy = 0;
-        constr.weightx = 1;
-        constr.weighty = 0;
-        constr.gridwidth = 1;
-        panel.add(Box.createHorizontalStrut(1), constr);*/
 
-        //JLabel bottomFiller2 = new JLabel("");
         constr.gridx = 6;
         constr.gridy = 20;
         constr.weightx = 0.5;
@@ -195,18 +192,15 @@ public class DishPanel extends PanelTemplate {
     }
 
     private static ReceiptTextPane getReceipt(Receipt receipt) {
-
         ReceiptTextPane receiptTextPane = new ReceiptTextPane(receipt);
         Dimension minSize = new Dimension(300,  200);
         Dimension prefSize = new Dimension(300,  200);
         Dimension maxSize = new Dimension(400, 700);
-        //receiptTextPane.setMaximumSize(maxSize);
         receiptTextPane.setMinimumSize(minSize);
-        //receiptTextPane.setPreferredSize(prefSize);
         receiptTextPane.setBorder(BorderFactory.createLoweredSoftBevelBorder());
-        Color rcpColor = getDishPanel().getBackground();
-        receiptTextPane.setBackground(rcpColor.brighter());
+        receiptTextPane.setBackground(Settings.getSecondaryColor().brighter());
         receiptTextPane.setEditable(false);
+
         return receiptTextPane;
     }
 

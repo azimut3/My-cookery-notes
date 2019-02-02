@@ -3,7 +3,8 @@ package com.eiei.mycookerynotes.frames;
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.frames.content.ContentPanel;
 import com.eiei.mycookerynotes.managers.MrChef;
-import com.eiei.mycookerynotes.managers.Settings;
+import com.eiei.mycookerynotes.settings.Settings;
+import com.eiei.mycookerynotes.settings.TextSettings;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -19,6 +20,7 @@ public class ReceiptPanel extends PanelTemplate {
     private ArrayList<JLabel> favList = new ArrayList<>();
     private JList<String> favDishList;
     private JList<String> dishList;
+    private JLabel favouritesLabel, dishesLabel;
 
     private static GridBagConstraints cons = new GridBagConstraints();
 
@@ -37,20 +39,22 @@ public class ReceiptPanel extends PanelTemplate {
     /**
      * In this method {@link #addDummyComponents(JPanel) dummy components} are added
      */
-    public void setReceiptPanel() {
+    private void setReceiptPanel() {
         addDummyComponents(this);
-        cons.gridy = 0;
-        cons.gridx = 1;
+
         addFavourites();
         addDishes();
         //add(Box.createHorizontalStrut(180));
     }
 
-    public void addFavourites() {
+    private void addFavourites() {
         cons.insets = new Insets(10, 5,5,5);
         if (!MrChef.FavouriteList.isEmpty()) {
-            JLabel favouritesLabel = new JLabel("Избранное:");
+            favouritesLabel = new JLabel("Избранное:");
+            favouritesLabel.setFont(TextSettings.getRegularBold(favouritesLabel));
             favouritesLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+            cons.gridy = 0;
+            cons.gridx = 1;
             add(favouritesLabel, cons);
             //add(Box.createVerticalStrut(5));
             favouritesLabel.setVisible(true);
@@ -58,7 +62,10 @@ public class ReceiptPanel extends PanelTemplate {
             favDishList = new JList<String>(MrChef.FavouriteList.getStringCollection());
             favDishList.addListSelectionListener(myFavListListener);
             favDishList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            cons.gridy++;
+            favDishList.setCellRenderer(new MyCellRenderer());
+            favDishList.setFont(TextSettings.getRegularPlain(favDishList));
+            favDishList.setOpaque(false);
+            cons.gridy = 1;
             cons.insets = new Insets(5, 5, 5, 5);
             add(favDishList, cons);
 
@@ -66,10 +73,11 @@ public class ReceiptPanel extends PanelTemplate {
         }
     }
 
-    public void addDishes() {
-        cons.gridy++;
+    private void addDishes() {
+        cons.gridy = 2;
 //        add(Box.createVerticalStrut(5));
-        JLabel dishesLabel = new JLabel("Список блюд:");
+        dishesLabel = new JLabel("Список блюд:");
+        dishesLabel.setFont(TextSettings.getRegularBold(dishesLabel));
         dishesLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(dishesLabel, cons);
         //add(Box.createVerticalStrut(5));
@@ -77,7 +85,10 @@ public class ReceiptPanel extends PanelTemplate {
         dishList = new JList<String>(MrChef.ReceiptList.getStringCollection());
         dishList.addListSelectionListener(myReceiptListListener);
         dishList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        cons.gridy++;
+        dishList.setCellRenderer(new MyCellRenderer());
+        dishList.setFont(TextSettings.getRegularPlain(dishList));
+        dishList.setOpaque(false);
+        cons.gridy = 3;
         add(dishList, cons);
     }
 
@@ -122,10 +133,17 @@ public class ReceiptPanel extends PanelTemplate {
     };
 
     public void renewFavourites() {
-        this.removeAll();
-        this.setReceiptPanel();
-        MainFrame.getMainFrame().getReceiptMenu().revalidate();
-        MainFrame.getMainFrame().getReceiptMenu().repaint();
+        //this.removeAll();
+        //this.setReceiptPanel();
+        getReceiptPanel().remove(favDishList);
+        getReceiptPanel().remove(favouritesLabel);
+        getReceiptPanel().remove(dishList);
+        getReceiptPanel().remove(dishesLabel);
+        addFavourites();
+        addDishes();
+
+        getReceiptPanel().revalidate();
+        getReceiptPanel().repaint();
     }
 
     public static ReceiptPanel getReceiptPanel() {
@@ -150,5 +168,49 @@ public class ReceiptPanel extends PanelTemplate {
         dummyCons.weighty = 0.5;
         panel.add(Box.createHorizontalStrut(150), dummyCons);
 
+    }
+
+    class MyCellRenderer extends JLabel implements ListCellRenderer<Object> {
+        public MyCellRenderer() {
+            setOpaque(false);
+        }
+
+        public Component getListCellRendererComponent(JList<?> list,
+                                                      Object value,
+                                                      int index,
+                                                      boolean isSelected,
+                                                      boolean cellHasFocus) {
+
+            setText(value.toString());
+            setFont(TextSettings.getRegularPlain(favDishList));
+
+            Color background;
+            Color foreground = Settings.textColorMap.get(Settings.getTheme());
+
+            // check if this cell represents the current DnD drop location
+            //JList.DropLocation dropLocation = list.getDropLocation();
+            /*if (dropLocation != null
+                    && !dropLocation.isInsert()
+                    && dropLocation.getIndex() == index) {
+
+                background = Color.BLUE;
+                foreground = Color.WHITE;
+
+                // check if this cell is selected
+            } else if (isSelected) {
+                background = Color.RED;
+                foreground = Color.WHITE;
+
+                // unselected, and not the DnD drop location
+            } else {
+                background = Color.WHITE;
+                foreground = Color.BLACK;
+            };*/
+
+            //setBackground(background);
+            setForeground(foreground);
+
+            return this;
+        }
     }
 }

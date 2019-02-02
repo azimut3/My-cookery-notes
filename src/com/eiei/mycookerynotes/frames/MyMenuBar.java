@@ -1,14 +1,10 @@
 package com.eiei.mycookerynotes.frames;
 
 import com.eiei.mycookerynotes.frames.content.ContentPanel;
-import com.eiei.mycookerynotes.frames.content.DishPanel;
-import com.eiei.mycookerynotes.frames.content.SearchPanel;
-import com.eiei.mycookerynotes.frames.editAndAddFrames.DeleteDishDialog;
 import com.eiei.mycookerynotes.frames.editAndAddFrames.LogicDishEditAndAddFrame;
-import com.eiei.mycookerynotes.frames.editAndAddFrames.ReceiptEditAndAddFrame;
+import com.eiei.mycookerynotes.settings.DefaultImages;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,55 +14,19 @@ public class MyMenuBar extends JMenuBar {
     private JMenuItem addDish, addReceipts, editDish, deleteDish, editReceipts, search;
 
     private MyMenuBar() {
-        setBackground(Color.GREEN);
-        home = new JMenu("Главная");
-        home.setIcon(new ImageIcon("data/imgs/icons/closeIco15x15.png"));
+        JToolBar toolBar = new JToolBar();
+        toolBar.setFloatable(false);
 
-        receiptMenu = new JMenu("Рецепты");
-        editMenu = new JMenu("Редактировать");
-        toolsMenu = new JMenu("Инструменты");
-        settingsMenu = new JMenu("Настройки");
-        //TODO добавить и включить панель настроек
-        settingsMenu.setEnabled(false);
+        JButton homePageBtn = new JButton(DefaultImages.getHomeIco());
+        homePageBtn.addActionListener(myMainPanelListener);
 
-        addDish = new JMenuItem("Добавить блюдо");
-        addReceipts = new JMenuItem("Добавить рецепт");
-        addReceipts.setEnabled(false);
+        JButton searchBtn = new JButton(DefaultImages.getSearchIco());
+        searchBtn.addActionListener(mySearchListener);
 
-        receiptMenu.add(addDish);
-        receiptMenu.add(addReceipts);
+        toolBar.add(homePageBtn);
+        toolBar.add(searchBtn);
+        add(toolBar);
 
-        editDish = new JMenuItem("Ред. блюдо");
-        editReceipts = new JMenuItem("Ред. рецепты");
-        deleteDish = new JMenuItem("Удалить блюдо");
-        deleteDish.setEnabled(false);
-        editDish.setEnabled(false);
-        editReceipts.setEnabled(false);
-
-        //editMenu.add(editDish);
-        //editMenu.add(editReceipts);
-        //editMenu.add(deleteDish);
-        JButton main = new JButton("main");
-        main.addActionListener(myMainPanelListener);
-        main.setPreferredSize(new Dimension(40, 15));
-        add(main);
-
-        search = new JMenuItem("Поиск");
-        search.addActionListener(mySearchListener);
-        toolsMenu.add(search);
-
-        //add(home);
-        //add(receiptMenu);
-        //add(editMenu);
-        //add(toolsMenu);
-        //add(settingsMenu);
-
-        home.addActionListener(myMainPanelListener);
-        editDish.addActionListener(myEditDishListener);
-        addDish.addActionListener(myAddDishListener);
-        deleteDish.addActionListener(deleteDishListener);
-        addReceipts.addActionListener(myAddReceiptListener);
-        editReceipts.addActionListener(myAddReceiptListener);
     }
 
     public static MyMenuBar getMyMenuBar() {
@@ -74,26 +34,16 @@ public class MyMenuBar extends JMenuBar {
         return myMenuBar;
     }
 
-    public void armDishAndReceiptEditors() {
-        if (!addReceipts.isEnabled()) addReceipts.setEnabled(true);
-        if (!editDish.isEnabled()) editDish.setEnabled(true);
-        if (!deleteDish.isEnabled()) deleteDish.setEnabled(true);
-        if (!editReceipts.isEnabled())editReceipts.setEnabled(true);
-    }
 
-    public void disarmDishAndReceiptEditors() {
-        if (addReceipts.isEnabled()) addReceipts.setEnabled(false);
-        if (editDish.isEnabled()) editDish.setEnabled(false);
-        if (deleteDish.isEnabled()) deleteDish.setEnabled(false);
-        if (editReceipts.isEnabled())editReceipts.setEnabled(false);
-    }
 
-    ActionListener myEditDishListener = new ActionListener() {
+
+
+  /*  ActionListener myEditDishListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             LogicDishEditAndAddFrame.openDishEditFrame();
         }
-    };
+    };*/
     ActionListener myAddDishListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -101,7 +51,7 @@ public class MyMenuBar extends JMenuBar {
         }
     };
 
-    ActionListener deleteDishListener = new ActionListener() {
+   /* ActionListener deleteDishListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             String dishTitle = "Вы уверены что хотите удалить " +
@@ -123,14 +73,14 @@ public class MyMenuBar extends JMenuBar {
 
         }
 
-    };
+    };*/
 
-    ActionListener myAddReceiptListener = new ActionListener() {
+    /*ActionListener myAddReceiptListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             new ReceiptEditAndAddFrame(DishPanel.getDish());
         }
-    };
+    };*/
 
     ActionListener mySearchListener = new ActionListener() {
         @Override

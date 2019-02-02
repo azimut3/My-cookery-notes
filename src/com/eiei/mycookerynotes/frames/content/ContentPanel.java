@@ -3,15 +3,9 @@ package com.eiei.mycookerynotes.frames.content;
 
 
 import com.eiei.mycookerynotes.Dish;
-import com.eiei.mycookerynotes.Receipt;
 import com.eiei.mycookerynotes.frames.*;
-import com.eiei.mycookerynotes.managers.DefaultImages;
-import com.eiei.mycookerynotes.managers.MrChef;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 public class ContentPanel extends PanelTemplate {
     private static ContentPanel contentPanel;
@@ -30,6 +24,7 @@ public class ContentPanel extends PanelTemplate {
        add(HelloUserPanel.getHelloUserPanel(), "hello_panel");
        add(DishPanel.getDishPanel(), "dish_panel");
        add(SearchPanel.getSearchPanelInstance(), "search_panel");
+       add(SettingsPanel.getSettingsPanelInstance(), "settings_panel");
     }
 
     public static void showPanel(String s) {
@@ -52,6 +47,11 @@ public class ContentPanel extends PanelTemplate {
 
     public static void showSearchPanel() {
         showPanel("search_panel");
+    }
+
+    public static void showSettingsPanel() {
+        showPanel("settings_panel");
+        SettingsPanel.setSettingsPanelPreset();
     }
 
     @Override

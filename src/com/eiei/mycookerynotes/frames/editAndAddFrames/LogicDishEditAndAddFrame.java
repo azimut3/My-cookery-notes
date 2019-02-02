@@ -4,10 +4,9 @@ import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.frames.MainFrame;
 import com.eiei.mycookerynotes.frames.content.ContentPanel;
 import com.eiei.mycookerynotes.frames.content.DishPanel;
-import com.eiei.mycookerynotes.managers.FieldRules;
+import com.eiei.mycookerynotes.settings.FieldRules;
 import com.eiei.mycookerynotes.managers.MrChef;
 import com.eiei.mycookerynotes.managers.Saver;
-import com.eiei.mycookerynotes.managers.Settings;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -27,7 +26,7 @@ public class LogicDishEditAndAddFrame {
      * Creates a template frame {@link DishEditAndAddFrame}
      */
     public static void openDishEditFrame() {
-        dishEditFrame = new DishEditAndAddFrame();
+        dishEditFrame = DishEditAndAddFrame.getDishEditAndAddFrame();
         d = DishPanel.getDish();
         dishEditFrame.setTitle("Редактирование: " + d.getDishTitle());
         dishEditFrame.setVisible(true);
@@ -51,7 +50,7 @@ public class LogicDishEditAndAddFrame {
      * Sets {@link DishEditAndAddFrame} for adding a new dish
      */
     public static void openDishAddFrame() {
-        dishEditFrame = new DishEditAndAddFrame();
+        dishEditFrame = DishEditAndAddFrame.getDishEditAndAddFrame();
         dishEditFrame.setTitle("Новое блюдо...");
         dishEditFrame.setFavsBox(false);
         dishEditFrame.setVisible(true);
@@ -88,7 +87,7 @@ public class LogicDishEditAndAddFrame {
         } else filled = false;
         //TODO добавить изображение и описание
         if (filled) {
-            frame.dispose();
+            frame.setVisible(false);
             if (!MrChef.ReceiptList.contains(editedDish)) {
                 Saver.saveDish(editedDish);
                 MrChef.ReceiptList.add(editedDish);

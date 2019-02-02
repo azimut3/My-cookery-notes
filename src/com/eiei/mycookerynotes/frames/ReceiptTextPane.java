@@ -1,20 +1,23 @@
 package com.eiei.mycookerynotes.frames;
 
 import com.eiei.mycookerynotes.Receipt;
-import com.eiei.mycookerynotes.managers.StylesForTextPanes;
+import com.eiei.mycookerynotes.settings.Settings;
+import com.eiei.mycookerynotes.settings.StylesForTextPanes;
+import com.eiei.mycookerynotes.settings.TextSettings;
 
 import javax.swing.*;
+import javax.swing.plaf.nimbus.AbstractRegionPainter;
 import javax.swing.text.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class ReceiptTextPane extends JTextPane {
-
     private StyledDocument doc = this.getStyledDocument();
     private String[] listOfIngredients;
     private String[] stylesOfDocument;
 
     public ReceiptTextPane(Receipt receipt) {
-
+        //getUI().
         String[] fullListWithIngr = getListOfIngredients(receipt);
         StyledDocument doc = this.getStyledDocument();
         addStylesToDocument(doc);
@@ -30,31 +33,10 @@ public class ReceiptTextPane extends JTextPane {
 
 
     private void addStylesToDocument(StyledDocument doc) {
-
-        StylesForTextPanes.setRegular(doc);
-        StylesForTextPanes.setHeader(doc);
-        StylesForTextPanes.setNormalItalic(doc);
-        StylesForTextPanes.setSmallItalic(doc);
-        /*Style def = StyleContext.getDefaultStyleContext().
-                getStyle(StyleContext.DEFAULT_STYLE);
-        //for full screen (1400x900) textPane with receipts
-        Style regular = doc.addStyle("regular", def);
-        StyleConstants.setAlignment(regular, StyleConstants.ALIGN_JUSTIFIED);
-        StyleConstants.setFontSize(regular, 14);
-        StyleConstants.setFontFamily(regular, "Times New Roman");
-
-
-        Style normalItalic = doc.addStyle("normalItalic", regular);
-        StyleConstants.setItalic(normalItalic, true);
-
-        Style smallItalic = doc.addStyle("smallItalic", normalItalic);
-        StyleConstants.setFontSize(smallItalic, 12);
-
-        Style header = doc.addStyle("header", regular);
-        StyleConstants.setBold(header, true);
-        StyleConstants.setAlignment(header, StyleConstants.ALIGN_CENTER);
-        StyleConstants.setFontSize(header, 17);*/
-
+        TextSettings.setRegular(doc, this);
+        TextSettings.setHeader(doc, this);
+        TextSettings.setNormalItalic(doc, this);
+        TextSettings.setSmallItalic(doc, this);
     }
 
     private String[] getListOfIngredients(Receipt receipt) {

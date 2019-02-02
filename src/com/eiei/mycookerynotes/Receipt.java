@@ -1,6 +1,6 @@
 package com.eiei.mycookerynotes;
 
-import com.eiei.mycookerynotes.managers.FieldRules;
+import com.eiei.mycookerynotes.settings.FieldRules;
 
 import java.util.ArrayList;
 
@@ -26,6 +26,25 @@ public class Receipt {
     /**     * An ArrayList containing units of quantities of ingredients for receipt    */
     public ArrayList<String> measures = new ArrayList<>();
 
+    public Receipt() {
+    }
+
+    public Receipt(Dish dish, String title, int persons, double weight, int cookingTime) {
+        setDish(dish);;
+        setReceiptTitle(title);
+        setNumberOfPersons(persons);
+        setWeightOfDish(weight);
+        setTimeForCooking(cookingTime);
+    }
+
+    /**
+     * Adds new set of ingredient, quantity and it's unit to the receipt
+     */
+    public void addIngredient(String ingredient, String quantity, String unit) {
+        ingredients.add(ingredient);
+        quantities.add(quantity);
+        measures.add(unit);
+    }
     /**
      * Returns the parent dish
      * @return the parent dish
@@ -124,7 +143,7 @@ public class Receipt {
 
     /**
      * This method represents a receipt as a String <b>Do NOT</b> change anything until the saving/loading method
-     * will be changed. It is used to save dishes' data
+     * will be changed. It is used to saveProperties dishes' data
      * @return String representation of the receipt
      */
     @Override

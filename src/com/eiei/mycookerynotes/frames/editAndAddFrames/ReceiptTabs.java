@@ -5,9 +5,10 @@ import com.eiei.mycookerynotes.Receipt;
 import com.eiei.mycookerynotes.frames.MainFrame;
 import com.eiei.mycookerynotes.frames.content.ContentPanel;
 import com.eiei.mycookerynotes.frames.content.DishPanel;
-import com.eiei.mycookerynotes.managers.FieldRules;
-import com.eiei.mycookerynotes.managers.IngrUnits;
-import com.eiei.mycookerynotes.managers.Settings;
+import com.eiei.mycookerynotes.settings.FieldRules;
+import com.eiei.mycookerynotes.settings.IngrUnits;
+import com.eiei.mycookerynotes.settings.Settings;
+import com.eiei.mycookerynotes.settings.TextSettings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -54,7 +55,8 @@ public class ReceiptTabs extends JPanel {
         setMinimumSize(tabSize);
         setMaximumSize(new Dimension(500, 1000));
         setVisible(true);
-        setBackground(new Color(189, 204, 167));
+        //setBackground(new Color(189, 204, 167));
+        setBackground(Settings.getSecondaryColor());
 
         GridBagLayout gridBagLayout = new GridBagLayout();
         setLayout(gridBagLayout);
@@ -81,6 +83,7 @@ public class ReceiptTabs extends JPanel {
         rightC.gridwidth = 2;
 
         receiptTitleLabel = new JLabel("Название рецепта");
+        receiptTitleLabel.setFont(TextSettings.getRegularPlain(receiptTitleLabel));
         add(receiptTitleLabel, leftC);
 
         rightC.gridwidth = 4;
@@ -102,31 +105,51 @@ public class ReceiptTabs extends JPanel {
         leftC.gridy = 1;
         leftC.insets = new Insets(10, 10, 10, 5);
         numberOfPersonsLabel = new JLabel("Кол-во персон");
+        numberOfPersonsLabel.setFont(TextSettings.getRegularPlain(numberOfPersonsLabel));
         add(numberOfPersonsLabel, leftC);
 
-        rightC.gridy = 1;
-        rightC.insets = new Insets(10, 10, 10, 5);
         numberOfPersonsField = new JFormattedTextField(FieldRules.createNumFormatter("##"));
         numberOfPersonsField.setFocusLostBehavior(JFormattedTextField.COMMIT);
         numberOfPersonsField.setPreferredSize(textFieldDimensionSmall);
         numberOfPersonsField.setMinimumSize(textFieldDimensionSmall);
         numberOfPersonsField.setMinimumSize(textFieldDimensionSmall);
-        add(numberOfPersonsField, rightC);
+        rightC.gridy = 1;
+        rightC.gridx = 1;
+        rightC.gridwidth = 1;
+        rightC.insets = new Insets(10, 10, 10, 5);
+        JLabel numberOfPersonsUnit = new JLabel("(чел.)");
+        numberOfPersonsUnit.setFont(TextSettings.getRegularItalic(numberOfPersonsUnit));
+        JPanel numberOfPersonsPanel = new JPanel();
+        numberOfPersonsPanel.add(numberOfPersonsField);
+        numberOfPersonsPanel.add(numberOfPersonsUnit);
+        numberOfPersonsPanel.setOpaque(false);
+        add(numberOfPersonsPanel, rightC);
+
+
 
         leftC.gridy = 2;
         weightOfDishLabel = new JLabel("Вес блюда");
+        weightOfDishLabel.setFont(TextSettings.getRegularPlain(weightOfDishLabel));
         add(weightOfDishLabel, leftC);
 
         rightC.gridy = 2;
+        rightC.gridx = 1;
         weightOfDishField = new JFormattedTextField(FieldRules.createNumFormatter("*****"));
         weightOfDishField.setFocusLostBehavior(JFormattedTextField.COMMIT);
         weightOfDishField.setPreferredSize(textFieldDimensionSmall);
         weightOfDishField.setMinimumSize(textFieldDimensionSmall);
         weightOfDishField.setMinimumSize(textFieldDimensionSmall);
-        add(weightOfDishField, rightC);
+        JLabel  weightOfDishUnit = new JLabel("(г.)");
+        weightOfDishUnit.setFont(TextSettings.getRegularItalic(weightOfDishUnit));
+        JPanel  weightOfDishPanel = new JPanel();
+        weightOfDishPanel.add(weightOfDishField);
+        weightOfDishPanel.add(weightOfDishUnit);
+        weightOfDishPanel.setOpaque(false);
+        add(weightOfDishPanel, rightC);
 
         leftC.gridy = 3;
         timeForCookingLabel = new JLabel("Время готовки");
+        timeForCookingLabel.setFont(TextSettings.getRegularPlain(timeForCookingLabel));
         add(timeForCookingLabel, leftC);
 
         rightC.gridy = 3;
@@ -135,7 +158,13 @@ public class ReceiptTabs extends JPanel {
         timeForCookingField.setPreferredSize(textFieldDimensionSmall);
         timeForCookingField.setMinimumSize(textFieldDimensionSmall);
         timeForCookingField.setMinimumSize(textFieldDimensionSmall);
-        add(timeForCookingField, rightC);
+        JLabel timeForCookingUnit = new JLabel("(мин.)");
+        timeForCookingUnit.setFont(TextSettings.getRegularItalic(timeForCookingUnit));
+        JPanel timeForCookingPanel = new JPanel();
+        timeForCookingPanel.add(timeForCookingField);
+        timeForCookingPanel.add(timeForCookingUnit);
+        timeForCookingPanel.setOpaque(false);
+        add(timeForCookingPanel, rightC);
 
         if (receipt != null) {
             receiptTitleField.setText(receipt.getReceiptTitle());
@@ -146,23 +175,28 @@ public class ReceiptTabs extends JPanel {
 
         leftC.gridy = 4;
         ingrBlockLabel = new JLabel("Ингридиенты:");
+        ingrBlockLabel.setFont(TextSettings.getRegularPlain(ingrBlockLabel));
         add(ingrBlockLabel, leftC);
 
         leftC.gridy = 5;
         numerationLabel = new JLabel("№");
+        numerationLabel.setFont(TextSettings.getRegularPlain(numerationLabel));
         add(numerationLabel, leftC);
 
         leftC.gridx = 1;
         leftC.anchor = GridBagConstraints.CENTER;
         ingrLabel = new JLabel("Наим. ингр.");
+        ingrLabel.setFont(TextSettings.getRegularPlain(ingrLabel));
         add(ingrLabel, leftC);
 
         leftC.gridx = 2;
         quantityLabel = new JLabel("Кол-во");
+        quantityLabel.setFont(TextSettings.getRegularPlain(quantityLabel));
         add(quantityLabel, leftC);
 
         leftC.gridx = 3;
         unitLabeL = new JLabel("Ед. изм.");
+        unitLabeL.setFont(TextSettings.getRegularPlain(unitLabeL));
         add(unitLabeL, leftC);
         leftC.anchor = GridBagConstraints.EAST;
 
@@ -196,6 +230,7 @@ public class ReceiptTabs extends JPanel {
         leftC.weighty = 0;
         leftC.anchor = GridBagConstraints.EAST;
         numberLabel = new JLabel(String.valueOf(num) + ".");
+        numberLabel.setFont(TextSettings.getRegularPlain(numberLabel));
         add(numberLabel, leftC);
         labelArr.add(numberLabel);
 
@@ -229,7 +264,7 @@ public class ReceiptTabs extends JPanel {
     private void setFieldValues(int numm) {
         ingredientsArr.get(numm).setText(receipt.ingredients.get(numm));
         ingrQuantityArr.get(numm).setText(receipt.quantities.get(numm));
-        boxArr.get(numm).setSelectedItem(receipt.ingredients.get(numm));
+        boxArr.get(numm).setSelectedItem(receipt.measures.get(numm));
     }
 
     ActionListener addingIngridientListener = new ActionListener() {
@@ -270,11 +305,13 @@ public class ReceiptTabs extends JPanel {
         leftC.gridy = 51;
         leftC.anchor = GridBagConstraints.NORTH;
         addIngrBtn = new JButton("( + )");
+        addIngrBtn.setToolTipText("Добавить ингридиент");
         addIngrBtn.addActionListener(addingIngridientListener);
         add(addIngrBtn, leftC);
 
         leftC.gridx = 2;
         removeIngrBtn = new JButton("( - )");
+        removeIngrBtn.setToolTipText("Удалить ингридиент");
         removeIngrBtn.addActionListener(removingIngridientListener);
         add(removeIngrBtn, leftC);
     }
