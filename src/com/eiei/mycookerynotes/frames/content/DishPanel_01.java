@@ -1,3 +1,4 @@
+/*
 package com.eiei.mycookerynotes.frames.content;
 
 import com.eiei.mycookerynotes.Dish;
@@ -51,7 +52,9 @@ public class DishPanel_01 extends PanelTemplate {
         dishTitle = new JLabel(d.getDishTitle());
         //dishTitle.setHorizontalTextPosition(SwingConstants.LEFT);
         dishTitle.setFont(TextSettings.getHeader(dishTitle));
-        isInFavourites = new JCheckBox(/*"Избранное"*/);
+        isInFavourites = new JCheckBox(*/
+/*"Избранное"*//*
+);
         isInFavourites.setIcon(d.isInFavourites() ?
                 DefaultImages.getDefSelFavIco() : DefaultImages.getDefDeselFavIco());
         isInFavourites.setBackground(getDishPanel().getBackground());
@@ -99,8 +102,10 @@ public class DishPanel_01 extends PanelTemplate {
         receiptHead.add(addReceiptIco);
         receiptHead.add(Box.createHorizontalStrut(6));
         receiptHead.add(editReceiptLbl);
-        /*receiptHead.add(Box.createHorizontalStrut(6));
-        receiptHead.add(deleteReceiptLbl);*/
+        */
+/*receiptHead.add(Box.createHorizontalStrut(6));
+        receiptHead.add(deleteReceiptLbl);*//*
+
 
         constr.gridx = 0;
         constr.gridy = 0;
@@ -260,3 +265,4 @@ public class DishPanel_01 extends PanelTemplate {
         getDishPanel().repaint();
     }
 }
+*/

@@ -71,7 +71,6 @@ public class LogicDishEditAndAddFrame {
      * @param frame {@link #dishEditFrame} (deprecated)
      * @param editedDish {@link #d} (deprecated)
      */
-    //TODO переписать параметры метода на статические для класса
     public static void saveChanges(DishEditAndAddFrame frame, Dish editedDish) {
         //saveNewDish(frame, editedDish);
         if (editedDish == null) editedDish = new Dish();

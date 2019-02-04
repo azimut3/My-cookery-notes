@@ -73,6 +73,4 @@ public class FrameTemplate extends JFrame {
         return MAX_FRAME_WIDTH;
     }
 
-    //TODO поменять шрифт у фрейма на красивенький //Font titleFont = new Font();
-
 }

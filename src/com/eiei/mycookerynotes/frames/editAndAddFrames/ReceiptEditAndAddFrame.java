@@ -72,7 +72,6 @@ public class ReceiptEditAndAddFrame extends JFrame{
     }
 
    private void addNavigationPanelComponents(JPanel navPanel){
-//TODO добавить функции перелистывания к кнопкам
         prevReceiptBtn = new JButton("<<<");
         addReceiptBtn = new JButton(DefaultImages.getAddIco());
         addReceiptBtn.setToolTipText("Добавить рецепт");

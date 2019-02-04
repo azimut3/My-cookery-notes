@@ -101,7 +101,6 @@ public class ReceiptTabs extends JPanel {
         add(saveBtn,rightC);
         rightC.gridx = 1;
 
-        //TODO Добавить юниты: минуты, грамы, чел.
         leftC.gridy = 1;
         leftC.insets = new Insets(10, 10, 10, 5);
         numberOfPersonsLabel = new JLabel("Кол-во персон");

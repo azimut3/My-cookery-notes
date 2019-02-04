@@ -5,7 +5,7 @@ import com.eiei.mycookerynotes.settings.FieldRules;
 import java.util.ArrayList;
 
 /**
- * THis class represents a receipt of dish
+ * This class represents a receipt of dish
  */
 public class Receipt {
     /**     * A link to a parent dish     */
@@ -25,6 +25,9 @@ public class Receipt {
     public ArrayList<String> quantities = new ArrayList<>();
     /**     * An ArrayList containing units of quantities of ingredients for receipt    */
     public ArrayList<String> measures = new ArrayList<>();
+
+    /**     * An ArrayList containing receipt cooking sequence dish    */
+    private ArrayList<ReceiptStage> cookingSequance = new ArrayList<>();
 
     public Receipt() {
     }
@@ -139,6 +142,10 @@ public class Receipt {
             list.add(builder.toString());
         }
         return list;
+    }
+
+    public ArrayList<ReceiptStage> getCookingSequance() {
+        return cookingSequance;
     }
 
     /**

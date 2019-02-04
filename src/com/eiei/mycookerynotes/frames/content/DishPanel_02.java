@@ -1,3 +1,4 @@
+/*
 package com.eiei.mycookerynotes.frames.content;
 
 import com.eiei.mycookerynotes.Dish;
@@ -26,7 +27,6 @@ public class DishPanel_02 extends PanelTemplate {
     private static JTextArea descriptionArea;
     private static ArrayList<ReceiptTextPane> receiptBlocksArray = new ArrayList<>();
 
-    //TODO найти баг связанный с избранным
     private DishPanel_02() {
         setLayout(new GridBagLayout());
         //setBackground(Settings.getSecondaryColor());
@@ -48,7 +48,9 @@ public class DishPanel_02 extends PanelTemplate {
         deleteDishLbl.addMouseListener(deleteDishListener);
 
         dishTitle.setFont(TextSettings.getHeader(dishTitle));
-        isInFavourites = new JCheckBox(/*"Избранное"*/);
+        isInFavourites = new JCheckBox(*/
+/*"Избранное"*//*
+);
         isInFavourites.setOpaque(false);
         isInFavourites.setToolTipText("Добавить в избранное");
         favsLabel = new JLabel("Рецепты:");
@@ -267,3 +269,4 @@ public class DishPanel_02 extends PanelTemplate {
         getDishPanel().repaint();
     }
 }
+*/
