@@ -2,6 +2,7 @@ package com.eiei.mycookerynotes.managers;
 
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
+import com.eiei.mycookerynotes.ReceiptStage;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -11,6 +12,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
+import java.util.TreeMap;
 
 /**
  * This class handles the process of loading dishes from database
@@ -20,11 +22,11 @@ public class Loader {
     private static ArrayList<Path> pathList = new ArrayList<>();
     private static Path dishFile;
     private static Path receiptsFile;
+    private static Path receiptSequancePath;
 
     public static void loadDishes() {
         try {
             if (Files.notExists(MrChef.getDishDatabaseDir())) {
-                //new FilePermission(MrChef.getDishDatabaseDir().toString(), "read,write");
                 Files.createDirectories(MrChef.getDishDatabaseDir());
                 System.out.println("Создание папки проекта");
             }
@@ -39,8 +41,6 @@ public class Loader {
             System.out.println("!!!Error while parsing a dishes' folder!!!");
         }
         pathList.remove(0);
-        //dishFile = Paths.get(MrChef.getDishDatabaseDir().toString() + File.separator + "dish.txt");
-        //System.out.println(pathList);
         for(int i =0; i < pathList.size(); i++) {
             System.out.println(pathList.get(i));
             MrChef.ReceiptList.add(loadDish(pathList.get(i)));
@@ -56,17 +56,20 @@ public class Loader {
         Dish tempDish = new Dish();
         dishFile = Paths.get(path.toString() + File.separator + "dish.txt");
         receiptsFile = Paths.get(path.toString() + File.separator + "receipts.txt");
-        //BufferedReader reader = new BufferedReader(new File)
+        receiptSequancePath = Paths.get(path.toString() + File.separator + "receiptSteps.xml");
 
         List<String> dishFileContent = null;
         List<String> receiptFileContent = null;
+        List<String> receiptSequenceContent = null;
         try {
             dishFileContent = Files.readAllLines(dishFile, StandardCharsets.UTF_8);
             receiptFileContent = Files.readAllLines(receiptsFile, StandardCharsets.UTF_8);
+            receiptSequenceContent = Files.readAllLines(receiptSequancePath, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("!!!Error while parsing a dish or receipt file!!!");
         }
+
         String[] dishFields = dishFileContent.get(0).split(" ");
         for(int i =0; i < dishFields.length; i++) {
             String[] valueOfField = dishFields[i].split(":");
@@ -89,10 +92,11 @@ public class Loader {
             e.printStackTrace();
         }
 
-        for(int i =0; i < receiptFileContent.size(); i++) {
-            String recipeFileLine = receiptFileContent.get(i);
-            tempDish.receiptsList.add(loadReceipt(recipeFileLine));
+        for(String recCont : receiptFileContent) {
+            tempDish.receiptsList.add(loadReceipt(recCont));
         }
+
+        loadReceiptSequance(receiptSequenceContent, tempDish.receiptsList);
 
         return tempDish;
     }
@@ -127,6 +131,7 @@ public class Loader {
         return tempReceipt;
     }
 
+
     /**
      * A {@link SimpleFileVisitor} to get through my system of storing data in .txt
      * files in {@link MrChef#dishDatabaseDir}
@@ -137,6 +142,73 @@ public class Loader {
            // System.out.println(dir.toString());
             pathList.add(dir);
             return super.preVisitDirectory(dir, attrs);
+        }
+    }
+
+    /**
+     * Loads a receiptSequence for a receipt
+     * @param content a list with string lines from a file with receipts sequences
+     * @param receiptArray an array with the receipt of loaded dish
+     * @return a Receipt object recreated from database
+     */
+    public static void loadReceiptSequance(List<String> content, ArrayList<Receipt> receiptArray) {
+        String title = null, num = null, descr = null, img = null, time = null;
+        String key = null, value = null;
+        StringBuilder tempContent = new StringBuilder();
+        for (String line : content) {
+            if (line.contains("=") && line.contains(";")) {
+                int eqIndex = line.indexOf("=");
+                key = line.substring(0, eqIndex);
+                value = line.substring(eqIndex+1, line.length()-1);
+
+            } else if (line.contains("=") || line.contains(";")) {
+                if (line.contains("=")) {
+                    int eqIndex = line.indexOf("=");
+                    key = line.substring(0, eqIndex);
+                    tempContent.append(line.substring(eqIndex+1, line.length()));
+                }
+                if (line.contains(";")) {
+                    tempContent.append(line.substring(0, line.length()-1));
+                    value = tempContent.toString();
+                    tempContent = new StringBuilder();
+                }
+            } else tempContent.append(line);
+
+
+
+            if (value != null) {
+                switch (key) {
+                    case "receiptTitle":
+                        title = value;
+                        break;
+                    case "stepNum":
+                        num = value;
+                        break;
+                    case "stepDescr":
+                        descr = value;
+                        break;
+                    case "stepImgPath":
+                        img = value;
+                        break;
+                    case "stepTime":
+                        time = value;
+                        break;
+                }
+                key = null;
+                value = null;
+            }
+            if (time != null && img != null && descr != null && num != null && title != null) {
+                ReceiptStage stage = new ReceiptStage(num, descr, Integer.valueOf(time));
+                if (img.length()>0) stage.setImagePath(img);
+                for (Receipt rec : receiptArray) {
+                    if (rec.getReceiptTitle().equals(title)) rec.getCookingSequance().add(stage);
+                }
+                time = null;
+                img = null;
+                descr = null;
+                num = null;
+                title = null;
+            }
         }
     }
 }

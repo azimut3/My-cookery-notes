@@ -2,6 +2,7 @@ package com.eiei.mycookerynotes.settings;
 
 import com.eiei.mycookerynotes.frames.MainFrame;
 import com.eiei.mycookerynotes.frames.content.SettingsPanel;
+import com.eiei.mycookerynotes.managers.FirstLaunch;
 
 import javax.swing.*;
 

@@ -1,10 +1,7 @@
 package com.eiei.mycookerynotes;
 
 import com.eiei.mycookerynotes.frames.MainFrame;
-import com.eiei.mycookerynotes.frames.ReceiptPanel;
-import com.eiei.mycookerynotes.frames.content.ContentPanel;
 import com.eiei.mycookerynotes.managers.MrChef;
-import com.eiei.mycookerynotes.settings.FirstLaunch;
 import com.eiei.mycookerynotes.settings.Settings;
 
 import javax.swing.*;

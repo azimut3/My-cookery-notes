@@ -2,6 +2,7 @@ package com.eiei.mycookerynotes.frames.content;
 
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
+import com.eiei.mycookerynotes.ReceiptStage;
 import com.eiei.mycookerynotes.frames.MainFrame;
 import com.eiei.mycookerynotes.frames.PanelTemplate;
 import com.eiei.mycookerynotes.frames.ReceiptTextPane;
@@ -13,8 +14,10 @@ import com.eiei.mycookerynotes.settings.Settings;
 import com.eiei.mycookerynotes.settings.TextSettings;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class DishPanel extends PanelTemplate {
     private static JPanel dishPanel;
@@ -76,6 +79,7 @@ public class DishPanel extends PanelTemplate {
         descriptionArea.setMaximumSize(new Dimension(300, 150));
         descriptionArea.setPreferredSize(new Dimension(300, 150));
         descriptionArea.setLineWrap(true);
+        descriptionArea.setWrapStyleWord(true);
         descriptionArea.setBackground(getDishPanel().getBackground().brighter());
         descriptionArea.setBorder(BorderFactory.createLoweredSoftBevelBorder());
         descriptionArea.setEditable(false);
@@ -136,25 +140,71 @@ public class DishPanel extends PanelTemplate {
         constr.gridwidth = 6;
         constr.gridheight = 1;
         constr.weightx = 0;
-        constr.insets = new Insets(20, 60, 0, 0);
+        constr.insets = new Insets(20, 60, 0, 15);
         panel.add(receiptHead, constr);
 
 
         int gridLineNum = constr.gridy;
         for(int i =0; i < d.receiptsList.size(); i++) {
+            Receipt receipt = d.receiptsList.get(i);
             gridLineNum += 2;
             constr.gridy = gridLineNum;
             constr.gridx = 0;
-            constr.gridwidth = 1;
-            constr.insets = new Insets(10, 30, 3, 7);
-            panel.add(getReceipt(d.receiptsList.get(i)), constr);
+            constr.gridwidth = 6;
+            constr.weightx = 0.5;
+            constr.insets = new Insets(10, 20, 3, 15);
+            JPanel receiptPanel = new JPanel(new GridBagLayout());
+            //receiptPanel.setOpaque(false);
+            receiptPanel.setBackground(Settings.getSecondaryColor().brighter());
+            GridBagConstraints grid = new GridBagConstraints();
+            grid.gridx = 0;
+            grid.gridy = 1;
+            grid.weighty = 0.5;
+            grid.weightx = 0;
+            grid.gridheight = 4;
+            grid.anchor = GridBagConstraints.NORTHWEST;
+            grid.insets = new Insets(5, 5, 5, 5);
+            ReceiptTextPane receiptTextPane = setReceipt(receipt);
+            receiptPanel.add(receiptTextPane, grid);
+
+            /*grid.gridx = 2;
+            grid.weightx = 0.5;
+            grid.insets = new Insets(0, 0, 0, 0);
+            receiptPanel.add(new JLabel(), grid);*/
+
+            grid.gridx = 1;
+            grid.gridy = 1;
+            grid.weighty = 0;
+            grid.weightx = 0.5;
+            grid.gridheight = 1;
+            grid.insets = new Insets(5, 5, 5, 5);
+            grid.anchor = GridBagConstraints.NORTHEAST;
+            receiptPanel.add(receiptMultiplierPanel(receiptTextPane, receipt) ,grid);
+
+            grid.gridy++;
+            grid.fill = GridBagConstraints.BOTH;
+            grid.anchor = GridBagConstraints.NORTH;
+
+            for (ReceiptStage stage : d.receiptsList.get(i).getCookingSequance()){
+                JTextArea recDescr = new JTextArea();
+                recDescr.setLineWrap(true);
+                recDescr.setWrapStyleWord(true);
+                recDescr.setEditable(false);
+                recDescr.setText(stage.getDescription());
+                recDescr.setBorder(new TitledBorder("Шаг " + stage.getStageNumber() + ":"));
+                TitledBorder border = (TitledBorder)recDescr.getBorder();
+                border.setTitleFont(TextSettings.getRegularPlain());
+                border.setTitleColor(Settings.textColorMap.get(Settings.getTheme()));
+                recDescr.setOpaque(false);
+                recDescr.setFont(TextSettings.getRegularPlain(recDescr));
+                grid.gridy++;
+                receiptPanel.add(recDescr, grid);
+            }
+            panel.add(receiptPanel, constr);
         }
 
         // Just a dummy component to stretch bottom grid
-
         constr.insets = new Insets(0, 0, 0, 0);
-
-
         constr.gridx = 6;
         constr.gridy = 20;
         constr.weightx = 0.5;
@@ -191,17 +241,42 @@ public class DishPanel extends PanelTemplate {
         return favAddOrRemoveListener;
     }
 
-    private static ReceiptTextPane getReceipt(Receipt receipt) {
+    private static ReceiptTextPane setReceipt(Receipt receipt) {
         ReceiptTextPane receiptTextPane = new ReceiptTextPane(receipt);
-        Dimension minSize = new Dimension(300,  200);
+        receiptTextPane.setOpaque(false);
+        /*Dimension minSize = new Dimension(300,  200);
         Dimension prefSize = new Dimension(300,  200);
         Dimension maxSize = new Dimension(400, 700);
-        receiptTextPane.setMinimumSize(minSize);
+        receiptTextPane.setMinimumSize(minSize);*/
         receiptTextPane.setBorder(BorderFactory.createLoweredSoftBevelBorder());
-        receiptTextPane.setBackground(Settings.getSecondaryColor().brighter());
-        receiptTextPane.setEditable(false);
-
+        //receiptTextPane.setBackground(Settings.getSecondaryColor().brighter());
+        receiptTextPane.setOpaque(false);
         return receiptTextPane;
+    }
+
+    private static JPanel receiptMultiplierPanel(ReceiptTextPane receiptTextPane, Receipt receipt) {
+        JPanel panel = new JPanel(new FlowLayout());
+        panel.setOpaque(false);
+        JLabel multLbl = new JLabel("Кол-во ингридиентов на ");
+        multLbl.setFont(TextSettings.getRegularPlain());
+        String[] multiplies = new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        JComboBox<String> multBox = new JComboBox<>(multiplies);
+        multBox.setFont(TextSettings.getRegularPlain());
+        multBox.setSelectedItem(String.valueOf(receipt.getNumberOfPersons()));
+        multBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                receiptTextPane.removeAll();
+                receiptTextPane.setNewReceiptTextPane(receipt, e.getItem().toString());
+                receiptTextPane.revalidate();
+            }
+        });
+        JLabel multLblEnd = new JLabel(" порций");
+        multLblEnd.setFont(TextSettings.getRegularPlain());
+        panel.add(multLbl);
+        panel.add(multBox);
+        panel.add(multLblEnd);
+        return panel;
     }
 
     private static MouseListener editDishListener = new MouseAdapter() {

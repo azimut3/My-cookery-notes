@@ -34,6 +34,8 @@ public class DefaultImages {
     private static ImageIcon addIco;
     private static String searchIcoPath = "/data/imgs/icons/searchIco.png";
     private static ImageIcon searchIco;
+    private static String noImgPath = "/data/imgs/icons/noImg.png";
+    private static ImageIcon noImg;
 
 
     /**
@@ -109,12 +111,21 @@ public class DefaultImages {
     }
 
     /**
-     * Returns a home icon for menu
-     * @return a home icon for menu
+     * Returns a search icon for menu
+     * @return a search icon for menu
      */
     public static ImageIcon getSearchIco() {
         if (searchIco == null) return getDefImage(searchIcoPath);
         else return searchIco;
+    }
+
+    /**
+     * Returns an ImageIcon of no image was found case
+     * @return an ImageIcon of no image was found case
+     */
+    public static ImageIcon getNoImg() {
+        if (noImg == null) return getDefImage(noImgPath);
+        else return noImg;
     }
 
     /**

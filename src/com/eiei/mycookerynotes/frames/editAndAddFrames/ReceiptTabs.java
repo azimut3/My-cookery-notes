@@ -44,7 +44,7 @@ public class ReceiptTabs extends JPanel {
     private GridBagConstraints rightC;
 
     private int fieldIterator = 1, gridIterator;
-//TODO поставить защиту на поля и защиту от созранения пустых полей
+    //TODO поставить защиту на поля и защиту от созранения пустых полей
     public ReceiptTabs(Receipt recp, Dish d, JFrame parent) {
         setUpFormats();
         this.receipt = recp;
@@ -363,7 +363,7 @@ public class ReceiptTabs extends JPanel {
                 if (!fieldValue.isEmpty()) {
                     receipt.quantities.add(fieldValue);
                 } else full = false;
-                    receipt.measures.add(String.valueOf(boxArr.get(i).getSelectedItem()));
+                receipt.measures.add(String.valueOf(boxArr.get(i).getSelectedItem()));
             }
             if (full) {
                 if (!dish.receiptsList.contains(receipt)) dish.receiptsList.add(receipt);
@@ -384,7 +384,7 @@ public class ReceiptTabs extends JPanel {
                     null,
                     options,
                     JOptionPane.YES_OPTION
-                    );
+            );
             if (reply == JOptionPane.NO_OPTION) {
                 parentFrame.dispose();
                 ContentPanel.showDishPanel(dish);

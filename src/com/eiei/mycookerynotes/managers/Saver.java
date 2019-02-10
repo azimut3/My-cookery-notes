@@ -3,6 +3,7 @@ package com.eiei.mycookerynotes.managers;
 
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
+import com.eiei.mycookerynotes.ReceiptStage;
 
 import javax.swing.*;
 import java.io.*;
@@ -19,6 +20,7 @@ public class Saver {
     private static Path dishFile = null;
     private static Path receiptFile = null;
     private static Path descriptionsFile = null;
+    private static Path receiptSequenceFile = null;
 
     /**
      * Saves a dish to a database, contains methods of {@link #createDishDir() creating a dir for dish data if necessary},
@@ -37,6 +39,9 @@ public class Saver {
 
         descriptionsFile  = Paths.get(dishDir + File.separator + "descriptions.txt");
         saveDescriptions(dish);
+
+        receiptSequenceFile  = Paths.get(dishDir + File.separator + "receiptSteps.xml");
+        saveReceiptSequence(dish);
     }
 
     /**
@@ -129,6 +134,42 @@ public class Saver {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+    }
+
+    /**
+     * This method saves dish's description.
+     * @param dish currently being saved dish object
+     */
+    public static void saveReceiptSequence(Dish dish){
+        if (Files.notExists(receiptSequenceFile)) {
+            try {
+                Files.createFile(receiptSequenceFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("!!!Error in Saver.class during the creation of a dish receipts' txt file!!!");
+            }
+        }
+        try {
+            BufferedWriter writer = Files.newBufferedWriter(receiptSequenceFile.toFile().toPath(), StandardCharsets.UTF_8);
+            //new BufferedWriter(new FileWriter(descriptionsFile.toFile()));
+            for (Receipt receipt : dish.receiptsList)
+            for (ReceiptStage stage : receipt.getCookingSequance()){
+                writer.write("receiptTitle=" + receipt.getReceiptTitle() + ";");
+                writer.newLine();
+                writer.write("stepNum=" + stage.getStageNumber() + ";");
+                writer.newLine();
+                writer.write("stepDescr=" + stage.getDescription() + ";");
+                writer.newLine();
+                writer.write("stepImgPath=" + stage.getImagePath() + ";");
+                writer.newLine();
+                writer.write("stepTime=" + stage.getCookingTime() + ";");
+                writer.newLine();
+                writer.flush();
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

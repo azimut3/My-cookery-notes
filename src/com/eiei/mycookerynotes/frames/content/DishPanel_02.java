@@ -1,8 +1,8 @@
-/*
 package com.eiei.mycookerynotes.frames.content;
 
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
+import com.eiei.mycookerynotes.ReceiptStage;
 import com.eiei.mycookerynotes.frames.MainFrame;
 import com.eiei.mycookerynotes.frames.PanelTemplate;
 import com.eiei.mycookerynotes.frames.ReceiptTextPane;
@@ -16,28 +16,31 @@ import com.eiei.mycookerynotes.settings.TextSettings;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 
 public class DishPanel_02 extends PanelTemplate {
     private static JPanel dishPanel;
 
     private static JCheckBox isInFavourites;
     private static Dish currentShowedDish;
-    private static JLabel selFavIcon, deselFavIcon, dishImage, dishId, favsLabel, editReceiptLbl, dishTitle;
-    private static JTextArea descriptionArea;
-    private static ArrayList<ReceiptTextPane> receiptBlocksArray = new ArrayList<>();
+    private static JLabel selFavIcon, dishId, favsLabel, editReceiptLbl, dishTitle;
+    private static JLabel deselFavIcon;
 
     private DishPanel_02() {
         setLayout(new GridBagLayout());
         //setBackground(Settings.getSecondaryColor());
         Settings.secondaryColorPanels.add(this);
+    }
 
-        dishId = new JLabel();
-        dishTitle = new JLabel();
-        descriptionArea = new JTextArea();
-        dishImage = new JLabel();
-
+    public static void showDish(Dish d) {
+        JPanel panel = getDishPanel();
+        currentShowedDish = d;
+        //MyMenuBar.getMyMenuBar().armDishAndReceiptEditors();
         GridBagConstraints constr = new GridBagConstraints();
+
+        panel.removeAll();
+
+        JLabel dishImage = new JLabel(d.getDishImage());
+        dishId = new JLabel("id:" + String.valueOf(d.getId()));
         ImageIcon editIcon = DefaultImages.getEditIco();
         JLabel editDishLbl = new JLabel(editIcon);
         editDishLbl.setToolTipText("Редактировать Блюдо");
@@ -46,13 +49,16 @@ public class DishPanel_02 extends PanelTemplate {
         JLabel deleteDishLbl = new JLabel(deleteIcon);
         deleteDishLbl.setToolTipText("Удалить блюдо");
         deleteDishLbl.addMouseListener(deleteDishListener);
-
+        dishTitle = new JLabel(d.getDishTitle());
+        //dishTitle.setHorizontalTextPosition(SwingConstants.LEFT);
         dishTitle.setFont(TextSettings.getHeader(dishTitle));
-        isInFavourites = new JCheckBox(*/
-/*"Избранное"*//*
-);
-        isInFavourites.setOpaque(false);
+        isInFavourites = new JCheckBox(/*"Избранное"*/);
+        isInFavourites.setIcon(d.isInFavourites() ?
+                DefaultImages.getDefSelFavIco() : DefaultImages.getDefDeselFavIco());
+        isInFavourites.setBackground(getDishPanel().getBackground());
+        isInFavourites.setSelected(d.isInFavourites());
         isInFavourites.setToolTipText("Добавить в избранное");
+        isInFavourites.addItemListener(favAddOrRemoveListener(d));
         favsLabel = new JLabel("Рецепты:");
         favsLabel.setFont(TextSettings.getMinorHeader(favsLabel));
         ImageIcon addIcon = DefaultImages.getAddIco();
@@ -63,12 +69,16 @@ public class DishPanel_02 extends PanelTemplate {
         editReceiptLbl.setToolTipText("Редактировать рецепты");
         editReceiptLbl.addMouseListener(editReceiptListener);
         JLabel deleteReceiptLbl = new JLabel(deleteIcon);
+        //deleteReceiptLbl.addMouseListener(deleteReceiptListener);
 
+        JTextArea descriptionArea = new JTextArea(d.getDishDescription());
         descriptionArea.setFont(TextSettings.getRegularPlain(descriptionArea));
         descriptionArea.setMinimumSize(new Dimension(300, 150));
         descriptionArea.setMaximumSize(new Dimension(300, 150));
         descriptionArea.setPreferredSize(new Dimension(300, 150));
         descriptionArea.setLineWrap(true);
+        descriptionArea.setWrapStyleWord(true);
+        descriptionArea.setBackground(getDishPanel().getBackground().brighter());
         descriptionArea.setBorder(BorderFactory.createLoweredSoftBevelBorder());
         descriptionArea.setEditable(false);
 
@@ -91,34 +101,37 @@ public class DishPanel_02 extends PanelTemplate {
         receiptHead.add(addReceiptIco);
         receiptHead.add(Box.createHorizontalStrut(6));
         receiptHead.add(editReceiptLbl);
+        /*receiptHead.add(Box.createHorizontalStrut(6));
+        receiptHead.add(deleteReceiptLbl);*/
 
         constr.gridx = 0;
         constr.gridy = 0;
         constr.gridwidth = 3;
         constr.gridheight = 3;
         constr.anchor = GridBagConstraints.NORTH;
-        constr.insets = new Insets(20, 20, 3, 0);
+        constr.insets = new Insets(20, 30, 3, 7);
         constr.weighty = 0;
         constr.weightx = 0.5;
         constr.fill = GridBagConstraints.HORIZONTAL;
-        add(dishImage, constr);
+        panel.add(dishImage, constr);
 
         constr.gridx = 3;
         constr.gridy = 0;
         constr.gridwidth = 1;
         constr.gridheight = 1;
-        constr.anchor = GridBagConstraints.NORTHWEST;
-        constr.insets = new Insets(20, 0, 3, 3);
-        add(dishHead, constr);
+        constr.insets = new Insets(20, 3, 3, 3);
+        panel.add(dishHead, constr);
 
         constr.weightx = 0;
+
         constr.gridy = 1;
         constr.gridx = 3;
         constr.gridwidth = 2;
         constr.gridheight = 2;
         constr.weightx = 0.5;
-        constr.insets = new Insets(3, 0, 3, 3);
-        add(descriptionArea, constr);
+        constr.insets = new Insets(3, 3, 3, 3);
+        panel.add(descriptionArea, constr);
+
 
         constr.gridx = 0;
         constr.gridy = 3;
@@ -126,49 +139,56 @@ public class DishPanel_02 extends PanelTemplate {
         constr.gridheight = 1;
         constr.weightx = 0;
         constr.insets = new Insets(20, 60, 0, 0);
-        add(receiptHead, constr);
-
-    }
-
-    public static void showDish(Dish d) {
-        JPanel panel = getDishPanel();
-        if (receiptBlocksArray.size()>0) {
-            for (Component comp : receiptBlocksArray) panel.remove(comp);
-            receiptBlocksArray.clear();
-        }
-
-        currentShowedDish = d;
-        dishImage.setIcon(d.getDishImage());
-        dishId.setText("id:" + String.valueOf(d.getId()));
-        dishTitle.setText(d.getDishTitle());
-        isInFavourites.setIcon(d.isInFavourites() ?
-                DefaultImages.getDefSelFavIco() : DefaultImages.getDefDeselFavIco());
-        isInFavourites.setSelected(d.isInFavourites());
-        isInFavourites.addItemListener(favAddOrRemoveListener(currentShowedDish));
-
-        descriptionArea.setText(d.getDishDescription());
-        descriptionArea.setBackground(panel.getBackground().brighter());
+        panel.add(receiptHead, constr);
 
 
-        int gridLineNum = 4;
-        GridBagConstraints cons = new GridBagConstraints();
+        int gridLineNum = constr.gridy;
         for(int i =0; i < d.receiptsList.size(); i++) {
             gridLineNum += 2;
-            cons.gridy = gridLineNum;
-            cons.gridx = 0;
-            cons.gridwidth = 1;
-            cons.insets = new Insets(10, 30, 3, 7);
-            panel.add(getReceipt(d.receiptsList.get(i)), cons);
+            constr.gridy = gridLineNum;
+            constr.gridx = 0;
+            constr.gridwidth = 6;
+            constr.weightx = 1;
+            constr.insets = new Insets(10, 30, 3, 7);
+            JPanel receiptPanel = new JPanel(new GridBagLayout());
+            receiptPanel.setPreferredSize(new Dimension(ContentPanel.getContentPanel().getSize().width-40, ContentPanel.getContentPanel().getSize().height));
+            GridBagConstraints grid = new GridBagConstraints();
+            grid.gridx = 0;
+            grid.gridy = 1;
+            grid.weighty = 0;
+            grid.weightx = 0;
+            grid.gridheight = 2;
+            grid.insets = new Insets(10, 10, 7, 5);
+            receiptPanel.add(getReceipt(d.receiptsList.get(i)), grid);
+
+            grid.gridx = 1;
+            grid.gridy = 0;
+            grid.weighty = 0;
+            grid.weightx = 0.5;
+            grid.gridheight = 1;
+            grid.fill = GridBagConstraints.BOTH;
+            for (ReceiptStage stage : d.receiptsList.get(i).getCookingSequance()){
+                JTextArea recDescr = new JTextArea();
+                recDescr.setLineWrap(true);
+                recDescr.setText(stage.getDescription());
+                grid.gridy++;
+                receiptPanel.add(recDescr, grid);
+            }
+
+            panel.add(receiptPanel, constr);
         }
 
         // Just a dummy component to stretch bottom grid
-        cons.insets = new Insets(0, 0, 0, 0);
-        cons.gridx = 6;
-        cons.gridy = 20;
-        cons.weightx = 0.5;
-        cons.weighty = 0.5;
-        cons.gridwidth = 7;
-        panel.add(Box.createVerticalStrut(1), cons);
+
+        constr.insets = new Insets(0, 0, 0, 0);
+
+
+        constr.gridx = 6;
+        constr.gridy = 20;
+        constr.weightx = 0.5;
+        constr.weighty = 0.5;
+        constr.gridwidth = 7;
+        panel.add(Box.createVerticalStrut(1), constr);
 
         panel.revalidate();
         panel.repaint();
@@ -206,10 +226,8 @@ public class DishPanel_02 extends PanelTemplate {
         Dimension maxSize = new Dimension(400, 700);
         receiptTextPane.setMinimumSize(minSize);
         receiptTextPane.setBorder(BorderFactory.createLoweredSoftBevelBorder());
-        Color rcpColor = getDishPanel().getBackground();
-        receiptTextPane.setBackground(rcpColor.brighter());
-        receiptTextPane.setEditable(false);
-        receiptBlocksArray.add(receiptTextPane);
+        receiptTextPane.setBackground(Settings.getSecondaryColor().brighter());
+
         return receiptTextPane;
     }
 
@@ -269,4 +287,3 @@ public class DishPanel_02 extends PanelTemplate {
         getDishPanel().repaint();
     }
 }
-*/

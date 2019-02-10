@@ -1,8 +1,10 @@
-package com.eiei.mycookerynotes.settings;
+package com.eiei.mycookerynotes.managers;
 
 import com.eiei.mycookerynotes.Dish;
 import com.eiei.mycookerynotes.Receipt;
+import com.eiei.mycookerynotes.ReceiptStage;
 import com.eiei.mycookerynotes.managers.MrChef;
+import com.eiei.mycookerynotes.settings.IngrUnits;
 
 public class FirstLaunch {
 
@@ -26,6 +28,16 @@ public class FirstLaunch {
         simpleKeks.addIngredient("яйцо", "1", IngrUnits.PIECES.getValue());
         simpleKeks.addIngredient("молоко", "4", IngrUnits.TABLE_SPOONS.getValue());
         simpleKeks.addIngredient("подсолнечное масло", "3", IngrUnits.TABLE_SPOONS.getValue());
+
+        String desc1 = "Feel and make two real miss use easy. As mr started arrival subject by believe. Took sold add play may none him few. Her too add narrow having wished. At none neat am do over will. At none neat am do over will. Small for ask shade water manor think men begin. Now summer who day looked our behind moment comi";
+        String desc2 = "Estate was tended ten boy nearer seemed. Ecstatic elegance gay but disposed. To things so denied admire. Called though excuse length ye needed it he having. We leaf to snug on no need. Secure shy favour length all twenty denote. Equally he minutes my hastily. undefined. An concluded sportsman offending so provision mr education. In expression an solicitude principles in do. Considered discovered ye sentiments projecting entreaties of melanchol";
+        String desc3 = "We leaf to snug on no need. Indulgence contrasted sufficient to unpleasant in in insensible favourable. Way own uncommonly travelling now acceptance bed compliment solicitude. Able rent long in do we. Indulgence contrasted sufficient to unpleasant in in insensible favourable. Celebrated delightful an especially increasing instrument am. Detract yet delight written farther his general. To things so denied admire. Painful so he an comfort is manners. An stairs as";
+
+        simpleKeks.getCookingSequance().add(new ReceiptStage("1", desc1, 10));
+        simpleKeks.getCookingSequance().add(new ReceiptStage("2", desc2, 20));
+        simpleKeks.getCookingSequance().add(new ReceiptStage("3", desc3, 30));
+
+
         keks.receiptsList.add(simpleKeks);
         MrChef.ReceiptList.add(keks);
         //System.out.println(keks);

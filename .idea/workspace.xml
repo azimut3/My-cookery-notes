@@ -7,45 +7,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="966574d8-491c-4e70-bfd4-d318ff887490" name="Default Changelist" comment="So, here we have a working alpha version of the project with working jar file for future users (it is stored at &quot;/My cookery notes\jar\My_cookery_notes_jar&quot;) &#10;Current version - a1.1">
-      <change afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/ReceiptStage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptSequenceEditPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/StagePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_01$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_01$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_01$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_01$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_01$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_01.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_02$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_02$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_02$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_02$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_02$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel_02.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My cookery notes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/My cookery notes.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/Dish.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/Dish.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/Receipt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/Receipt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/ReceiptStage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/ReceiptStage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/FrameTemplate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/FrameTemplate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/ReceiptPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/ReceiptPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/ReceiptPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/ReceiptPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/ReceiptTextPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/ReceiptTextPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/DishPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SearchPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SearchPanel$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SearchPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SearchPanel$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SearchPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SearchPanel$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SearchPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SearchPanel$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SearchPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SearchPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SettingsPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SettingsPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SettingsPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SettingsPanel$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SettingsPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/content/SettingsPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/LogicDishEditAndAddFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/LogicDishEditAndAddFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/LogicDishEditAndAddFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/LogicDishEditAndAddFrame$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/LogicDishEditAndAddFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/LogicDishEditAndAddFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/Loader$MyFileVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/Loader$MyFileVisitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/Loader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/Saver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/managers/Saver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/DefaultImages.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/DefaultImages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/FieldRules.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/FieldRules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/FirstLaunch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/IngrUnits.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/IngrUnits.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/SearchTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/SearchTypes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/Settings$Themes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/Settings$Themes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/Settings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/Settings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/TextSettings$Styles.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/TextSettings$Styles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/TextSettings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My cookery notes/com/eiei/mycookerynotes/settings/TextSettings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/Receipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/Receipt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/FrameTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/FrameTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel_01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel_01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/ReceiptStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/ReceiptStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/ReceiptTextPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/ReceiptTextPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel_02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel_02.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/LogicDishEditAndAddFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/LogicDishEditAndAddFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptSequenceEditPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptSequenceEditPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/Loader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/Saver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/Saver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/DefaultImages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/DefaultImages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/FirstLaunch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/FirstLaunch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/TextSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/TextSettings.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -206,56 +234,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/ReceiptPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1343">
-              <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/TextSettings.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2346">
-              <caret line="146" selection-start-line="146" selection-end-line="146" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/SettingsPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
-              <caret line="104" column="48" selection-start-line="104" selection-start-column="48" selection-end-line="104" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/ReceiptStage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReceiptSequenceEditPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptSequenceEditPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="64" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
+            <state relative-caret-position="1845">
+              <caret line="113" selection-start-line="113" selection-end-line="113" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -263,12 +246,22 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="ReceiptTextPane.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/ReceiptTextPane.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="95" column="83" selection-start-line="95" selection-start-column="83" selection-end-line="95" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Receipt.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/Receipt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="146" column="57" selection-start-line="146" selection-start-column="57" selection-end-line="146" selection-end-column="57" />
+            <state relative-caret-position="288">
+              <caret line="182" column="29" selection-start-line="182" selection-start-column="29" selection-end-line="182" selection-end-column="29" />
               <folding>
+                <element signature="e#4567#4568#0" expanded="true" />
                 <element signature="e#4605#4606#0" expanded="true" />
               </folding>
             </state>
@@ -289,16 +282,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>FavouriteList.add</find>
-      <find>FavouriteList</find>
-      <find>FieldRules</find>
-      <find>tag</find>
-      <find>dele</find>
-      <find>close</find>
-      <find>setVisible</find>
-      <find>seco</find>
-      <find>hello</find>
-      <find>System</find>
       <find>System.</find>
       <find>getLook</find>
       <find>getLookAndFeel()</find>
@@ -313,9 +296,22 @@
       <find>favsLabel</find>
       <find>dishImage</find>
       <find>DishPanel_01</find>
-      <find>ReceiptTextPane</find>
       <find>createTextPane</find>
       <find>tagsPanel</find>
+      <find>gridy</find>
+      <find>rightC.gridy</find>
+      <find>loadReceipt</find>
+      <find>dishFileContent</find>
+      <find>title</find>
+      <find>leftC.gridy</find>
+      <find>tabbedIngrPane</find>
+      <find>receiptIngrTabs</find>
+      <find>desc</find>
+      <find>lastStep</find>
+      <find>numeration</find>
+      <find>ReceiptTextPane</find>
+      <find>getReceipt</find>
+      <find>receiptTextPane</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -330,15 +326,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/ingrUnits.java" />
-        <option value="$PROJECT_DIR$/src/data/dishes/Вкусняш vzi/receipts.txt" />
-        <option value="$PROJECT_DIR$/.idea/compiler.xml" />
         <option value="$PROJECT_DIR$/src/module-info.java" />
         <option value="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/IngrUnits.java" />
-        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/Loader.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/FieldRules.java" />
-        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/Saver.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/DeleteDishDialog.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/SearchTypes.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/MrChef.java" />
@@ -358,29 +349,34 @@
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/FirstLaunch.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/MainFrame.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/DefaultImages.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/Dish.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/StylesForTextPanes.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/ContentPanel.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/DishEditAndAddFrame.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/ReceiptPanel.java" />
-        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/HelloUserPanel.java" />
-        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel.java" />
-        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/TextSettings.java" />
-        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/ReceiptTextPane.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/SettingsPanel.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/Settings.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/SearchPanel.java" />
-        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel_02.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel_01.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/LogicDishEditAndAddFrame.java" />
-        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame.java" />
-        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/FrameTemplate.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/ReceiptSequence.java" />
-        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/ReceiptStage.java" />
-        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/Receipt.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs_01.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/DefaultImages.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/FirstLaunch.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/Saver.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/Loader.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame.java" />
         <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptSequenceEditPanel.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/ReceiptStage.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/HelloUserPanel.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/StagePanel.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/TextSettings.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel_02.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/ReceiptTextPane.java" />
+        <option value="$PROJECT_DIR$/src/com/eiei/mycookerynotes/Receipt.java" />
       </list>
     </option>
   </component>
@@ -402,128 +398,152 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My cookery notes" type="462c0819:PsiDirectoryNode" />
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My cookery notes" type="462c0819:PsiDirectoryNode" />
-              <item name="jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My cookery notes" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My cookery notes" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My cookery notes" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My cookery notes" type="462c0819:PsiDirectoryNode" />
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My cookery notes" type="462c0819:PsiDirectoryNode" />
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="mycookerynotes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My cookery notes" type="462c0819:PsiDirectoryNode" />
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="mycookerynotes" type="462c0819:PsiDirectoryNode" />
               <item name="frames" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My cookery notes" type="462c0819:PsiDirectoryNode" />
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="mycookerynotes" type="462c0819:PsiDirectoryNode" />
               <item name="frames" type="462c0819:PsiDirectoryNode" />
               <item name="content" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My cookery notes" type="462c0819:PsiDirectoryNode" />
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="mycookerynotes" type="462c0819:PsiDirectoryNode" />
               <item name="frames" type="462c0819:PsiDirectoryNode" />
               <item name="editAndAddFrames" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My cookery notes" type="462c0819:PsiDirectoryNode" />
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="mycookerynotes" type="462c0819:PsiDirectoryNode" />
+              <item name="managers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My cookery notes" type="462c0819:PsiDirectoryNode" />
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="mycookerynotes" type="462c0819:PsiDirectoryNode" />
+              <item name="settings" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="icons" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
-              <item name="My cookery notes" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="icons" type="462c0819:PsiDirectoryNode" />
-              <item name="favourites" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 10 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
             </path>
             <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 10 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="java.desktop" type="462c0819:PsiDirectoryNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 10 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="java.desktop" type="462c0819:PsiDirectoryNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="awt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
               <item name="javax" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="My cookery notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 10 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="java.desktop" type="462c0819:PsiDirectoryNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
               <item name="javax" type="462c0819:PsiDirectoryNode" />
               <item name="swing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="My-cookery-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javax" type="462c0819:PsiDirectoryNode" />
+              <item name="swing" type="462c0819:PsiDirectoryNode" />
+              <item name="text" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -534,8 +554,8 @@
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="my_cookery_notes" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://H:/My cookery's notes/src/com/eiei/mycookerynotes/frames/ReceiptPanel.java&#10;FavouriteList&#9;PSI&#9;JAVA://com.eiei.mycookerynotes.managers.MrChef.FavouriteList" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549281211894" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/jar" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
@@ -545,13 +565,14 @@
       <recent name="com.eiei.mycookerynotes.managers.MrChef" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.eiei.mycookerynotes.managers" />
       <recent name="com.eiei.mycookerynotes.settings" />
       <recent name="com.eiei.mycookerynotes.frames.content" />
       <recent name="com.eiei.mycookerynotes.frames" />
-      <recent name="com.eiei.mycookerynotes.managers" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.eiei.mycookerynotes.frames.content" />
+      <recent name="com.eiei.mycookerynotes.frames.editAndAddFrames" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="H:\My cookery notes\src\lib\xstream" />
@@ -579,13 +600,10 @@
       <module name="My cookery notes" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.eiei.mycookerynotes.settings.*" />
+          <option name="PATTERN" value="com.eiei.mycookerynotes.managers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <recent_temporary>
       <list>
@@ -638,68 +656,68 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29773462" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Learn" order="6" />
-      <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3290993" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49838188" weight="0.3256351" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995381" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49919093" weight="0.3290993" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3290993" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3290993" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5008091" side_tool="true" weight="0.3290993" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3290993" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49919093" weight="0.3290993" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32791328" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" sideWeight="0.49657536" weight="0.18932039" />
-      <window_info anchor="right" x="0" y="0" width="274" height="800" id="Documentation" order="8" side_tool="true" weight="0.32928804" />
-      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.50342464" side_tool="true" weight="0.18932039" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5008091" side_tool="true" weight="0.3290993" />
+      <window_info anchor="right" id="Maven Projects" order="9" sideWeight="0.49657536" weight="0.18894601" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3290993" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49838188" visible="true" weight="0.32384825" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3290993" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21915168" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.398374" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="8" sideWeight="0.50342464" side_tool="true" weight="0.18932039" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="Learn" order="6" />
+      <window_info anchor="right" x="0" y="0" width="274" height="800" id="Documentation" order="7" side_tool="true" weight="0.32928804" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32791328" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3290993" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20873787" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Learn" order="6" />
-      <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3290993" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49838188" weight="0.3256351" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995381" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49919093" weight="0.3290993" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3290993" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3290993" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5008091" side_tool="true" weight="0.3290993" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3290993" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" weight="0.32928804" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49919093" weight="0.3290993" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49838188" weight="0.3256351" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="5" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" x="0" y="0" width="274" height="800" id="Documentation" order="8" side_tool="true" weight="0.32928804" />
+      <window_info id="Learn" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3290993" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995381" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3290993" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5008091" side_tool="true" weight="0.3290993" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3290993" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.32928804" />
+      <window_info id="Favorites" order="7" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -737,104 +755,18 @@
     <MESSAGE value="So, here we have a working alpha version of the project with working jar file for future users (it is stored at &quot;/My cookery notes\jar\My_cookery_notes_jar&quot;) &#10;Current version - a1.1" />
     <option name="LAST_COMMIT_MESSAGE" value="So, here we have a working alpha version of the project with working jar file for future users (it is stored at &quot;/My cookery notes\jar\My_cookery_notes_jar&quot;) &#10;Current version - a1.1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="6" />
+    </breakpoint-manager>
+  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/libraries/xstream.xml" />
-    <entry file="file://$PROJECT_DIR$/.idea/libraries/activation_1_1_1.xml" />
-    <entry file="file://$PROJECT_DIR$/My cookery notes.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/artifacts/My_cookery_notes_jar.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/util/Properties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4404">
-          <caret line="395" column="29" selection-start-line="395" selection-start-column="29" selection-end-line="395" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/io/FileInputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3384">
-          <caret line="111" column="11" selection-start-line="111" selection-start-column="11" selection-end-line="111" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/props/settings.properties" />
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/Saver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/nio/file/Files.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2262">
-          <caret line="634" column="23" selection-start-line="634" selection-start-column="23" selection-end-line="634" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/javax/swing/UIManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8534">
-          <caret line="568" column="42" selection-start-line="568" selection-start-column="38" selection-end-line="568" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/util/TreeMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-171">
-          <caret line="344" selection-start-line="344" selection-end-line="344" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/javax/swing/JComboBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="551" column="16" selection-start-line="551" selection-start-column="16" selection-end-line="551" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/data/dishes/Холостяцкий кекс/dish.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/data/dishes/Холостяцкий кекс/descriptions.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/MrChef.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="77" selection-start-line="77" selection-end-line="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="28" column="39" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/data/dishes/Блинчики/receipts.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="132" selection-start-column="132" selection-end-column="132" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/production/data/dishes/Заварной крем/receipts.txt" />
-    <entry file="file://$PROJECT_DIR$/out/production/data/dishes/Оладьи/receipts.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/data/dishes/Оладьи/receipts.txt" />
     <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/IngrUnits.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8">
@@ -842,27 +774,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/FirstLaunch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="41" column="93" selection-start-line="41" selection-start-column="93" selection-end-line="41" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="51" column="56" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -874,13 +789,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data/imgs/icons/hat.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/DefaultImages.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-212">
-          <caret line="26" column="68" selection-start-line="26" selection-start-column="68" selection-end-line="26" selection-end-column="68" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/Dish.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -896,44 +804,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/data/dishes/Холостяцкий кекс/receipts.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/javax/swing/ListCellRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/ContentPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="53" column="47" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/HelloUserPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="29" column="64" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1097">
-          <caret line="201" selection-start-line="201" selection-end-line="201" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/ReceiptTextPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/data/dishes/Холостяцкий кекс/receipts.txt" />
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/javax/swing/ListCellRenderer.java" />
     <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -941,20 +813,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel_02.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="20" column="49" selection-end-line="272" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel_01.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="110" column="25" lean-forward="true" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -969,19 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1343">
           <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/TextSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2346">
-          <caret line="146" selection-start-line="146" selection-end-line="146" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1006,20 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/FrameTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
@@ -1029,37 +860,258 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/SettingsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
+        <state relative-caret-position="1632">
           <caret line="104" column="48" selection-start-line="104" selection-start-column="48" selection-end-line="104" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="51" column="56" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/ContentPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="53" column="47" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/imgs/icons/noImg.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/DefaultImages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="125" column="36" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/io/BufferedWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="250" column="16" selection-start-line="250" selection-start-column="16" selection-end-line="250" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/FirstLaunch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="32" column="64" selection-start-line="32" selection-start-column="64" selection-end-line="32" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/Saver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2278">
+          <caret line="142" column="23" selection-start-line="142" selection-start-column="23" selection-end-line="142" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs_01.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="67" column="24" lean-forward="true" selection-end-line="411" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/javax/swing/JTextArea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="341" column="16" selection-start-line="341" selection-start-column="16" selection-end-line="341" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/io/DefaultFileSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/javax/swing/ImageIcon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2124">
+          <caret line="299" column="11" selection-start-line="299" selection-start-column="11" selection-end-line="299" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/managers/Loader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="201" selection-start-line="201" selection-end-line="201" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/javax/swing/JScrollPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="498" column="16" selection-start-line="498" selection-start-column="16" selection-end-line="498" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="687" column="19" selection-start-line="687" selection-start-column="19" selection-end-line="687" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/javax/swing/JScrollBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="376" column="16" selection-start-line="376" selection-start-column="16" selection-end-line="376" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/HelloUserPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="83" column="38" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/StagePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1204">
+          <caret line="113" column="8" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/ReceiptStage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+        <state relative-caret-position="162">
+          <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/Receipt.java">
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptEditAndAddFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="146" column="57" selection-start-line="146" selection-start-column="57" selection-end-line="146" selection-end-column="57" />
+        <state relative-caret-position="306">
+          <caret line="147" column="53" lean-forward="true" selection-start-line="147" selection-start-column="53" selection-end-line="147" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel_01.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret lean-forward="true" />
           <folding>
-            <element signature="e#4605#4606#0" expanded="true" />
+            <element signature="e#0#10114#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/settings/TextSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="192" selection-start-line="192" selection-end-line="192" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/javax/swing/JComboBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="719">
+          <caret line="221" column="11" selection-start-line="221" selection-start-column="11" selection-end-line="221" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="2497" column="25" selection-start-line="2497" selection-start-column="25" selection-end-line="2497" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/javax/swing/text/StyledDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/javax/swing/text/Document.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="328" column="16" selection-start-line="328" selection-start-column="16" selection-end-line="328" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="2982" column="16" selection-start-line="2982" selection-start-column="16" selection-end-line="2982" selection-end-column="16" />
+          <folding>
+            <element signature="e#102469#102470#0" expanded="true" />
+            <element signature="e#102510#102511#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel_02.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="229" selection-start-line="229" selection-end-line="229" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/content/DishPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="271" column="13" lean-forward="true" selection-start-line="271" selection-start-column="13" selection-end-line="271" selection-end-column="13" />
+          <folding>
+            <element signature="e#12135#12296#0" expanded="true" />
+            <element signature="e#12295#12296#0" expanded="true" />
+            <element signature="e#12353#13012#0" expanded="true" />
+            <element signature="e#13011#13012#0" expanded="true" />
+            <element signature="e#13070#13234#0" expanded="true" />
+            <element signature="e#13233#13234#0" expanded="true" />
+            <element signature="e#13291#13455#0" expanded="true" />
+            <element signature="e#13454#13455#0" expanded="true" />
+            <element signature="e#13492#13493#0" expanded="true" />
+            <element signature="e#13532#13533#0" expanded="true" />
+            <element signature="e#13568#13569#0" expanded="true" />
+            <element signature="e#13608#13609#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptTabs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1207">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/editAndAddFrames/ReceiptSequenceEditPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="64" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
+        <state relative-caret-position="1845">
+          <caret line="113" selection-start-line="113" selection-end-line="113" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/frames/ReceiptTextPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="95" column="83" selection-start-line="95" selection-start-column="83" selection-end-line="95" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eiei/mycookerynotes/Receipt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="182" column="29" selection-start-line="182" selection-start-column="29" selection-end-line="182" selection-end-column="29" />
+          <folding>
+            <element signature="e#4567#4568#0" expanded="true" />
+            <element signature="e#4605#4606#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1107,7 +1159,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>10</last-edited>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1120,6 +1172,18 @@
       <state key="ModuleStructureConfigurable.UI">
         <settings>
           <last-edited>My cookery notes</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

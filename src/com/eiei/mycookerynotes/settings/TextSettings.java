@@ -37,6 +37,11 @@ public class TextSettings {
         return regularPlain;
     }
 
+    public static Font getRegularPlain() {
+        if (regularPlain == null) regularPlain = getFont(15, "plain");
+        return regularPlain;
+    }
+
     public static Font getRegularBold(JComponent component) {
         if (regularBold == null) regularBold = getFont(15, "bold");
         fontArray.add(component);
@@ -182,5 +187,9 @@ public class TextSettings {
         public String getValue() {
             return style;
         }
+    }
+
+    public static void getTextRuleAction() {
+
     }
 }

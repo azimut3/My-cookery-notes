@@ -165,5 +165,45 @@ public class Receipt {
 
         return receipt.toString();
     }
+    /**
+     * This method retutns the ingridients list recalculated for the number of person it
+     * would be cooked for
+     * @param multiplierInt multiplier for the standart quantity of ingredients for 1 person
+     * @return ArrayList with recalculated quantity of ingredients
+     */
+    public ArrayList<String> getRecalculatedIngredients(int multiplierInt) {
+        double multiplier = (double)multiplierInt/getNumberOfPersons();
+        ArrayList<String> list = new ArrayList<>();
+        for(int i =0; i < ingredients.size(); i++) {
+            StringBuilder builder = new StringBuilder();
+            String ingr = ingredients.get(i);
+            String quant;
+            if (quantities.size()>i) {
+                double result = Double.parseDouble(quantities.get(i))*multiplier;
+                quant = (int)result*100 - result*100 == 0 ? String.valueOf((int)result) : String.valueOf(result);
+            } else quant = "null";
+            String meas = measures.size()>i ? measures.get(i) : "null";
+            builder.append(ingr).append(" - ")
+                    .append(quant).append(" ")
+                    .append(meas);
+            list.add(builder.toString());
+        }
+        return list;
+    }
 
+    /**
+     * This method represents recalculated receipt as a String
+     * @return String representation of the receipt
+     */
+    public String getRecalculatedReceipt(int mult) {
+        String combinedIngredients = String.join(";", getRecalculatedIngredients(mult));
+        StringBuilder receipt = new StringBuilder();
+        receipt.append("receiptTitle:" + receiptTitle.replaceAll(" ", "_") + " ")
+                .append("numberOfPersons:" + numberOfPersons + " ")
+                .append("weightOfDish:" + weightOfDish + " ")
+                .append("timeForCooking:" + timeForCooking + " ")
+                .append("ingredients:" + combinedIngredients);
+
+        return receipt.toString();
+    }
 }
